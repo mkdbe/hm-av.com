@@ -1,0 +1,85 @@
+[
+  {
+    "slug": "projectors-screens",
+    "title": "Projectors & Screens",
+    "navTitle": "Projectors & Screens",
+    "metaTitle": "Projector & Screen Rentals in Rochester, NY | HM-AV",
+    "metaDescription": "Rent projectors and projection screens for events in Rochester, NY. Portable to high-lumen models, front and rear screens. Delivery and setup available.",
+    "heroHeading": "Projector & Screen Rentals",
+    "intro": "From boardroom presentations to ballroom-scale projection, we carry the right projectors and screens for your event. All equipment is maintained, tested, and delivered ready to go.",
+    "items": [
+      "Portable projectors (3,000–5,000 lumens) for meeting rooms and small venues",
+      "High-lumen projectors (7,000+ lumens) for ballrooms, auditoriums, and outdoor events",
+      "Front projection screens — tripod, fast-fold, and dress kit options in multiple sizes",
+      "Rear projection screens and rigs",
+      "Short-throw and ultra-short-throw projectors for tight spaces",
+      "Projector mounting and rigging hardware"
+    ],
+    "relatedServices": ["video", "equipment-rentals"],
+    "keywords": ["projector rental Rochester NY", "projection screen rental Rochester", "event projector Rochester"]
+  },
+  {
+    "slug": "sound-pa-systems",
+    "title": "Sound & PA Systems",
+    "navTitle": "Sound & PA",
+    "metaTitle": "PA System & Speaker Rentals in Rochester, NY | HM-AV",
+    "metaDescription": "Rent professional PA systems, speakers, and microphones for events in Rochester, NY. Powered speakers, line arrays, and wireless mic systems available.",
+    "heroHeading": "Sound & PA System Rentals",
+    "intro": "Professional audio equipment for events of any size. Whether you need a simple podium microphone setup or a full PA system with mixing console, we have the inventory to support your event.",
+    "items": [
+      "Powered speakers — 10\" to 15\" tops, subwoofers",
+      "Line array systems for large venues and outdoor events",
+      "Digital mixing consoles",
+      "Wireless microphone systems — handheld, lavalier, headset",
+      "Wired microphones — podium, handheld, boundary",
+      "Audio distribution, DI boxes, and press mult systems",
+      "In-ear monitor systems",
+      "Audio playback devices"
+    ],
+    "relatedServices": ["audio", "equipment-rentals"],
+    "keywords": ["PA rental Rochester NY", "speaker rental Rochester", "microphone rental Rochester NY", "sound system rental Rochester"]
+  },
+  {
+    "slug": "lighting-fixtures",
+    "title": "Lighting Equipment",
+    "navTitle": "Lighting",
+    "metaTitle": "Event Lighting Rentals in Rochester, NY | HM-AV",
+    "metaDescription": "Rent stage lighting, LED uplights, and atmospheric lighting for events in Rochester, NY. Wireless uplights, wash lights, spot fixtures, and gobos available.",
+    "heroHeading": "Lighting Equipment Rentals",
+    "intro": "Set the mood and light the stage with professional event lighting. Our lighting inventory covers everything from wireless uplights for a ballroom gala to full stage lighting rigs for live productions.",
+    "items": [
+      "Wireless LED uplights — battery powered, any color",
+      "LED wash fixtures — stage and area lighting",
+      "Ellipsoidal spot fixtures (Lekos) with gobos",
+      "Moving head fixtures — spot and wash",
+      "Par cans — LED and conventional",
+      "Pin spots for centerpieces and accent lighting",
+      "Lighting control consoles and DMX distribution",
+      "Truss and lighting stands"
+    ],
+    "relatedServices": ["lighting", "equipment-rentals"],
+    "keywords": ["lighting rental Rochester NY", "uplighting rental Rochester", "stage lighting rental Rochester", "LED uplight Rochester"]
+  },
+  {
+    "slug": "video-cameras-switchers",
+    "title": "Video & Switching Equipment",
+    "navTitle": "Video & Cameras",
+    "metaTitle": "Video Camera & Switcher Rentals in Rochester, NY | HM-AV",
+    "metaDescription": "Rent video cameras, switchers, monitors, and streaming equipment for events in Rochester, NY. Multi-camera production and live streaming gear available.",
+    "heroHeading": "Video & Switching Equipment Rentals",
+    "intro": "For live video production, recording, and streaming, we provide cameras, video switchers, monitors, and the supporting infrastructure to produce professional multi-camera events.",
+    "items": [
+      "PTZ (pan-tilt-zoom) cameras with remote control",
+      "Camcorders and cinema cameras",
+      "Video switchers — multi-input with effects and graphics",
+      "Confidence monitors for presenters",
+      "Program monitors and multiviewers",
+      "Video scalers and format converters",
+      "SDI and HDMI distribution and cabling",
+      "Live streaming encoders and capture devices",
+      "Teleprompter systems"
+    ],
+    "relatedServices": ["video", "livestreaming"],
+    "keywords": ["video camera rental Rochester NY", "video switcher rental Rochester", "streaming equipment Rochester NY", "PTZ camera rental Rochester"]
+  }
+]

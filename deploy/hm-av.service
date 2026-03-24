@@ -1,0 +1,16 @@
+[Unit]
+Description=HM-AV Website
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/var/www/html/hm-av.com
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=5
+Environment=PORT=4200
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target

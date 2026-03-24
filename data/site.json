@@ -1,0 +1,24 @@
+{
+  "business": {
+    "name": "Highland Media Services",
+    "brandName": "HM-AV",
+    "shortName": "HM-AV",
+    "legalName": "Highland Media Services",
+    "tagline": "Live Event Production & AV Rentals in Rochester, NY",
+    "phone": "(585) 210-2350",
+    "phoneTel": "+1-585-210-2350",
+    "email": "info@hm-av.com",
+    "url": "https://hm-av.com",
+    "legacyUrl": "https://highlandmediaservices.com",
+    "city": "Rochester",
+    "state": "NY",
+    "stateFullName": "New York",
+    "experience": "20+"
+  },
+  "meta": {
+    "defaultTitle": "AV Rental & Event Production Rochester, NY | HM-AV",
+    "defaultDescription": "Full-service AV rental and live event production in Rochester, NY. Sound, video, lighting, and virtual event solutions. Call (585) 210-2350.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "noindex": true
+  }
+}
