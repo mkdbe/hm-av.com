@@ -2,20 +2,198 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const { Resend } = require('resend');
+const geoip = require('geoip-lite');
 
 const app = express();
 const PORT = process.env.PORT || 4200;
 
 // Parse form submissions
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Resend email client
 const resend = new Resend('re_Ney6x6dy_GaHZwQ41q4uC2qtR6vvrqRVL');
 
+// ─── Analytics Setup ────────────────────────────────────
+
+const ANALYTICS_FILE = path.join(__dirname, 'analytics.json');
+
+const EXCLUDED_IPS = [
+    '38.49.72.41',
+];
+
+if (!fs.existsSync(ANALYTICS_FILE)) {
+    fs.writeFileSync(ANALYTICS_FILE, JSON.stringify({ visits: [] }));
+}
+
+const BOT_PATTERNS = /bot|crawler|spider|googlebot|bingbot|yandex|baidu|semrush|ahrefsbot|mj12bot|dotbot|python-requests|curl|wget|libwww|go-http-client|scrapy|slackbot|pinterest|whatsapp|facebookexternalhit/i;
+
+// Human classification: duration >= 30s AND navigations >= 1, Rochester override
+function isHumanVisit(visit) {
+    if (/rochester/i.test(visit.location || '')) return true;
+    return (visit.duration || 0) >= 30 && (visit.navigations || 0) >= 1;
+}
+
+// ── Email notification setup ──────────────────────────────────────────
+const recentlyNotified = new Map();
+const pendingNotifications = new Map();
+
+function fireVisitorNotification(visit) {
+    const now = new Date().toLocaleString('en-US', { timeZone: 'America/New_York' });
+    const clicks = visit.navigations || 0;
+    const duration = visit.duration || 0;
+    const durationStr = duration >= 60
+        ? `${Math.floor(duration / 60)}m ${duration % 60}s`
+        : `${duration}s`;
+
+    let source = visit.referer || 'Direct';
+    if (visit.utm_source) {
+        source = visit.utm_source;
+        if (visit.utm_medium) source += ` / ${visit.utm_medium}`;
+        if (visit.utm_campaign) source += ` (${visit.utm_campaign})`;
+    }
+
+    resend.emails.send({
+        from: "onboarding@resend.dev",
+        to: "mbesaw@gmail.com",
+        subject: `👤 New visitor on hm-av.com — ${visit.location}`,
+        html: `<!DOCTYPE html>
+<html>
+<head><meta name="color-scheme" content="dark"><meta name="supported-color-schemes" content="dark light"></head>
+<body style="background:#1a1a1a;color:#e0e0e0;font-family:monospace;padding:24px;margin:0;">
+  <div style="max-width:480px;margin:0 auto;background:#242424;border-radius:8px;padding:24px;border:1px solid #333;">
+    <h2 style="color:#cc2222;margin:0 0 20px 0;font-size:16px;letter-spacing:2px;">HM-AV.COM — NEW VISITOR</h2>
+    <table style="width:100%;border-collapse:collapse;">
+      <tr><td style="color:#888;padding:6px 0;width:110px;">TIME</td><td style="color:#e0e0e0;padding:6px 0;">${now} EST</td></tr>
+      <tr><td style="color:#888;padding:6px 0;">LOCATION</td><td style="color:#e0e0e0;padding:6px 0;">${visit.location}</td></tr>
+      <tr><td style="color:#888;padding:6px 0;">IP</td><td style="color:#666;padding:6px 0;font-size:12px;">${visit.ip}</td></tr>
+      <tr><td style="color:#888;padding:6px 0;">DEVICE</td><td style="color:#e0e0e0;padding:6px 0;">${visit.device}</td></tr>
+      <tr><td style="color:#888;padding:6px 0;">OS</td><td style="color:#e0e0e0;padding:6px 0;">${visit.os}</td></tr>
+      <tr><td style="color:#888;padding:6px 0;">BROWSER</td><td style="color:#e0e0e0;padding:6px 0;">${visit.browser}</td></tr>
+      <tr><td style="color:#888;padding:6px 0;">SOURCE</td><td style="color:#e0e0e0;padding:6px 0;">${source}</td></tr>
+      <tr><td style="color:#888;padding:6px 0;">PAGE</td><td style="color:#e0e0e0;padding:6px 0;">${visit.path || '/'}</td></tr>
+      <tr><td style="color:#888;padding:6px 0;">PAGES VIEWED</td><td style="color:#cc2222;padding:6px 0;font-weight:bold;">${clicks}</td></tr>
+      <tr><td style="color:#888;padding:6px 0;">TIME ON SITE</td><td style="color:#cc2222;padding:6px 0;font-weight:bold;">${durationStr}</td></tr>
+    </table>
+  </div>
+</body>
+</html>`
+    }).catch(err => console.error("Email failed:", err.message));
+}
+
+function scheduleVisitorNotification(ip) {
+    if (pendingNotifications.has(ip)) {
+        clearTimeout(pendingNotifications.get(ip));
+    }
+
+    const timer = setTimeout(() => {
+        pendingNotifications.delete(ip);
+
+        const lastNotified = recentlyNotified.get(ip);
+        if (lastNotified && (Date.now() - lastNotified) < 3600000) return;
+
+        try {
+            const data = JSON.parse(fs.readFileSync(ANALYTICS_FILE, 'utf8'));
+            const visit = data.visits
+                .filter(v => v.ip === ip)
+                .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
+
+            if (!visit) return;
+
+            if (isHumanVisit(visit)) {
+                recentlyNotified.set(ip, Date.now());
+                if (recentlyNotified.size > 100) {
+                    for (const [k, t] of recentlyNotified.entries())
+                        if (Date.now() - t > 3600000) recentlyNotified.delete(k);
+                }
+                fireVisitorNotification(visit);
+            }
+        } catch (err) {
+            console.error('Notification error:', err.message);
+        }
+    }, 2 * 60 * 1000);
+
+    pendingNotifications.set(ip, timer);
+}
+
+function logVisit(req, res, next) {
+    const userAgent = req.headers['user-agent'] || 'Unknown';
+    const visitorIP = req.headers['x-forwarded-for'] ||
+                      req.headers['x-real-ip'] ||
+                      req.ip ||
+                      req.connection.remoteAddress;
+    const realIP = visitorIP.split(',')[0].trim();
+
+    if (BOT_PATTERNS.test(userAgent)) return next();
+    if (EXCLUDED_IPS.includes(realIP)) return next();
+
+    // Detect device type
+    let deviceType = 'Desktop';
+    if (/mobile|android|iphone|ipad|tablet/i.test(userAgent)) {
+        if (/ipad|tablet/i.test(userAgent)) deviceType = 'Tablet';
+        else deviceType = 'Mobile';
+    }
+
+    // Detect OS
+    let os = 'Unknown';
+    if (/windows/i.test(userAgent)) os = 'Windows';
+    else if (/macintosh|mac os x/i.test(userAgent)) os = 'macOS';
+    else if (/linux/i.test(userAgent) && !/android/i.test(userAgent)) os = 'Linux';
+    else if (/android/i.test(userAgent)) os = 'Android';
+    else if (/iphone|ipad|ipod/i.test(userAgent)) os = 'iOS';
+    else if (/cros/i.test(userAgent)) os = 'Chrome OS';
+
+    // Detect browser
+    let browser = 'Unknown';
+    if (/edg/i.test(userAgent)) browser = 'Edge';
+    else if (/chrome/i.test(userAgent) && !/edg/i.test(userAgent)) browser = 'Chrome';
+    else if (/safari/i.test(userAgent) && !/chrome/i.test(userAgent)) browser = 'Safari';
+    else if (/firefox/i.test(userAgent)) browser = 'Firefox';
+    else if (/opera|opr/i.test(userAgent)) browser = 'Opera';
+    else if (/brave/i.test(userAgent)) browser = 'Brave';
+
+    // GeoIP lookup
+    const geo = geoip.lookup(realIP);
+    let location = 'Unknown';
+    if (geo) {
+        const parts = [];
+        if (geo.city) parts.push(geo.city);
+        if (geo.region) parts.push(geo.region);
+        if (geo.country) parts.push(geo.country);
+        location = parts.length > 0 ? parts.join(', ') : geo.country || 'Unknown';
+    }
+
+    const visit = {
+        timestamp: new Date().toISOString(),
+        path: req.path,
+        ip: realIP,
+        location: location,
+        userAgent: userAgent,
+        device: deviceType,
+        os: os,
+        browser: browser,
+        referer: req.headers['referer'] || 'Direct'
+    };
+
+    try {
+        const data = JSON.parse(fs.readFileSync(ANALYTICS_FILE, 'utf8'));
+        data.visits.push(visit);
+        if (data.visits.length > 10000) {
+            data.visits = data.visits.slice(-10000);
+        }
+        fs.writeFileSync(ANALYTICS_FILE, JSON.stringify(data, null, 2));
+        scheduleVisitorNotification(visit.ip);
+    } catch (err) {
+        console.error('Analytics logging error:', err);
+    }
+
+    next();
+}
+
 // Static files
 app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: '7d',
-  index: false  // don't serve index.html from public
+  index: false
 }));
 
 // Load data
@@ -41,10 +219,128 @@ const contactPage = require('./views/pages/contact');
 const faqPage = require('./views/pages/faq');
 const portfolioPage = require('./views/pages/portfolio');
 
-// ─── Routes ─────────────────────────────────────────────
+// ─── Analytics API Routes ───────────────────────────────
+
+// Track page view (from client JS — stores referrer + UTM)
+app.post('/api/track', (req, res) => {
+    const userAgent = req.headers['user-agent'] || 'Unknown';
+    const visitorIP = req.headers['x-forwarded-for'] ||
+                      req.headers['x-real-ip'] ||
+                      req.ip ||
+                      req.connection.remoteAddress;
+    const realIP = visitorIP.split(',')[0].trim();
+
+    if (BOT_PATTERNS.test(userAgent)) return res.json({ success: true });
+    if (EXCLUDED_IPS.includes(realIP)) return res.json({ success: true });
+
+    try {
+        const data = JSON.parse(fs.readFileSync(ANALYTICS_FILE, 'utf8'));
+        const visit = data.visits
+            .filter(v => v.ip === realIP)
+            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
+
+        if (visit) {
+            const clientReferer = req.body.referer || '';
+            if (clientReferer && clientReferer !== 'Direct') {
+                visit.referer = clientReferer;
+            }
+            if (req.body.utm_source)   visit.utm_source   = req.body.utm_source;
+            if (req.body.utm_medium)   visit.utm_medium   = req.body.utm_medium;
+            if (req.body.utm_campaign) visit.utm_campaign  = req.body.utm_campaign;
+
+            fs.writeFileSync(ANALYTICS_FILE, JSON.stringify(data, null, 2));
+        }
+
+        res.json({ success: true });
+    } catch (err) {
+        console.error('Track error:', err);
+        res.status(500).json({ error: 'Failed to track' });
+    }
+});
+
+// Track navigation clicks
+app.post('/api/track-nav', (req, res) => {
+    const userAgent = req.headers['user-agent'] || 'Unknown';
+    const visitorIP = req.headers['x-forwarded-for'] ||
+                      req.headers['x-real-ip'] ||
+                      req.ip ||
+                      req.connection.remoteAddress;
+    const realIP = visitorIP.split(',')[0].trim();
+
+    if (BOT_PATTERNS.test(userAgent)) return res.json({ success: true });
+    if (EXCLUDED_IPS.includes(realIP)) return res.json({ success: true });
+
+    try {
+        const data = JSON.parse(fs.readFileSync(ANALYTICS_FILE, 'utf8'));
+        const recentVisit = data.visits
+            .filter(v => v.ip === realIP)
+            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
+
+        if (recentVisit) {
+            recentVisit.navigations = (recentVisit.navigations || 0) + 1;
+            fs.writeFileSync(ANALYTICS_FILE, JSON.stringify(data, null, 2));
+            scheduleVisitorNotification(realIP);
+        }
+
+        res.json({ success: true });
+    } catch (err) {
+        console.error('Navigation tracking error:', err);
+        res.status(500).json({ error: 'Failed to track navigation' });
+    }
+});
+
+// Heartbeat for session duration
+app.post('/api/heartbeat', (req, res) => {
+    const userAgent = req.headers['user-agent'] || 'Unknown';
+    const visitorIP = req.headers['x-forwarded-for'] ||
+                      req.headers['x-real-ip'] ||
+                      req.ip ||
+                      req.connection.remoteAddress;
+    const realIP = visitorIP.split(',')[0].trim();
+
+    if (BOT_PATTERNS.test(userAgent)) return res.json({ success: true });
+    if (EXCLUDED_IPS.includes(realIP)) return res.json({ success: true });
+
+    try {
+        const data = JSON.parse(fs.readFileSync(ANALYTICS_FILE, 'utf8'));
+        const recentVisit = data.visits
+            .filter(v => v.ip === realIP)
+            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
+
+        if (recentVisit) {
+            recentVisit.lastHeartbeat = new Date().toISOString();
+            const startTime = new Date(recentVisit.timestamp);
+            const endTime = new Date(recentVisit.lastHeartbeat);
+            recentVisit.duration = Math.floor((endTime - startTime) / 1000);
+            fs.writeFileSync(ANALYTICS_FILE, JSON.stringify(data, null, 2));
+        }
+
+        res.json({ success: true });
+    } catch (err) {
+        console.error('Heartbeat tracking error:', err);
+        res.status(500).json({ error: 'Failed to track heartbeat' });
+    }
+});
+
+// Raw analytics JSON for dashboard
+app.get("/api/analytics", (req, res) => {
+    try {
+        const data = JSON.parse(fs.readFileSync(ANALYTICS_FILE, "utf8"));
+        res.json(data);
+    } catch (error) {
+        res.status(500).json({ error: "Failed to load analytics" });
+    }
+});
+
+// Analytics dashboard
+app.get("/analytics", (req, res) => {
+    res.sendFile(path.join(__dirname, "analytics-dashboard.html"));
+});
+
+// ─── Page Routes ────────────────────────────────────────
 
 // Home
-app.get('/', (req, res) => {
+app.get('/', logVisit, (req, res) => {
   res.send(layout({
     title: site.meta.defaultTitle,
     description: site.meta.defaultDescription,
@@ -56,7 +352,7 @@ app.get('/', (req, res) => {
 });
 
 // Services overview
-app.get('/services', (req, res) => {
+app.get('/services', logVisit, (req, res) => {
   res.send(layout({
     title: `AV Services in Rochester, NY | ${site.business.brandName}`,
     description: 'Audio visual services including sound, video, lighting, event production, and virtual event solutions in Rochester, NY.',
@@ -67,7 +363,7 @@ app.get('/services', (req, res) => {
 });
 
 // Service detail
-app.get('/services/:slug', (req, res) => {
+app.get('/services/:slug', logVisit, (req, res) => {
   const service = services.find(s => s.slug === req.params.slug);
   if (!service) return res.status(404).send('Not found');
   res.send(layout({
@@ -81,7 +377,7 @@ app.get('/services/:slug', (req, res) => {
 });
 
 // Equipment overview
-app.get('/equipment', (req, res) => {
+app.get('/equipment', logVisit, (req, res) => {
   res.send(layout({
     title: `AV Equipment Rentals in Rochester, NY | ${site.business.brandName}`,
     description: 'Rent professional AV equipment in Rochester, NY. Projectors, sound systems, lighting, video cameras, and more. Delivery and setup available.',
@@ -92,7 +388,7 @@ app.get('/equipment', (req, res) => {
 });
 
 // Equipment detail
-app.get('/equipment/:slug', (req, res) => {
+app.get('/equipment/:slug', logVisit, (req, res) => {
   const item = equipment.find(e => e.slug === req.params.slug);
   if (!item) return res.status(404).send('Not found');
   res.send(layout({
@@ -105,7 +401,7 @@ app.get('/equipment/:slug', (req, res) => {
 });
 
 // About
-app.get('/about', (req, res) => {
+app.get('/about', logVisit, (req, res) => {
   res.send(layout({
     title: `About HM-AV | AV Production in Rochester, NY`,
     description: 'Over 20 years of audio visual and event production experience in Rochester, NY. Learn about HM-AV.',
@@ -116,7 +412,7 @@ app.get('/about', (req, res) => {
 });
 
 // Contact
-app.get('/contact', (req, res) => {
+app.get('/contact', logVisit, (req, res) => {
   res.send(layout({
     title: `Contact HM-AV | Get a Quote | Rochester, NY`,
     description: 'Request a quote for AV rental or event production in Rochester, NY. Call (585) 210-2350 or email info@hm-av.com.',
@@ -130,12 +426,10 @@ app.get('/contact', (req, res) => {
 app.post('/contact', async (req, res) => {
   const { name, organization, email, phone, eventDate, venue, attendees, services: svcList, details } = req.body;
 
-  // Basic validation
   if (!name || !email) {
     return res.redirect('/contact?error=1');
   }
 
-  // Format services checkboxes
   const selectedServices = Array.isArray(svcList) ? svcList.join(', ') : (svcList || 'None specified');
 
   const emailBody = `New quote request from hm-av.com
@@ -174,7 +468,7 @@ Submitted: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }
 });
 
 // FAQ
-app.get('/faq', (req, res) => {
+app.get('/faq', logVisit, (req, res) => {
   res.send(layout({
     title: `FAQ — AV Rental & Event Production | HM-AV`,
     description: 'Frequently asked questions about AV equipment rental and event production services in Rochester, NY.',
@@ -186,7 +480,7 @@ app.get('/faq', (req, res) => {
 });
 
 // Portfolio
-app.get('/portfolio', (req, res) => {
+app.get('/portfolio', logVisit, (req, res) => {
   res.send(layout({
     title: `Portfolio — Event Production Work | HM-AV`,
     description: 'See our event production work across Rochester, NY. Corporate events, conferences, galas, and more.',
@@ -301,5 +595,5 @@ function buildFAQSchema(faqItems) {
 // ─── Start ──────────────────────────────────────────────
 
 app.listen(PORT, () => {
-  console.log(`HMS site running on http://localhost:${PORT}`);
+  console.log(`HM-AV site running on http://localhost:${PORT}`);
 });
