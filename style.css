@@ -213,7 +213,7 @@ ul, ol { list-style: none; }
   color: var(--accent);
 }
 
-/* Nav */
+/* Nav (desktop, inside header) */
 .main-nav {
   flex: 1;
   display: flex;
@@ -259,7 +259,7 @@ ul, ol { list-style: none; }
   color: #fff;
 }
 
-/* Dropdown */
+/* Dropdown (desktop) */
 .dropdown {
   position: absolute;
   top: 100%;
@@ -326,6 +326,11 @@ ul, ol { list-style: none; }
   height: 2px;
   background: var(--text-primary);
   transition: all 0.2s;
+}
+
+/* Mobile nav (outside header, hidden by default) */
+.mobile-nav {
+  display: none;
 }
 
 /* ─── Hero ───────────────────────────────────────── */
@@ -1342,45 +1347,73 @@ select.form-input {
     display: flex;
   }
 
-  .main-nav {
+  /* Hide the desktop nav inside the header */
+  .desktop-nav {
+    display: none !important;
+  }
+
+  /* Mobile nav overlay (outside header, escapes backdrop-filter stacking context) */
+  .mobile-nav {
+    display: none;
     position: fixed;
     top: var(--header-height);
     left: 0;
     right: 0;
     bottom: 0;
     background: var(--bg-primary);
-    display: none;
     z-index: 10000;
     overflow-y: auto;
   }
 
-  .main-nav.open {
+  .mobile-nav.open {
     display: block;
   }
 
-  .nav-list {
+  .mobile-nav .nav-list {
+    display: flex;
     flex-direction: column;
     padding: 1rem;
     gap: 0;
   }
 
-  .nav-item {
+  .mobile-nav .nav-item {
     width: 100%;
     border-bottom: 1px solid var(--border);
   }
 
-  .nav-link {
-    padding: 1rem;
+  .mobile-nav .nav-link {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 500;
     font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 1rem;
+    color: var(--text-secondary);
+    transition: color var(--transition);
   }
 
-  .nav-cta .btn-cta {
+  .mobile-nav .nav-link:hover,
+  .mobile-nav .nav-link.active {
+    color: var(--text-primary);
+  }
+
+  .mobile-nav .nav-cta .btn-cta {
+    background: var(--accent);
+    color: #fff;
+    border-radius: var(--radius);
     margin: 1rem 0 0;
+    padding: 0.5rem 1.25rem;
     display: block;
     text-align: center;
   }
 
-  .dropdown {
+  .mobile-nav .nav-cta .btn-cta:hover {
+    background: var(--accent-hover);
+    color: #fff;
+  }
+
+  .mobile-nav .dropdown {
     position: static;
     opacity: 1;
     visibility: visible;
@@ -1390,10 +1423,23 @@ select.form-input {
     box-shadow: none;
     padding: 0 0 0.5rem 1rem;
     display: none;
+    min-width: auto;
   }
 
-  .has-dropdown.open .dropdown {
+  .mobile-nav .has-dropdown.open .dropdown {
     display: block;
+  }
+
+  .mobile-nav .dropdown-link {
+    display: block;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+  }
+
+  .mobile-nav .dropdown-link:hover {
+    color: var(--text-primary);
   }
 
   .header-phone {
