@@ -85,7 +85,6 @@
             letter-spacing: 0.03em;
         }
 
-        /* Rules popup */
         .rules-box {
             display: none;
             position: absolute;
@@ -237,14 +236,31 @@
         td { font-family: var(--mono); font-size: 12px; padding: 9px 14px; color: var(--muted); white-space: nowrap; }
         td.bright { color: var(--text); }
         td.dim { color: var(--dim); }
-        td.path-cell { white-space: normal; max-width: 260px; word-break: break-all; font-size: 10px; }
-        .path-arrow { color: var(--accent); margin: 0 3px; }
         .chip { display: inline-block; font-size: 10px; padding: 2px 7px; border: 1px solid var(--border); color: var(--dim); }
         .chip.mobile  { border-color: rgba(200,184,154,0.25); color: rgba(200,184,154,0.6); }
         .chip.desktop { border-color: rgba(180,200,180,0.2);  color: rgba(180,200,180,0.55); }
         .chip.tablet  { border-color: rgba(180,180,210,0.2);  color: rgba(180,180,210,0.55); }
         .chip.human   { border-color: rgba(130,200,130,0.3);  color: rgba(130,200,130,0.6); }
         .chip.bot     { border-color: rgba(200,130,130,0.25); color: rgba(200,130,130,0.5); }
+        .page-count { cursor: pointer; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+        .page-count:hover { color: var(--accent); }
+        .path-popup {
+            display: none;
+            position: fixed;
+            background: #1a1a1a;
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 10px 16px;
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--muted);
+            z-index: 100;
+            max-width: min(90vw, 1140px);
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2px 0;
+        }
+        .path-popup .path-step { color: var(--text); white-space: nowrap; }
+        .path-popup .path-arrow { color: var(--accent); margin: 0 8px; font-size: 10px; }
         .empty { font-family: var(--mono); font-size: 12px; color: var(--dim); padding: 16px 0 4px; font-style: italic; }
 
         @media (max-width: 900px) {
@@ -289,7 +305,8 @@
 <div id="root" style="font-family:'DM Mono',monospace;font-size:12px;color:rgba(232,224,208,0.25);padding:60px 0;text-align:center">loading…</div>
 
 <script>
-let showHumansOnly = true;
+var showHumansOnly = true;
+var _pathData = {};
 
 function isHuman(v) {
     if (/rochester/i.test(v.location || '')) return true;
@@ -298,13 +315,10 @@ function isHuman(v) {
 
 function getSource(v) {
     if (v.utm_source) {
-        let s = v.utm_source.charAt(0).toUpperCase() + v.utm_source.slice(1);
-        return s;
+        return v.utm_source.charAt(0).toUpperCase() + v.utm_source.slice(1);
     }
-
-    const r = v.referer || '';
+    var r = v.referer || '';
     if (!r || r === 'Direct') return 'Direct';
-
     if (/google/i.test(r))                return 'Google';
     if (/bing/i.test(r))                  return 'Bing';
     if (/duckduckgo/i.test(r))            return 'DuckDuckGo';
@@ -318,36 +332,59 @@ function getSource(v) {
     if (/pinterest/i.test(r))             return 'Pinterest';
     if (/threads\.net/i.test(r))          return 'Threads';
     if (/mastodon/i.test(r))              return 'Mastodon';
+    try { return new URL(r).hostname.replace('www.', ''); } catch(e) { return 'Other'; }
+}
 
-    try {
-        return new URL(r).hostname.replace('www.', '');
-    } catch {
-        return 'Other';
+function showPath(e, id) {
+    e.stopPropagation();
+    var existing = document.querySelector('.path-popup');
+    if (existing) existing.remove();
+    var pages = _pathData[id];
+    if (!pages || !pages.length) return;
+    var popup = document.createElement('div');
+    popup.className = 'path-popup';
+    var html = '';
+    for (var i = 0; i < pages.length; i++) {
+        if (i > 0) html += '<span class="path-arrow">→</span>';
+        html += '<span class="path-step">' + pages[i] + '</span>';
     }
+    popup.innerHTML = html;
+    popup.style.display = 'flex';
+    document.body.appendChild(popup);
+    // Position above the clicked number, expand upward
+    var rect = e.target.getBoundingClientRect();
+    var popW = popup.offsetWidth;
+    var popH = popup.offsetHeight;
+    var left = rect.left + (rect.width / 2) - (popW / 2);
+    if (left < 8) left = 8;
+    if (left + popW > window.innerWidth - 8) left = window.innerWidth - popW - 8;
+    var top = rect.top - popH - 6;
+    // If it would go above the viewport, show below instead
+    if (top < 8) top = rect.bottom + 6;
+    popup.style.left = left + 'px';
+    popup.style.top = top + 'px';
 }
 
-function formatPath(pages) {
-    if (!pages || !pages.length) return '/';
-    return pages.map(p => `<span>${p}</span>`).join('<span class="path-arrow">→</span>');
-}
+document.addEventListener('click', function(e) {
+    if (!e.target.classList.contains('page-count')) {
+        var p = document.querySelector('.path-popup');
+        if (p) p.remove();
+    }
+    var box = document.getElementById('rules-box');
+    var btn = document.getElementById('rules-btn');
+    if (box && box.style.display === 'block' && !box.contains(e.target) && e.target !== btn) {
+        box.style.display = 'none';
+    }
+});
 
 function toggleRules() {
     var box = document.getElementById('rules-box');
     box.style.display = box.style.display === 'none' ? 'block' : 'none';
 }
 
-// Close rules popup when clicking outside
-document.addEventListener('click', function(e) {
-    var box = document.getElementById('rules-box');
-    var btn = document.getElementById('rules-btn');
-    if (box.style.display === 'block' && !box.contains(e.target) && e.target !== btn) {
-        box.style.display = 'none';
-    }
-});
-
 function toggleFilter() {
     showHumansOnly = !showHumansOnly;
-    const btn = document.getElementById('filter-btn');
+    var btn = document.getElementById('filter-btn');
     btn.textContent = showHumansOnly ? 'show bots' : 'hide bots';
     btn.style.borderColor = showHumansOnly ? 'rgba(255,255,255,0.4)' : '';
     btn.style.color = showHumansOnly ? 'var(--text)' : '';
@@ -355,217 +392,165 @@ function toggleFilter() {
 }
 
 async function init() {
-    const root = document.getElementById('root');
-    let data;
+    var root = document.getElementById('root');
+    var data;
     try {
-        const r = await fetch('/api/analytics');
+        var r = await fetch('/api/analytics');
         data = await r.json();
     } catch(e) {
         root.innerHTML = '<div style="color:#f66;padding:40px">Failed to load analytics.</div>';
         return;
     }
 
-    const allVisits = data.visits || [];
-    const humanCount = allVisits.filter(v => isHuman(v)).length;
-    const botCount = allVisits.length - humanCount;
-    const visits = showHumansOnly ? allVisits.filter(v => isHuman(v)) : allVisits;
-    const total = visits.length;
-    const now = Date.now();
+    var allVisits = data.visits || [];
+    var humanCount = allVisits.filter(function(v) { return isHuman(v); }).length;
+    var botCount = allVisits.length - humanCount;
+    var visits = showHumansOnly ? allVisits.filter(function(v) { return isHuman(v); }) : allVisits;
+    var total = visits.length;
+    var now = Date.now();
 
     document.getElementById('filter-info').textContent = showHumansOnly
-        ? `${humanCount} humans · ${botCount} bots filtered`
-        : `${allVisits.length} total · ${humanCount} humans · ${botCount} bots`;
+        ? humanCount + ' humans \u00b7 ' + botCount + ' bots filtered'
+        : allVisits.length + ' total \u00b7 ' + humanCount + ' humans \u00b7 ' + botCount + ' bots';
 
     document.getElementById('ts').textContent = new Date().toLocaleString('en-US', {
         timeZone:'America/New_York', month:'short', day:'numeric',
         hour:'2-digit', minute:'2-digit', hour12:false
     }) + ' EST';
 
-    const last24h = visits.filter(v => now - new Date(v.timestamp) < 864e5).length;
-    const last7d  = visits.filter(v => now - new Date(v.timestamp) < 7*864e5).length;
+    var last24h = visits.filter(function(v) { return now - new Date(v.timestamp) < 864e5; }).length;
+    var last7d  = visits.filter(function(v) { return now - new Date(v.timestamp) < 7*864e5; }).length;
 
-    const bounced = visits.filter(v => (!v.navigations || v.navigations === 0) && (!v.duration || v.duration < 10)).length;
-    const bounceRate = total > 0 ? Math.round((bounced / total) * 100) : 0;
-    const withDur = visits.filter(v => v.duration > 0);
-    const avgDur = withDur.length ? Math.floor(withDur.reduce((s,v) => s+v.duration, 0) / withDur.length) : 0;
-    const fmtDur = s => !s ? '0:00' : `${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`;
+    var bounced = visits.filter(function(v) { return (!v.navigations || v.navigations === 0) && (!v.duration || v.duration < 10); }).length;
+    var bounceRate = total > 0 ? Math.round((bounced / total) * 100) : 0;
+    var withDur = visits.filter(function(v) { return v.duration > 0; });
+    var avgDur = withDur.length ? Math.floor(withDur.reduce(function(s,v) { return s+v.duration; }, 0) / withDur.length) : 0;
+    var fmtDur = function(s) { return !s ? '0:00' : Math.floor(s/60) + ':' + (s%60).toString().padStart(2,'0'); };
 
-    const countBy = key => visits.reduce((a,v) => { const k=v[key]||'Unknown'; a[k]=(a[k]||0)+1; return a; }, {});
-    const devices  = countBy('device');
-    const browsers = countBy('browser');
-    const oses     = countBy('os');
+    var countBy = function(key) {
+        return visits.reduce(function(a,v) { var k=v[key]||'Unknown'; a[k]=(a[k]||0)+1; return a; }, {});
+    };
+    var devices  = countBy('device');
+    var browsers = countBy('browser');
+    var oses     = countBy('os');
 
-    const sources = visits.reduce((a,v) => {
-        const s = getSource(v);
+    var sources = visits.reduce(function(a,v) {
+        var s = getSource(v);
         a[s] = (a[s]||0)+1; return a;
     }, {});
 
-    // Top pages — count across all visits' pages arrays
-    const pageCounts = {};
-    visits.forEach(v => {
-        const pages = v.pages || [v.path || '/'];
-        pages.forEach(p => { pageCounts[p] = (pageCounts[p] || 0) + 1; });
+    var pageCounts = {};
+    visits.forEach(function(v) {
+        var pages = v.pages || [v.path || '/'];
+        pages.forEach(function(p) { pageCounts[p] = (pageCounts[p] || 0) + 1; });
     });
 
-    const locs = countBy('location');
+    var locs = countBy('location');
 
-    const dayKeys = [], dayDisplay = [];
-    for (let i = 13; i >= 0; i--) {
-        const d = new Date(); d.setDate(d.getDate() - i);
+    var dayKeys = [], dayDisplay = [];
+    for (var i = 13; i >= 0; i--) {
+        var d = new Date(); d.setDate(d.getDate() - i);
         dayKeys.push(d.toISOString().slice(0,10));
         dayDisplay.push(i===0 ? 'today' : d.toLocaleDateString('en-US',{month:'short',day:'numeric'}));
     }
-    const dayCounts = Object.fromEntries(dayKeys.map(k => [k,0]));
-    visits.forEach(v => { const k=new Date(v.timestamp).toISOString().slice(0,10); if(k in dayCounts) dayCounts[k]++; });
-    const sv = dayKeys.map(k => dayCounts[k]);
-    const sm = Math.max(...sv, 1);
+    var dayCounts = {};
+    dayKeys.forEach(function(k) { dayCounts[k] = 0; });
+    visits.forEach(function(v) { var k=new Date(v.timestamp).toISOString().slice(0,10); if(k in dayCounts) dayCounts[k]++; });
+    var sv = dayKeys.map(function(k) { return dayCounts[k]; });
+    var sm = Math.max.apply(null, sv.concat([1]));
 
-    const barChart = counts => {
-        const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+    var barChart = function(counts) {
+        var sorted = Object.entries(counts).sort(function(a,b) { return b[1]-a[1]; });
         if (!sorted.length) return '<div class="empty">no data</div>';
-        return sorted.map(([label, n]) => {
-            const pct = total > 0 ? Math.round((n/total)*100) : 0;
-            return `<div class="bar-row">
-                <div class="bar-meta">
-                    <span class="bar-label">${label}</span>
-                    <span class="bar-count">${n} <span style="opacity:.4">${pct}%</span></span>
-                </div>
-                <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
-            </div>`;
+        return sorted.map(function(pair) {
+            var label = pair[0], n = pair[1];
+            var pct = total > 0 ? Math.round((n/total)*100) : 0;
+            return '<div class="bar-row"><div class="bar-meta"><span class="bar-label">' + label + '</span><span class="bar-count">' + n + ' <span style="opacity:.4">' + pct + '%</span></span></div><div class="bar-track"><div class="bar-fill" style="width:' + pct + '%"></div></div></div>';
         }).join('');
     };
 
-    const topLocs = Object.entries(locs).sort((a,b)=>b[1]-a[1]).slice(0,8);
-    const maxLoc = topLocs[0] ? topLocs[0][1] : 1;
-    const locsHtml = !topLocs.length ? '<div class="empty">no data</div>' :
-        topLocs.map(([loc, n], i) => `
-        <div class="loc-item">
-            <span class="loc-rank">${i+1}</span>
-            <span class="loc-name">${loc}</span>
-            <div class="loc-bar">
-                <div class="bar-track"><div class="bar-fill" style="width:${Math.round((n/maxLoc)*100)}%"></div></div>
-            </div>
-            <span class="loc-count">${n}</span>
-        </div>`).join('');
+    var topLocs = Object.entries(locs).sort(function(a,b) { return b[1]-a[1]; }).slice(0,8);
+    var maxLoc = topLocs[0] ? topLocs[0][1] : 1;
+    var locsHtml = !topLocs.length ? '<div class="empty">no data</div>' :
+        topLocs.map(function(pair, i) {
+            var loc = pair[0], n = pair[1];
+            return '<div class="loc-item"><span class="loc-rank">' + (i+1) + '</span><span class="loc-name">' + loc + '</span><div class="loc-bar"><div class="bar-track"><div class="bar-fill" style="width:' + Math.round((n/maxLoc)*100) + '%"></div></div></div><span class="loc-count">' + n + '</span></div>';
+        }).join('');
 
-    // Top pages bar chart
-    const topPagesTotal = Object.values(pageCounts).reduce((a,b) => a+b, 0) || 1;
-    const topPagesChart = (() => {
-        const sorted = Object.entries(pageCounts).sort((a,b) => b[1]-a[1]).slice(0,8);
+    var topPagesTotal = Object.values(pageCounts).reduce(function(a,b) { return a+b; }, 0) || 1;
+    var topPagesChart = (function() {
+        var sorted = Object.entries(pageCounts).sort(function(a,b) { return b[1]-a[1]; }).slice(0,8);
         if (!sorted.length) return '<div class="empty">no data</div>';
-        return sorted.map(([pg, n]) => {
-            const pct = Math.round((n/topPagesTotal)*100);
-            return `<div class="bar-row">
-                <div class="bar-meta">
-                    <span class="bar-label">${pg}</span>
-                    <span class="bar-count">${n} <span style="opacity:.4">${pct}%</span></span>
-                </div>
-                <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
-            </div>`;
+        return sorted.map(function(pair) {
+            var pg = pair[0], n = pair[1];
+            var pct = Math.round((n/topPagesTotal)*100);
+            return '<div class="bar-row"><div class="bar-meta"><span class="bar-label">' + pg + '</span><span class="bar-count">' + n + ' <span style="opacity:.4">' + pct + '%</span></span></div><div class="bar-track"><div class="bar-fill" style="width:' + pct + '%"></div></div></div>';
         }).join('');
     })();
 
-    const recent = visits.slice(-50).reverse();
-    const rowsHtml = !recent.length
-        ? '<tr><td colspan="11" style="text-align:center;padding:40px;color:var(--dim);font-style:italic">no visits yet</td></tr>'
-        : recent.map(v => {
-            const src = getSource(v);
-            const est = new Date(v.timestamp).toLocaleString('en-US',{
+    _pathData = {};
+    var recent = visits.slice(-50).reverse();
+    var rowsHtml = !recent.length
+        ? '<tr><td colspan="10" style="text-align:center;padding:40px;color:var(--dim);font-style:italic">no visits yet</td></tr>'
+        : recent.map(function(v, idx) {
+            var src = getSource(v);
+            var est = new Date(v.timestamp).toLocaleString('en-US',{
                 timeZone:'America/New_York', month:'2-digit', day:'2-digit',
                 hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false
             });
-            const dev = (v.device||'').toLowerCase();
-            const chip = dev==='mobile'?'mobile':dev==='tablet'?'tablet':'desktop';
-            const humanOrBot = isHuman(v) ? 'human' : 'bot';
-            const humanLabel = isHuman(v) ? '✓ human' : '✗ bot';
-            const pages = v.pages || [v.path || '/'];
-            const pageCount = pages.length;
-            return `<tr>
-                <td class="bright">${est}</td>
-                <td class="dim">${v.ip||'—'}</td>
-                <td>${v.location||'—'}</td>
-                <td><span class="chip ${chip}">${v.device||'—'}</span></td>
-                <td>${v.browser||'—'}</td>
-                <td>${fmtDur(v.duration||0)}</td>
-                <td class="bright">${v.navigations||0}</td>
-                <td class="bright">${pageCount}</td>
-                <td class="path-cell">${formatPath(pages)}</td>
-                <td>${src}</td>
-                <td><span class="chip ${humanOrBot}">${humanLabel}</span></td>
-            </tr>`;
+            var dev = (v.device||'').toLowerCase();
+            var chip = dev==='mobile'?'mobile':dev==='tablet'?'tablet':'desktop';
+            var humanOrBot = isHuman(v) ? 'human' : 'bot';
+            var humanLabel = isHuman(v) ? '\u2713 human' : '\u2717 bot';
+            var pages = v.pages || [v.path || '/'];
+            var pageCount = pages.length;
+            var pathId = 'p' + idx;
+            _pathData[pathId] = pages;
+            return '<tr>' +
+                '<td class="bright">' + est + '</td>' +
+                '<td class="dim">' + (v.ip||'\u2014') + '</td>' +
+                '<td>' + (v.location||'\u2014') + '</td>' +
+                '<td><span class="chip ' + chip + '">' + (v.device||'\u2014') + '</span></td>' +
+                '<td>' + (v.browser||'\u2014') + '</td>' +
+                '<td>' + fmtDur(v.duration||0) + '</td>' +
+                '<td class="bright">' + (v.navigations||0) + '</td>' +
+                '<td class="bright"><span class="page-count" onclick="showPath(event,\'' + pathId + '\')">' + pageCount + '</span></td>' +
+                '<td>' + src + '</td>' +
+                '<td><span class="chip ' + humanOrBot + '">' + humanLabel + '</span></td>' +
+                '</tr>';
         }).join('');
 
-    root.innerHTML = `
-    <div class="kpi-row">
-        <div class="kpi">
-            <div class="kpi-value">${total}</div>
-            <div class="kpi-label">${showHumansOnly ? 'Human Visits' : 'Total Visits'}</div>
-            ${!showHumansOnly ? `<div class="kpi-sub">${humanCount} humans · ${botCount} bots</div>` : ''}
-        </div>
-        <div class="kpi">
-            <div class="kpi-value">${last24h}</div>
-            <div class="kpi-label">Last 24h</div>
-        </div>
-        <div class="kpi">
-            <div class="kpi-value">${last7d}</div>
-            <div class="kpi-label">Last 7 Days</div>
-        </div>
-        <div class="kpi">
-            <div class="kpi-value">${bounceRate}<span style="font-size:22px;opacity:.5">%</span></div>
-            <div class="kpi-label">Bounce Rate</div>
-            <div class="kpi-sub">avg ${fmtDur(avgDur)} on site</div>
-        </div>
-    </div>
+    root.innerHTML =
+    '<div class="kpi-row">' +
+        '<div class="kpi"><div class="kpi-value">' + total + '</div><div class="kpi-label">' + (showHumansOnly ? 'Human Visits' : 'Total Visits') + '</div>' + (!showHumansOnly ? '<div class="kpi-sub">' + humanCount + ' humans \u00b7 ' + botCount + ' bots</div>' : '') + '</div>' +
+        '<div class="kpi"><div class="kpi-value">' + last24h + '</div><div class="kpi-label">Last 24h</div></div>' +
+        '<div class="kpi"><div class="kpi-value">' + last7d + '</div><div class="kpi-label">Last 7 Days</div></div>' +
+        '<div class="kpi"><div class="kpi-value">' + bounceRate + '<span style="font-size:22px;opacity:.5">%</span></div><div class="kpi-label">Bounce Rate</div><div class="kpi-sub">avg ' + fmtDur(avgDur) + ' on site</div></div>' +
+    '</div>' +
 
-    <div class="spark-card">
-        <div class="spark-header">
-            <span class="spark-title">Daily visits — last 14 days</span>
-            <span class="spark-dates">${dayKeys[0]} → ${dayKeys[13]}</span>
-        </div>
-        <div class="sparkline-wrap">
-            ${sv.map((n,i) => {
-                const h = Math.max(2, Math.round((n/sm)*48));
-                return `<div class="spark-bar ${n>0?'active':''}"
-                    style="height:${h}px;opacity:${n>0?Math.max(0.25,n/sm):0.12}"
-                    title="${dayDisplay[i]}: ${n}"></div>`;
-            }).join('')}
-        </div>
-    </div>
+    '<div class="spark-card"><div class="spark-header"><span class="spark-title">Daily visits \u2014 last 14 days</span><span class="spark-dates">' + dayKeys[0] + ' \u2192 ' + dayKeys[13] + '</span></div><div class="sparkline-wrap">' +
+        sv.map(function(n,i) {
+            var h = Math.max(2, Math.round((n/sm)*48));
+            return '<div class="spark-bar ' + (n>0?'active':'') + '" style="height:' + h + 'px;opacity:' + (n>0?Math.max(0.25,n/sm):0.12) + '" title="' + dayDisplay[i] + ': ' + n + '"></div>';
+        }).join('') +
+    '</div></div>' +
 
-    <div class="grid-4">
-        <div class="card"><div class="card-title">Device</div>${barChart(devices)}</div>
-        <div class="card"><div class="card-title">Browser</div>${barChart(browsers)}</div>
-        <div class="card"><div class="card-title">OS</div>${barChart(oses)}</div>
-        <div class="card"><div class="card-title">Source</div>${barChart(sources)}</div>
-    </div>
+    '<div class="grid-4">' +
+        '<div class="card"><div class="card-title">Device</div>' + barChart(devices) + '</div>' +
+        '<div class="card"><div class="card-title">Browser</div>' + barChart(browsers) + '</div>' +
+        '<div class="card"><div class="card-title">OS</div>' + barChart(oses) + '</div>' +
+        '<div class="card"><div class="card-title">Source</div>' + barChart(sources) + '</div>' +
+    '</div>' +
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
-        <div class="card">
-            <div class="card-title">Top Locations</div>
-            ${locsHtml}
-        </div>
-        <div class="card">
-            <div class="card-title">Top Pages</div>
-            ${topPagesChart}
-        </div>
-    </div>
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">' +
+        '<div class="card"><div class="card-title">Top Locations</div>' + locsHtml + '</div>' +
+        '<div class="card"><div class="card-title">Top Pages</div>' + topPagesChart + '</div>' +
+    '</div>' +
 
-    <div class="table-section">
-        <div class="table-top">
-            <span class="table-title">Recent Visits</span>
-            <span class="table-meta">last ${recent.length}</span>
-        </div>
-        <div class="table-wrap">
-            <table>
-                <thead><tr>
-                    <th>Time (EST)</th><th>IP</th><th>Location</th>
-                    <th>Device</th><th>Browser</th>
-                    <th>Duration</th><th>Clicks</th><th>Pages</th><th>Path</th><th>Source</th><th>Type</th>
-                </tr></thead>
-                <tbody>${rowsHtml}</tbody>
-            </table>
-        </div>
-    </div>`;
+    '<div class="table-section"><div class="table-top"><span class="table-title">Recent Visits</span><span class="table-meta">last ' + recent.length + '</span></div>' +
+    '<div class="table-wrap"><table><thead><tr>' +
+        '<th>Time (EST)</th><th>IP</th><th>Location</th><th>Device</th><th>Browser</th><th>Duration</th><th>Clicks</th><th>Pages</th><th>Source</th><th>Type</th>' +
+    '</tr></thead><tbody>' + rowsHtml + '</tbody></table></div></div>';
 }
 
 init();

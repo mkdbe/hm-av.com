@@ -2,6 +2,51 @@ module.exports = function layout({ title, description, path, body, site, service
   const biz = site.business;
   const currentYear = new Date().getFullYear();
 
+  const trackingSnippet = `
+  <!-- Analytics -->
+  <script>
+  (function() {
+      var sid = sessionStorage.getItem('hmav_sid');
+      if (!sid) {
+          sid = Math.random().toString(36).slice(2) + Date.now().toString(36);
+          sessionStorage.setItem('hmav_sid', sid);
+      }
+      var params = new URLSearchParams(window.location.search);
+      var utmSource   = params.get('utm_source')   || '';
+      var utmMedium   = params.get('utm_medium')   || '';
+      var utmCampaign = params.get('utm_campaign')  || '';
+      fetch('/api/track', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+              sessionId: sid,
+              path: window.location.pathname,
+              referer: document.referrer || 'Direct',
+              utm_source: utmSource,
+              utm_medium: utmMedium,
+              utm_campaign: utmCampaign
+          })
+      }).catch(function(){});
+      if (utmSource || utmMedium || utmCampaign) {
+          window.history.replaceState({}, '', window.location.pathname);
+      }
+      setInterval(function() {
+          fetch('/api/heartbeat', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ sessionId: sid })
+          }).catch(function(){});
+      }, 10000);
+      document.addEventListener('click', function() {
+          fetch('/api/track-nav', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ sessionId: sid })
+          }).catch(function(){});
+      });
+  })();
+  </script>`;
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,6 +175,7 @@ module.exports = function layout({ title, description, path, body, site, service
   </footer>
 
   <script src="/js/main.js"></script>
+  ${trackingSnippet}
 </body>
 </html>`;
 };

@@ -1,48 +1,45 @@
 {
   "visits": [
     {
-      "timestamp": "2026-03-25T03:35:00.991Z",
-      "path": "/contact",
-      "ip": "89.33.8.52",
-      "location": "RO",
-      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:148.0) Gecko/20100101 Firefox/148.0",
-      "device": "Desktop",
-      "os": "macOS",
-      "browser": "Firefox",
-      "referer": "https://hm-av.com/services/equipment-rentals"
-    },
-    {
-      "timestamp": "2026-03-25T03:35:03.201Z",
-      "path": "/",
-      "ip": "89.33.8.52",
-      "location": "RO",
-      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:148.0) Gecko/20100101 Firefox/148.0",
-      "device": "Desktop",
-      "os": "macOS",
-      "browser": "Firefox",
-      "referer": "https://hm-av.com/contact"
-    },
-    {
-      "timestamp": "2026-03-25T03:35:05.752Z",
+      "sessionId": "myuf2v8oi7lmn5j3o2m",
+      "timestamp": "2026-03-25T04:58:35.811Z",
       "path": "/services",
-      "ip": "89.33.8.52",
+      "pages": [
+        "/",
+        "/services",
+        "/equipment",
+        "/portfolio",
+        "/about",
+        "/contact",
+        "/",
+        "/services",
+        "/services/audio",
+        "/services/video",
+        "/services/lighting",
+        "/services/livestreaming",
+        "/services/hybrid-events",
+        "/services/equipment-rentals",
+        "/equipment",
+        "/equipment/projectors-screens",
+        "/equipment/sound-pa-systems",
+        "/equipment/lighting-fixtures",
+        "/equipment/video-cameras-switchers",
+        "/services/livestreaming",
+        "/faq",
+        "/contact",
+        "/equipment/video-cameras-switchers",
+        "/services"
+      ],
+      "ip": "89.33.8.61",
       "location": "RO",
       "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:148.0) Gecko/20100101 Firefox/148.0",
       "device": "Desktop",
       "os": "macOS",
       "browser": "Firefox",
-      "referer": "https://hm-av.com/"
-    },
-    {
-      "timestamp": "2026-03-25T03:35:08.377Z",
-      "path": "/services/lighting",
-      "ip": "89.33.8.52",
-      "location": "RO",
-      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:148.0) Gecko/20100101 Firefox/148.0",
-      "device": "Desktop",
-      "os": "macOS",
-      "browser": "Firefox",
-      "referer": "https://hm-av.com/services"
+      "referer": "https://hm-av.com/equipment",
+      "navigations": 29,
+      "lastHeartbeat": "2026-03-25T05:00:56.678Z",
+      "duration": 140
     }
   ]
 }
