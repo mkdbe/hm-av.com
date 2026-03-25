@@ -143,6 +143,7 @@ module.exports = function layout({ title, description, path, body, site, service
       var utmSource   = params.get('utm_source')   || '';
       var utmMedium   = params.get('utm_medium')   || '';
       var utmCampaign = params.get('utm_campaign')  || '';
+      // Track page view — server creates or updates session by sessionId
       fetch('/api/track', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -158,6 +159,7 @@ module.exports = function layout({ title, description, path, body, site, service
       if (utmSource || utmMedium || utmCampaign) {
           window.history.replaceState({}, '', window.location.pathname);
       }
+      // Heartbeat every 10 seconds
       setInterval(function() {
           fetch('/api/heartbeat', {
               method: 'POST',
@@ -165,6 +167,7 @@ module.exports = function layout({ title, description, path, body, site, service
               body: JSON.stringify({ sessionId: sid })
           }).catch(function(){});
       }, 10000);
+      // Track clicks
       document.addEventListener('click', function() {
           fetch('/api/track-nav', {
               method: 'POST',

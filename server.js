@@ -45,6 +45,8 @@ function fireVisitorNotification(visit) {
     const durationStr = duration >= 60
         ? `${Math.floor(duration / 60)}m ${duration % 60}s`
         : `${duration}s`;
+    const pages = visit.pages || [visit.path || '/'];
+    const pagesStr = pages.join(' → ');
 
     let source = visit.referer || 'Direct';
     if (visit.utm_source) {
@@ -71,8 +73,9 @@ function fireVisitorNotification(visit) {
       <tr><td style="color:#888;padding:6px 0;">OS</td><td style="color:#e0e0e0;padding:6px 0;">${visit.os}</td></tr>
       <tr><td style="color:#888;padding:6px 0;">BROWSER</td><td style="color:#e0e0e0;padding:6px 0;">${visit.browser}</td></tr>
       <tr><td style="color:#888;padding:6px 0;">SOURCE</td><td style="color:#e0e0e0;padding:6px 0;">${source}</td></tr>
-      <tr><td style="color:#888;padding:6px 0;">PAGE</td><td style="color:#e0e0e0;padding:6px 0;">${visit.path || '/'}</td></tr>
-      <tr><td style="color:#888;padding:6px 0;">PAGES VIEWED</td><td style="color:#cc2222;padding:6px 0;font-weight:bold;">${clicks}</td></tr>
+      <tr><td style="color:#888;padding:6px 0;">PATH</td><td style="color:#e0e0e0;padding:6px 0;word-break:break-all;">${pagesStr}</td></tr>
+      <tr><td style="color:#888;padding:6px 0;">PAGES VIEWED</td><td style="color:#cc2222;padding:6px 0;font-weight:bold;">${pages.length}</td></tr>
+      <tr><td style="color:#888;padding:6px 0;">CLICKS</td><td style="color:#cc2222;padding:6px 0;font-weight:bold;">${clicks}</td></tr>
       <tr><td style="color:#888;padding:6px 0;">TIME ON SITE</td><td style="color:#cc2222;padding:6px 0;font-weight:bold;">${durationStr}</td></tr>
     </table>
   </div>
@@ -81,27 +84,26 @@ function fireVisitorNotification(visit) {
     }).catch(err => console.error("Email failed:", err.message));
 }
 
-function scheduleVisitorNotification(ip) {
-    if (pendingNotifications.has(ip)) {
-        clearTimeout(pendingNotifications.get(ip));
+function scheduleVisitorNotification(sessionId) {
+    if (pendingNotifications.has(sessionId)) {
+        clearTimeout(pendingNotifications.get(sessionId));
     }
 
     const timer = setTimeout(() => {
-        pendingNotifications.delete(ip);
-
-        const lastNotified = recentlyNotified.get(ip);
-        if (lastNotified && (Date.now() - lastNotified) < 3600000) return;
+        pendingNotifications.delete(sessionId);
 
         try {
             const data = JSON.parse(fs.readFileSync(ANALYTICS_FILE, 'utf8'));
-            const visit = data.visits
-                .filter(v => v.ip === ip)
-                .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
+            const visit = data.visits.find(v => v.sessionId === sessionId);
 
             if (!visit) return;
 
+            // Check 1hr cooldown per IP
+            const lastNotified = recentlyNotified.get(visit.ip);
+            if (lastNotified && (Date.now() - lastNotified) < 3600000) return;
+
             if (isHumanVisit(visit)) {
-                recentlyNotified.set(ip, Date.now());
+                recentlyNotified.set(visit.ip, Date.now());
                 if (recentlyNotified.size > 100) {
                     for (const [k, t] of recentlyNotified.entries())
                         if (Date.now() - t > 3600000) recentlyNotified.delete(k);
@@ -113,10 +115,11 @@ function scheduleVisitorNotification(ip) {
         }
     }, 2 * 60 * 1000);
 
-    pendingNotifications.set(ip, timer);
+    pendingNotifications.set(sessionId, timer);
 }
 
-function logVisit(req, res, next) {
+// Helper: extract visitor info from request
+function getVisitorInfo(req) {
     const userAgent = req.headers['user-agent'] || 'Unknown';
     const visitorIP = req.headers['x-forwarded-for'] ||
                       req.headers['x-real-ip'] ||
@@ -124,14 +127,11 @@ function logVisit(req, res, next) {
                       req.connection.remoteAddress;
     const realIP = visitorIP.split(',')[0].trim();
 
-    if (BOT_PATTERNS.test(userAgent)) return next();
-    if (EXCLUDED_IPS.includes(realIP)) return next();
-
     // Detect device type
-    let deviceType = 'Desktop';
+    let device = 'Desktop';
     if (/mobile|android|iphone|ipad|tablet/i.test(userAgent)) {
-        if (/ipad|tablet/i.test(userAgent)) deviceType = 'Tablet';
-        else deviceType = 'Mobile';
+        if (/ipad|tablet/i.test(userAgent)) device = 'Tablet';
+        else device = 'Mobile';
     }
 
     // Detect OS
@@ -163,31 +163,7 @@ function logVisit(req, res, next) {
         location = parts.length > 0 ? parts.join(', ') : geo.country || 'Unknown';
     }
 
-    const visit = {
-        timestamp: new Date().toISOString(),
-        path: req.path,
-        ip: realIP,
-        location: location,
-        userAgent: userAgent,
-        device: deviceType,
-        os: os,
-        browser: browser,
-        referer: req.headers['referer'] || 'Direct'
-    };
-
-    try {
-        const data = JSON.parse(fs.readFileSync(ANALYTICS_FILE, 'utf8'));
-        data.visits.push(visit);
-        if (data.visits.length > 10000) {
-            data.visits = data.visits.slice(-10000);
-        }
-        fs.writeFileSync(ANALYTICS_FILE, JSON.stringify(data, null, 2));
-        scheduleVisitorNotification(visit.ip);
-    } catch (err) {
-        console.error('Analytics logging error:', err);
-    }
-
-    next();
+    return { realIP, userAgent, device, os, browser, location };
 }
 
 // Static files
@@ -221,35 +197,69 @@ const portfolioPage = require('./views/pages/portfolio');
 
 // ─── Analytics API Routes ───────────────────────────────
 
-// Track page view (from client JS — stores referrer + UTM)
+// Track page view — creates or updates session by sessionId
 app.post('/api/track', (req, res) => {
     const userAgent = req.headers['user-agent'] || 'Unknown';
-    const visitorIP = req.headers['x-forwarded-for'] ||
-                      req.headers['x-real-ip'] ||
-                      req.ip ||
-                      req.connection.remoteAddress;
-    const realIP = visitorIP.split(',')[0].trim();
+    const { realIP, device, os, browser, location } = getVisitorInfo(req);
+    const sessionId = req.body.sessionId;
 
+    if (!sessionId) return res.json({ success: true });
     if (BOT_PATTERNS.test(userAgent)) return res.json({ success: true });
     if (EXCLUDED_IPS.includes(realIP)) return res.json({ success: true });
 
     try {
         const data = JSON.parse(fs.readFileSync(ANALYTICS_FILE, 'utf8'));
-        const visit = data.visits
-            .filter(v => v.ip === realIP)
-            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
+
+        // Find existing session
+        let visit = data.visits.find(v => v.sessionId === sessionId);
 
         if (visit) {
-            const clientReferer = req.body.referer || '';
-            if (clientReferer && clientReferer !== 'Direct') {
-                visit.referer = clientReferer;
+            // Existing session — add page to path if new
+            const pagePath = req.body.path || '/';
+            if (!visit.pages) visit.pages = [visit.path || '/'];
+            if (visit.pages[visit.pages.length - 1] !== pagePath) {
+                visit.pages.push(pagePath);
+                visit.navigations = (visit.navigations || 0) + 1;
             }
-            if (req.body.utm_source)   visit.utm_source   = req.body.utm_source;
-            if (req.body.utm_medium)   visit.utm_medium   = req.body.utm_medium;
-            if (req.body.utm_campaign) visit.utm_campaign  = req.body.utm_campaign;
-
-            fs.writeFileSync(ANALYTICS_FILE, JSON.stringify(data, null, 2));
+            visit.path = pagePath; // update current page
+        } else {
+            // New session — create visit record
+            const pagePath = req.body.path || '/';
+            visit = {
+                sessionId: sessionId,
+                timestamp: new Date().toISOString(),
+                path: pagePath,
+                pages: [pagePath],
+                ip: realIP,
+                location: location,
+                userAgent: userAgent,
+                device: device,
+                os: os,
+                browser: browser,
+                referer: 'Direct',
+                navigations: 0
+            };
+            data.visits.push(visit);
         }
+
+        // Client referrer (more reliable than server-side)
+        const clientReferer = req.body.referer || '';
+        if (clientReferer && clientReferer !== 'Direct' && visit.referer === 'Direct') {
+            visit.referer = clientReferer;
+        }
+
+        // UTM params
+        if (req.body.utm_source)   visit.utm_source   = req.body.utm_source;
+        if (req.body.utm_medium)   visit.utm_medium   = req.body.utm_medium;
+        if (req.body.utm_campaign) visit.utm_campaign  = req.body.utm_campaign;
+
+        // Keep max 10,000 visits
+        if (data.visits.length > 10000) {
+            data.visits = data.visits.slice(-10000);
+        }
+
+        fs.writeFileSync(ANALYTICS_FILE, JSON.stringify(data, null, 2));
+        scheduleVisitorNotification(sessionId);
 
         res.json({ success: true });
     } catch (err) {
@@ -258,28 +268,24 @@ app.post('/api/track', (req, res) => {
     }
 });
 
-// Track navigation clicks
+// Track clicks (non-navigation clicks like CTAs, buttons, etc.)
 app.post('/api/track-nav', (req, res) => {
     const userAgent = req.headers['user-agent'] || 'Unknown';
-    const visitorIP = req.headers['x-forwarded-for'] ||
-                      req.headers['x-real-ip'] ||
-                      req.ip ||
-                      req.connection.remoteAddress;
-    const realIP = visitorIP.split(',')[0].trim();
+    const { realIP } = getVisitorInfo(req);
+    const sessionId = req.body.sessionId;
 
+    if (!sessionId) return res.json({ success: true });
     if (BOT_PATTERNS.test(userAgent)) return res.json({ success: true });
     if (EXCLUDED_IPS.includes(realIP)) return res.json({ success: true });
 
     try {
         const data = JSON.parse(fs.readFileSync(ANALYTICS_FILE, 'utf8'));
-        const recentVisit = data.visits
-            .filter(v => v.ip === realIP)
-            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
+        const visit = data.visits.find(v => v.sessionId === sessionId);
 
-        if (recentVisit) {
-            recentVisit.navigations = (recentVisit.navigations || 0) + 1;
+        if (visit) {
+            visit.navigations = (visit.navigations || 0) + 1;
             fs.writeFileSync(ANALYTICS_FILE, JSON.stringify(data, null, 2));
-            scheduleVisitorNotification(realIP);
+            scheduleVisitorNotification(sessionId);
         }
 
         res.json({ success: true });
@@ -292,26 +298,22 @@ app.post('/api/track-nav', (req, res) => {
 // Heartbeat for session duration
 app.post('/api/heartbeat', (req, res) => {
     const userAgent = req.headers['user-agent'] || 'Unknown';
-    const visitorIP = req.headers['x-forwarded-for'] ||
-                      req.headers['x-real-ip'] ||
-                      req.ip ||
-                      req.connection.remoteAddress;
-    const realIP = visitorIP.split(',')[0].trim();
+    const { realIP } = getVisitorInfo(req);
+    const sessionId = req.body.sessionId;
 
+    if (!sessionId) return res.json({ success: true });
     if (BOT_PATTERNS.test(userAgent)) return res.json({ success: true });
     if (EXCLUDED_IPS.includes(realIP)) return res.json({ success: true });
 
     try {
         const data = JSON.parse(fs.readFileSync(ANALYTICS_FILE, 'utf8'));
-        const recentVisit = data.visits
-            .filter(v => v.ip === realIP)
-            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
+        const visit = data.visits.find(v => v.sessionId === sessionId);
 
-        if (recentVisit) {
-            recentVisit.lastHeartbeat = new Date().toISOString();
-            const startTime = new Date(recentVisit.timestamp);
-            const endTime = new Date(recentVisit.lastHeartbeat);
-            recentVisit.duration = Math.floor((endTime - startTime) / 1000);
+        if (visit) {
+            visit.lastHeartbeat = new Date().toISOString();
+            const startTime = new Date(visit.timestamp);
+            const endTime = new Date(visit.lastHeartbeat);
+            visit.duration = Math.floor((endTime - startTime) / 1000);
             fs.writeFileSync(ANALYTICS_FILE, JSON.stringify(data, null, 2));
         }
 
@@ -340,7 +342,7 @@ app.get("/analytics", (req, res) => {
 // ─── Page Routes ────────────────────────────────────────
 
 // Home
-app.get('/', logVisit, (req, res) => {
+app.get('/', (req, res) => {
   res.send(layout({
     title: site.meta.defaultTitle,
     description: site.meta.defaultDescription,
@@ -352,7 +354,7 @@ app.get('/', logVisit, (req, res) => {
 });
 
 // Services overview
-app.get('/services', logVisit, (req, res) => {
+app.get('/services', (req, res) => {
   res.send(layout({
     title: `AV Services in Rochester, NY | ${site.business.brandName}`,
     description: 'Audio visual services including sound, video, lighting, event production, and virtual event solutions in Rochester, NY.',
@@ -363,7 +365,7 @@ app.get('/services', logVisit, (req, res) => {
 });
 
 // Service detail
-app.get('/services/:slug', logVisit, (req, res) => {
+app.get('/services/:slug', (req, res) => {
   const service = services.find(s => s.slug === req.params.slug);
   if (!service) return res.status(404).send('Not found');
   res.send(layout({
@@ -377,7 +379,7 @@ app.get('/services/:slug', logVisit, (req, res) => {
 });
 
 // Equipment overview
-app.get('/equipment', logVisit, (req, res) => {
+app.get('/equipment', (req, res) => {
   res.send(layout({
     title: `AV Equipment Rentals in Rochester, NY | ${site.business.brandName}`,
     description: 'Rent professional AV equipment in Rochester, NY. Projectors, sound systems, lighting, video cameras, and more. Delivery and setup available.',
@@ -388,7 +390,7 @@ app.get('/equipment', logVisit, (req, res) => {
 });
 
 // Equipment detail
-app.get('/equipment/:slug', logVisit, (req, res) => {
+app.get('/equipment/:slug', (req, res) => {
   const item = equipment.find(e => e.slug === req.params.slug);
   if (!item) return res.status(404).send('Not found');
   res.send(layout({
@@ -401,7 +403,7 @@ app.get('/equipment/:slug', logVisit, (req, res) => {
 });
 
 // About
-app.get('/about', logVisit, (req, res) => {
+app.get('/about', (req, res) => {
   res.send(layout({
     title: `About HM-AV | AV Production in Rochester, NY`,
     description: 'Over 20 years of audio visual and event production experience in Rochester, NY. Learn about HM-AV.',
@@ -412,7 +414,7 @@ app.get('/about', logVisit, (req, res) => {
 });
 
 // Contact
-app.get('/contact', logVisit, (req, res) => {
+app.get('/contact', (req, res) => {
   res.send(layout({
     title: `Contact HM-AV | Get a Quote | Rochester, NY`,
     description: 'Request a quote for AV rental or event production in Rochester, NY. Call (585) 210-2350 or email info@hm-av.com.',
@@ -468,7 +470,7 @@ Submitted: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }
 });
 
 // FAQ
-app.get('/faq', logVisit, (req, res) => {
+app.get('/faq', (req, res) => {
   res.send(layout({
     title: `FAQ — AV Rental & Event Production | HM-AV`,
     description: 'Frequently asked questions about AV equipment rental and event production services in Rochester, NY.',
@@ -480,7 +482,7 @@ app.get('/faq', logVisit, (req, res) => {
 });
 
 // Portfolio
-app.get('/portfolio', logVisit, (req, res) => {
+app.get('/portfolio', (req, res) => {
   res.send(layout({
     title: `Portfolio — Event Production Work | HM-AV`,
     description: 'See our event production work across Rochester, NY. Corporate events, conferences, galas, and more.',

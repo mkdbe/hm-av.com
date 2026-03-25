@@ -58,7 +58,7 @@
             color: var(--muted);
             letter-spacing: 0.04em;
         }
-        .header-right { display: flex; align-items: center; gap: 16px; }
+        .header-right { display: flex; align-items: center; gap: 16px; position: relative; }
         .last-updated {
             font-family: var(--mono);
             font-size: 11px;
@@ -83,6 +83,27 @@
             font-size: 10px;
             color: var(--dim);
             letter-spacing: 0.03em;
+        }
+
+        /* Rules popup */
+        .rules-box {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 40px;
+            background: #1a1a1a;
+            border: 1px solid rgba(255,255,255,0.12);
+            padding: 16px 20px;
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 1.7;
+            z-index: 10;
+            max-width: 340px;
+        }
+        .rules-box strong {
+            color: var(--text);
+            letter-spacing: 0.08em;
         }
 
         .kpi-row {
@@ -216,6 +237,8 @@
         td { font-family: var(--mono); font-size: 12px; padding: 9px 14px; color: var(--muted); white-space: nowrap; }
         td.bright { color: var(--text); }
         td.dim { color: var(--dim); }
+        td.path-cell { white-space: normal; max-width: 260px; word-break: break-all; font-size: 10px; }
+        .path-arrow { color: var(--accent); margin: 0 3px; }
         .chip { display: inline-block; font-size: 10px; padding: 2px 7px; border: 1px solid var(--border); color: var(--dim); }
         .chip.mobile  { border-color: rgba(200,184,154,0.25); color: rgba(200,184,154,0.6); }
         .chip.desktop { border-color: rgba(180,200,180,0.2);  color: rgba(180,200,180,0.55); }
@@ -248,6 +271,16 @@
     <div class="header-right">
         <span class="filter-info" id="filter-info"></span>
         <span class="last-updated" id="ts"></span>
+        <button class="refresh-btn" id="rules-btn" onclick="toggleRules()" title="Classification rules">ⓘ rules</button>
+        <div class="rules-box" id="rules-box">
+            <strong>HUMAN CLASSIFICATION</strong><br>
+            Duration ≥ 30s <span style="color:var(--dim)">AND</span> Clicks ≥ 1<br><br>
+            <strong>GEO OVERRIDE</strong><br>
+            Rochester-area visitors → always human<br><br>
+            <strong>EXCLUDED IPs</strong><br>
+            38.49.72.41<br><br>
+            <span style="color:var(--dim);">Everything else = bot</span>
+        </div>
         <button class="refresh-btn" id="filter-btn" onclick="toggleFilter()">show bots</button>
         <button class="refresh-btn" onclick="location.reload()">↺ refresh</button>
     </div>
@@ -292,6 +325,25 @@ function getSource(v) {
         return 'Other';
     }
 }
+
+function formatPath(pages) {
+    if (!pages || !pages.length) return '/';
+    return pages.map(p => `<span>${p}</span>`).join('<span class="path-arrow">→</span>');
+}
+
+function toggleRules() {
+    var box = document.getElementById('rules-box');
+    box.style.display = box.style.display === 'none' ? 'block' : 'none';
+}
+
+// Close rules popup when clicking outside
+document.addEventListener('click', function(e) {
+    var box = document.getElementById('rules-box');
+    var btn = document.getElementById('rules-btn');
+    if (box.style.display === 'block' && !box.contains(e.target) && e.target !== btn) {
+        box.style.display = 'none';
+    }
+});
 
 function toggleFilter() {
     showHumansOnly = !showHumansOnly;
@@ -348,6 +400,13 @@ async function init() {
         a[s] = (a[s]||0)+1; return a;
     }, {});
 
+    // Top pages — count across all visits' pages arrays
+    const pageCounts = {};
+    visits.forEach(v => {
+        const pages = v.pages || [v.path || '/'];
+        pages.forEach(p => { pageCounts[p] = (pageCounts[p] || 0) + 1; });
+    });
+
     const locs = countBy('location');
 
     const dayKeys = [], dayDisplay = [];
@@ -389,9 +448,26 @@ async function init() {
             <span class="loc-count">${n}</span>
         </div>`).join('');
 
+    // Top pages bar chart
+    const topPagesTotal = Object.values(pageCounts).reduce((a,b) => a+b, 0) || 1;
+    const topPagesChart = (() => {
+        const sorted = Object.entries(pageCounts).sort((a,b) => b[1]-a[1]).slice(0,8);
+        if (!sorted.length) return '<div class="empty">no data</div>';
+        return sorted.map(([pg, n]) => {
+            const pct = Math.round((n/topPagesTotal)*100);
+            return `<div class="bar-row">
+                <div class="bar-meta">
+                    <span class="bar-label">${pg}</span>
+                    <span class="bar-count">${n} <span style="opacity:.4">${pct}%</span></span>
+                </div>
+                <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+            </div>`;
+        }).join('');
+    })();
+
     const recent = visits.slice(-50).reverse();
     const rowsHtml = !recent.length
-        ? '<tr><td colspan="10" style="text-align:center;padding:40px;color:var(--dim);font-style:italic">no visits yet</td></tr>'
+        ? '<tr><td colspan="11" style="text-align:center;padding:40px;color:var(--dim);font-style:italic">no visits yet</td></tr>'
         : recent.map(v => {
             const src = getSource(v);
             const est = new Date(v.timestamp).toLocaleString('en-US',{
@@ -402,15 +478,18 @@ async function init() {
             const chip = dev==='mobile'?'mobile':dev==='tablet'?'tablet':'desktop';
             const humanOrBot = isHuman(v) ? 'human' : 'bot';
             const humanLabel = isHuman(v) ? '✓ human' : '✗ bot';
+            const pages = v.pages || [v.path || '/'];
+            const pageCount = pages.length;
             return `<tr>
                 <td class="bright">${est}</td>
                 <td class="dim">${v.ip||'—'}</td>
                 <td>${v.location||'—'}</td>
                 <td><span class="chip ${chip}">${v.device||'—'}</span></td>
-                <td>${v.os||'—'}</td>
                 <td>${v.browser||'—'}</td>
                 <td>${fmtDur(v.duration||0)}</td>
                 <td class="bright">${v.navigations||0}</td>
+                <td class="bright">${pageCount}</td>
+                <td class="path-cell">${formatPath(pages)}</td>
                 <td>${src}</td>
                 <td><span class="chip ${humanOrBot}">${humanLabel}</span></td>
             </tr>`;
@@ -460,9 +539,15 @@ async function init() {
         <div class="card"><div class="card-title">Source</div>${barChart(sources)}</div>
     </div>
 
-    <div class="card" style="margin-bottom:20px">
-        <div class="card-title">Top Locations</div>
-        ${locsHtml}
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+        <div class="card">
+            <div class="card-title">Top Locations</div>
+            ${locsHtml}
+        </div>
+        <div class="card">
+            <div class="card-title">Top Pages</div>
+            ${topPagesChart}
+        </div>
     </div>
 
     <div class="table-section">
@@ -474,8 +559,8 @@ async function init() {
             <table>
                 <thead><tr>
                     <th>Time (EST)</th><th>IP</th><th>Location</th>
-                    <th>Device</th><th>OS</th><th>Browser</th>
-                    <th>Duration</th><th>Clicks</th><th>Source</th><th>Type</th>
+                    <th>Device</th><th>Browser</th>
+                    <th>Duration</th><th>Clicks</th><th>Pages</th><th>Path</th><th>Source</th><th>Type</th>
                 </tr></thead>
                 <tbody>${rowsHtml}</tbody>
             </table>
