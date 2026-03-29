@@ -75,7 +75,7 @@ module.exports = function layout({ title, description, path, body, site, service
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css?v=10">
 
   ${schema ? `<script type="application/ld+json">${schema}</script>` : ''}
 </head>
@@ -174,7 +174,7 @@ module.exports = function layout({ title, description, path, body, site, service
     </div>
   </footer>
 
-  <script src="/js/main.js"></script>
+  <script src="/js/main.js?v=10"></script>
   ${trackingSnippet}
 </body>
 </html>`;

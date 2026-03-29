@@ -8,9 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
       toggle.setAttribute('aria-expanded', isOpen);
       toggle.classList.toggle('active', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
-
-      // TEMP DEBUG: red border so we can see if nav is toggling
-      nav.style.border = isOpen ? '3px solid red' : 'none';
     });
   }
 });

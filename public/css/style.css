@@ -1338,6 +1338,12 @@ select.form-input {
     --section-pad: 3.5rem;
   }
 
+  /* Remove backdrop-filter so position:fixed nav escapes the header containing block */
+  .site-header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
   .mobile-toggle {
     display: flex;
   }
@@ -1352,10 +1358,12 @@ select.form-input {
     display: none;
     z-index: 10000;
     overflow-y: auto;
+    justify-content: flex-start;
   }
 
   .main-nav.open {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   .nav-list {
@@ -1445,6 +1453,19 @@ select.form-input {
 }
 
 @media (max-width: 600px) {
+  .logo-img {
+    height: 30px;
+  }
+
+  .mobile-toggle {
+    flex-shrink: 0;
+    overflow: visible;
+  }
+
+  .hamburger-line {
+    width: 30px;
+  }
+
   :root {
     --section-pad: 2.5rem;
     --gap: 1.25rem;
