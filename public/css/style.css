@@ -616,19 +616,14 @@ ul, ol { list-style: none; }
 
 .why-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 3rem;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--border);
 }
 
-.why-heading {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  letter-spacing: 0.04em;
-  color: var(--text-primary);
-  white-space: nowrap;
+.why-heading-block {
   flex-shrink: 0;
 }
 
@@ -1489,5 +1484,62 @@ select.form-input {
 
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ─── Venue Grid ─────────────────────────────────── */
+
+.venues-section .section-heading {
+  margin-bottom: 0;
+}
+
+.venue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.venue-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem 1.25rem 1.1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--border-light);
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.venue-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-light);
+  border-left-color: var(--accent);
+}
+
+.venue-card-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
+  line-height: 1.2;
+  transition: color var(--transition);
+}
+
+.venue-card:hover .venue-card-name {
+  color: var(--accent);
+}
+
+.venue-card-type {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .venue-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 }

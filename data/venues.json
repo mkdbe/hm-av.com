@@ -1,0 +1,15 @@
+[
+  { "name": "Arbor at the Port",                     "url": "https://arborvenues.com/arbor-at-the-port",                               "type": "Event Venue" },
+  { "name": "Casa Larga Vineyards",                  "url": "https://casalarga.com/",                                                  "type": "Winery & Venue" },
+  { "name": "The Century Club of Rochester",         "url": "https://www.centuryclubrochester.net/",                                   "type": "Private Club" },
+  { "name": "Genesee Valley Club",                   "url": "https://www.gvalleyclub.org/",                                            "type": "Private Club" },
+  { "name": "Hotel Canandaigua",                     "url": "https://www.hotelcanandaiguany.com/",                                     "type": "Hotel" },
+  { "name": "Memorial Art Gallery",                  "url": "https://mag.rochester.edu/",                                              "type": "Museum & Venue" },
+  { "name": "Radio Social",                          "url": "https://radio-social.com/",                                               "type": "Event Venue" },
+  { "name": "RMSC Museum & Science Center",          "url": "https://rmsc.org/",                                                       "type": "Museum & Venue" },
+  { "name": "Rochester Airport Marriott",            "url": "https://www.marriott.com/en-us/hotels/rocap-rochester-airport-marriott/overview/", "type": "Hotel" },
+  { "name": "Rochester Riverside Convention Center", "url": "https://www.rrcc.com/",                                                  "type": "Convention Center" },
+  { "name": "The Harro East Ballroom",               "url": "https://www.theharroeastballroom.com/",                                  "type": "Ballroom" },
+  { "name": "The Historic German House",             "url": "https://thehistoricgermanhouse.com/",                                    "type": "Historic Venue" },
+  { "name": "The Strong National Museum of Play",    "url": "https://www.museumofplay.org/",                                          "type": "Museum & Venue" }
+]

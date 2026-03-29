@@ -1,4 +1,4 @@
-module.exports = function homePage({ site, services, equipment, reviews }) {
+module.exports = function homePage({ site, services, equipment, reviews, venues }) {
   const biz = site.business;
 
   return `
@@ -42,7 +42,10 @@ module.exports = function homePage({ site, services, equipment, reviews }) {
   <section class="section why-hms">
     <div class="container">
       <div class="why-row">
-        <h2 class="why-heading">Why Choose Us</h2>
+        <div class="why-heading-block">
+          <span class="section-label">The Difference</span>
+          <h2 class="section-heading section-heading-lg">Why<br>Choose Us.</h2>
+        </div>
         <div class="why-features">
           <div class="why-feature">
             <span class="why-feature-number">${biz.experience}+</span>
@@ -97,6 +100,22 @@ module.exports = function homePage({ site, services, equipment, reviews }) {
     </div>
   </section>
   ` : ''}
+
+
+  <!-- Venues -->
+  <section class="section venues-section">
+    <div class="container">
+      <span class="section-label">Across Greater Rochester</span>
+      <h2 class="section-heading section-heading-lg">Venues We've<br>Worked With.</h2>
+      <div class="venue-grid">
+        ${venues.map(v => `
+        <a href="${v.url}" class="venue-card" target="_blank" rel="noopener noreferrer">
+          <span class="venue-card-name">${v.name}</span>
+          ${v.type ? `<span class="venue-card-type">${v.type}</span>` : ''}
+        </a>`).join('')}
+      </div>
+    </div>
+  </section>
 
   <!-- Equipment Highlight -->
   <section class="section equipment-highlight">
