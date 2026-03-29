@@ -26,7 +26,7 @@ if (!fs.existsSync(ANALYTICS_FILE)) {
     fs.writeFileSync(ANALYTICS_FILE, JSON.stringify({ visits: [] }));
 }
 
-const BOT_PATTERNS = /bot|crawler|spider|googlebot|bingbot|yandex|baidu|semrush|ahrefsbot|mj12bot|dotbot|python-requests|curl|wget|libwww|go-http-client|scrapy|slackbot|pinterest|whatsapp|facebookexternalhit/i;
+const BOT_PATTERNS = /bot|crawler|spider|googlebot|bingbot|yandex|baidu|semrush|ahrefsbot|mj12bot|dotbot|python-requests|curl|wget|libwww|go-http-client|scrapy|slackbot|pinterest|whatsapp|facebookexternalhit|uptime-kuma/i;
 
 // Human classification: duration >= 30s AND navigations >= 1, Rochester override
 function isHumanVisit(visit) {
@@ -596,6 +596,6 @@ function buildFAQSchema(faqItems) {
 
 // ─── Start ──────────────────────────────────────────────
 
-app.listen(PORT, () => {
+app.listen(PORT, '127.0.0.1', () => {
   console.log(`HM-AV site running on http://localhost:${PORT}`);
 });

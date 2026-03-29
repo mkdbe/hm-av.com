@@ -40,6 +40,38 @@
       "navigations": 29,
       "lastHeartbeat": "2026-03-25T05:01:26.821Z",
       "duration": 171
+    },
+    {
+      "sessionId": "pnxd33ziiomn8zd48d",
+      "timestamp": "2026-03-27T14:12:11.832Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "34.239.151.120",
+      "location": "Ashburn, VA, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/138.0.7204.23 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "tosuywwtnmmn9m4f3a",
+      "timestamp": "2026-03-28T00:49:17.181Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "18.118.173.45",
+      "location": "Columbus, OH, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.7423.12 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
     }
   ]
 }
