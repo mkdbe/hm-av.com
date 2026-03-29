@@ -1520,8 +1520,6 @@ select.form-input {
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 1rem;
   margin-top: 2.5rem;
-  border: 1px solid var(--border);
-  padding: 1.5rem;
 }
 
 .venue-card {
@@ -1546,13 +1544,6 @@ select.form-input {
   max-width: 100%;
   width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.7;
-  transition: opacity var(--transition);
-}
-
-.venue-card:hover .venue-card-logo img {
-  opacity: 1;
 }
 
 .venue-card-logo svg {
@@ -1581,5 +1572,34 @@ select.form-input {
   .venue-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
+  }
+}
+
+/* ── Clients / Trusted By ── */
+.client-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 4;
+  column-gap: 2rem;
+}
+
+.client-item {
+  padding: 0.35rem 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  break-inside: avoid;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .client-list {
+    columns: 3;
+  }
+}
+
+@media (max-width: 600px) {
+  .client-list {
+    columns: 2;
   }
 }

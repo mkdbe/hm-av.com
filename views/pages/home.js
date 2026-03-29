@@ -1,4 +1,4 @@
-module.exports = function homePage({ site, services, equipment, reviews, venues }) {
+module.exports = function homePage({ site, services, equipment, reviews, venues, clients }) {
   const biz = site.business;
 
   return `
@@ -9,7 +9,7 @@ module.exports = function homePage({ site, services, equipment, reviews, venues 
       <h1 class="hero-heading">Live Event Production<br>&amp; AV Rentals</h1>
       <p class="hero-sub">Full-service audio visual solutions for corporate events, conferences, and live productions in Rochester, NY.</p>
       <div class="hero-actions">
-        <a href="/contact" class="btn btn-primary">Get a Free Quote</a>
+        <a href="/contact" class="btn btn-primary">Get a Quote</a>
         <a href="/services" class="btn btn-outline">Our Services</a>
       </div>
     </div>
@@ -119,6 +119,18 @@ module.exports = function homePage({ site, services, equipment, reviews, venues 
           <span class="venue-card-name">${v.name}</span>
         </a>`).join('')}
       </div>
+    </div>
+  </section>
+
+
+  <!-- Clients -->
+  <section class="section clients-section">
+    <div class="container">
+      <span class="section-label">Our Clients</span>
+      <h2 class="section-heading section-heading-lg">Trusted<br>By.</h2>
+      <ul class="client-list">
+        ${clients.map(c => `<li class="client-item">${c.name}</li>`).join('')}
+      </ul>
     </div>
   </section>
 

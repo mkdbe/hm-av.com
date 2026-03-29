@@ -183,6 +183,7 @@ const equipment = loadJSON('equipment.json');
 const faq = loadJSON('faq.json');
 const reviews = loadJSON('reviews.json');
 const venues = loadJSON('venues.json');
+const clients = loadJSON('clients.json');
 
 // Template engine
 const layout = require('./views/layout');
@@ -348,7 +349,7 @@ app.get('/', (req, res) => {
     title: site.meta.defaultTitle,
     description: site.meta.defaultDescription,
     path: '/',
-    body: homePage({ site, services, equipment, reviews, venues }),
+    body: homePage({ site, services, equipment, reviews, venues, clients }),
     site, services, equipment,
     schema: buildLocalBusinessSchema()
   }));
