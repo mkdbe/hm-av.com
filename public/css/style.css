@@ -623,27 +623,36 @@ ul, ol { list-style: none; }
   border-bottom: 1px solid var(--border);
 }
 
+.why-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .why-heading-block {
   flex-shrink: 0;
 }
 
 .why-features {
   display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex: 1;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2.5rem;
 }
 
 .why-feature {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  text-align: center;
+  gap: 0.75rem;
   color: var(--accent);
+  flex: 1;
 }
 
 .why-feature-number {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 3.5rem;
   color: var(--accent);
   line-height: 1;
 }
@@ -651,9 +660,9 @@ ul, ol { list-style: none; }
 .why-feature-label {
   font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--text-secondary);
-  white-space: nowrap;
 }
 
 .why-text {
@@ -958,14 +967,31 @@ details[open] .faq-chevron {
 
 /* ─── Reviews ─────────────────────────────────────── */
 
-.reviews-section {
-  background: var(--bg-secondary);
-}
 
 .reviews-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  grid-auto-columns: 320px;
   gap: var(--gap);
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  /* hide scrollbar on webkit but keep it functional */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-light) transparent;
+}
+
+.reviews-grid::-webkit-scrollbar {
+  height: 4px;
+}
+
+.reviews-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.reviews-grid::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 2px;
 }
 
 .review-card {
@@ -1489,52 +1515,66 @@ select.form-input {
 
 /* ─── Venue Grid ─────────────────────────────────── */
 
-.venues-section .section-heading {
-  margin-bottom: 0;
-}
-
 .venue-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 1rem;
   margin-top: 2.5rem;
+  border: 1px solid var(--border);
+  padding: 1.5rem;
 }
 
 .venue-card {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  padding: 1.25rem 1.25rem 1.1rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-left: 2px solid var(--border-light);
-  transition: border-color var(--transition), background var(--transition);
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1rem 1.25rem;
 }
 
-.venue-card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-light);
-  border-left-color: var(--accent);
+.venue-card-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 100%;
+}
+
+.venue-card-logo img {
+  max-height: 48px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+  transition: opacity var(--transition);
+}
+
+.venue-card:hover .venue-card-logo img {
+  opacity: 1;
+}
+
+.venue-card-logo svg {
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.venue-card:hover .venue-card-logo svg {
+  color: var(--text-secondary);
 }
 
 .venue-card-name {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1rem;
   letter-spacing: 0.03em;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   line-height: 1.2;
   transition: color var(--transition);
 }
 
 .venue-card:hover .venue-card-name {
-  color: var(--accent);
-}
-
-.venue-card-type {
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  color: var(--text-primary);
 }
 
 @media (max-width: 600px) {

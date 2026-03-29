@@ -41,7 +41,7 @@ module.exports = function homePage({ site, services, equipment, reviews, venues 
   <!-- Why HMS -->
   <section class="section why-hms">
     <div class="container">
-      <div class="why-row">
+      <div class="why-inner">
         <div class="why-heading-block">
           <span class="section-label">The Difference</span>
           <h2 class="section-heading section-heading-lg">Why<br>Choose Us.</h2>
@@ -52,20 +52,20 @@ module.exports = function homePage({ site, services, equipment, reviews, venues 
             <span class="why-feature-label">Years Experience</span>
           </div>
           <div class="why-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
               <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/>
               <circle cx="12" cy="10" r="3"/>
             </svg>
             <span class="why-feature-label">Rochester Based</span>
           </div>
           <div class="why-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
             </svg>
             <span class="why-feature-label">Full-Service Production</span>
           </div>
           <div class="why-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
               <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
               <line x1="8" y1="21" x2="16" y2="21"/>
               <line x1="12" y1="17" x2="12" y2="21"/>
@@ -73,8 +73,8 @@ module.exports = function homePage({ site, services, equipment, reviews, venues 
             <span class="why-feature-label">Virtual &amp; Hybrid</span>
           </div>
         </div>
+      <p class="why-text">HIGHLANDMEDIA delivers high-quality AV solutions for corporate events throughout the Rochester and Finger Lakes region. We work quickly and efficiently under pressure, ensuring your event runs seamlessly from load-in to strike. One team, one point of contact, complete technical production.</p>
       </div>
-      <p class="why-text">HM-AV delivers high-quality AV solutions for corporate events throughout the Rochester and Finger Lakes region. We work quickly and efficiently under pressure, ensuring your event runs seamlessly from load-in to strike. One team, one point of contact, complete technical production.</p>
     </div>
   </section>
 
@@ -110,8 +110,13 @@ module.exports = function homePage({ site, services, equipment, reviews, venues 
       <div class="venue-grid">
         ${venues.map(v => `
         <a href="${v.url}" class="venue-card" target="_blank" rel="noopener noreferrer">
+          <div class="venue-card-logo">
+            ${v.logo
+              ? `<img src="${v.logo}" alt="${v.name}" loading="lazy">`
+              : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" width="36" height="36"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>`
+            }
+          </div>
           <span class="venue-card-name">${v.name}</span>
-          ${v.type ? `<span class="venue-card-type">${v.type}</span>` : ''}
         </a>`).join('')}
       </div>
     </div>
