@@ -538,8 +538,9 @@ Sitemap: ${site.business.url}/sitemap.xml`);
 function buildLocalBusinessSchema() {
   return JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "ProfessionalService"],
     "name": site.business.name,
+    "alternateName": "HM-AV",
     "description": site.meta.defaultDescription,
     "url": site.business.url,
     "telephone": site.business.phoneTel,
@@ -550,15 +551,16 @@ function buildLocalBusinessSchema() {
       "addressRegion": site.business.state,
       "addressCountry": "US"
     },
-    "areaServed": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": 43.1566,
-        "longitude": -77.6088
-      },
-      "geoRadius": "80000"
-    },
+    "areaServed": [
+      { "@type": "City", "name": "Rochester", "sameAs": "https://en.wikipedia.org/wiki/Rochester,_New_York" },
+      { "@type": "State", "name": "New York" }
+    ],
+    "knowsAbout": ["audio visual production", "live event production", "AV equipment rental", "sound systems", "video production", "event lighting", "hybrid events", "corporate events"],
+    "sameAs": [
+      "https://www.instagram.com/highlandmedia_co/",
+      "https://www.facebook.com/highlandmediaagency/",
+      "https://highlandmediaservices.com"
+    ],
     "priceRange": "$$"
   }, null, 2);
 }

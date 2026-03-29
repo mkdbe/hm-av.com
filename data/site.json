@@ -19,6 +19,6 @@
     "defaultTitle": "AV Rental & Event Production Rochester, NY | HM-AV",
     "defaultDescription": "Full-service AV rental and live event production in Rochester, NY. Sound, video, lighting, and virtual event solutions. Call (585) 210-2350.",
     "ogImage": "/assets/images/og-default.jpg",
-    "noindex": true
+    "noindex": false
   }
 }
