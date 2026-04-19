@@ -196,6 +196,7 @@ const aboutPage = require('./views/pages/about');
 const contactPage = require('./views/pages/contact');
 const faqPage = require('./views/pages/faq');
 const portfolioPage = require('./views/pages/portfolio');
+const { getSession, saveSession, pickServicePhotos, getReviewOrder } = require('./lib/session');
 
 // ─── Analytics API Routes ───────────────────────────────
 
@@ -345,11 +346,18 @@ app.get("/analytics", (req, res) => {
 
 // Home
 app.get('/', (req, res) => {
+  const session = getSession(req);
+  const reviewOrder = getReviewOrder(reviews, session);
+  if (!session.reviewOrder) {
+    session.reviewOrder = reviewOrder;
+    saveSession(res, session);
+  }
+  const shuffledReviews = reviewOrder.map(i => reviews[i]);
   res.send(layout({
     title: site.meta.defaultTitle,
     description: site.meta.defaultDescription,
     path: '/',
-    body: homePage({ site, services, equipment, reviews, venues, clients }),
+    body: homePage({ site, services, equipment, reviews: shuffledReviews, venues, clients }),
     site, services, equipment,
     schema: buildLocalBusinessSchema()
   }));
@@ -357,11 +365,21 @@ app.get('/', (req, res) => {
 
 // Services overview
 app.get('/services', (req, res) => {
+  const session = getSession(req);
+  const { photos, changed } = pickServicePhotos(services, session);
+  if (changed) {
+    session.servicePhotos = photos;
+    saveSession(res, session);
+  }
+  const servicesWithPhotos = services.map(s => ({
+    ...s,
+    photo: photos[s.slug] ? `/assets/services/${s.slug}/${photos[s.slug]}` : null
+  }));
   res.send(layout({
     title: `AV Services in Rochester, NY | ${site.business.brandName}`,
     description: 'Audio visual services including sound, video, lighting, event production, and virtual event solutions in Rochester, NY.',
     path: '/services',
-    body: servicesPage({ site, services }),
+    body: servicesPage({ site, services: servicesWithPhotos }),
     site, services, equipment
   }));
 });

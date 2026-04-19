@@ -18,9 +18,10 @@ module.exports = function servicesPage({ site, services }) {
             <a href="/services/${s.slug}" class="btn btn-outline btn-sm">Learn more &rarr;</a>
           </div>
           <div class="service-row-image">
-            <div class="placeholder-image" aria-hidden="true">
-              <span>${s.navTitle}</span>
-            </div>
+            ${s.photo
+              ? `<img src="${s.photo}" alt="${s.title} services" loading="lazy" class="service-row-photo">`
+              : `<div class="placeholder-image" aria-hidden="true"><span>${s.navTitle}</span></div>`
+            }
           </div>
         </div>`).join('')}
       </div>
