@@ -63,5 +63,100 @@
     "name": "The Strong National Museum of Play",
     "url": "https://www.museumofplay.org/",
     "logo": "/assets/venues/museumofplay.png"
+  },
+  {
+    "name": "DoubleTree by Hilton Rochester",
+    "url": "https://www.hilton.com/en/hotels/rocdtdt-doubletree-rochester/",
+    "logo": null
+  },
+  {
+    "name": "Locust Hill Country Club",
+    "url": "https://www.locusthill.org/",
+    "logo": null
+  },
+  {
+    "name": "The Wintergarden by Monroe's",
+    "url": "https://www.wintergardenbymonroes.com/",
+    "logo": null
+  },
+  {
+    "name": "The Theater at Innovation Square",
+    "url": "https://www.theaterais.com/",
+    "logo": null
+  },
+  {
+    "name": "RIT Inn & Conference Center",
+    "url": "https://www.ritinn.com/",
+    "logo": null
+  },
+  {
+    "name": "Kin Event Space",
+    "url": "https://www.kineventspace.com/",
+    "logo": null
+  },
+  {
+    "name": "Hyatt Regency Rochester",
+    "url": "https://www.hyatt.com/hyatt-regency/en-US/rocro-hyatt-regency-rochester",
+    "logo": null
+  },
+  {
+    "name": "The Highline",
+    "url": "https://www.thehighlinerochester.com/",
+    "logo": null
+  },
+  {
+    "name": "The Inn on Broadway",
+    "url": "https://innonbroadway.com/",
+    "logo": null
+  },
+  {
+    "name": "Oak Hill Country Club",
+    "url": "https://oakhillcc.com/",
+    "logo": null
+  },
+  {
+    "name": "Artisan Works",
+    "url": "https://www.artisanworks.net/",
+    "logo": null
+  },
+  {
+    "name": "Country Club of Rochester",
+    "url": "https://www.ccrochester.org/",
+    "logo": null
+  },
+  {
+    "name": "The Strathallan",
+    "url": "https://strathallan.com/",
+    "logo": null
+  },
+  {
+    "name": "Monroe Golf Club",
+    "url": "https://www.monroegolfclub.com/",
+    "logo": null
+  },
+  {
+    "name": "Tower Fine Arts Center",
+    "url": "https://www.brockport.edu/academics/theatre-music/tower/",
+    "logo": null
+  },
+  {
+    "name": "Innovation Square",
+    "url": "https://www.theaterais.com/",
+    "logo": null
+  },
+  {
+    "name": "Christ Church Rochester",
+    "url": "https://www.christchurchrochester.org/",
+    "logo": null
+  },
+  {
+    "name": "Rochester Academy of Medicine",
+    "url": "https://www.raom.org/",
+    "logo": null
+  },
+  {
+    "name": "The Little Theatre",
+    "url": "https://thelittle.org/",
+    "logo": null
   }
 ]

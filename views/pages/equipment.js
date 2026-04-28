@@ -42,7 +42,7 @@ module.exports = function equipmentPage({ site, equipment }) {
         <div class="two-col-item">
           <h3>Full-Service Production</h3>
           <p>Equipment plus experienced technicians to operate it. We handle setup, operation, and teardown. You focus on your event.</p>
-          <a href="/services/live-event-production" class="text-link">Learn about our production services &rarr;</a>
+          <a href="/services" class="text-link">Learn about our production services &rarr;</a>
         </div>
       </div>
     </div>

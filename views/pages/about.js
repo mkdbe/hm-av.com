@@ -4,14 +4,14 @@ module.exports = function aboutPage({ site }) {
   return `
   <section class="page-hero page-hero-sm">
     <div class="container">
-      <h1 class="page-title">About HM-AV</h1>
+      <h1 class="page-title">About HIGHLANDMEDIA</h1>
     </div>
   </section>
 
   <section class="section">
     <div class="container content-layout">
       <div class="content-main">
-        <p class="content-intro">HM-AV (Highland Media Services) is a full-service event production and AV rental company based in Rochester, New York. With over ${biz.experience} years of experience in audio visual production, we specialize in delivering reliable, high-quality technical solutions for corporate events, conferences, and live productions.</p>
+        <p class="content-intro">HIGHLANDMEDIA is a full-service event production and AV rental company based in Rochester, New York. With over ${biz.experience} years of experience in audio visual production, we specialize in delivering reliable, high-quality technical solutions for corporate events, conferences, and live productions.</p>
 
         <div class="content-block">
           <h2>What We Do</h2>
@@ -27,7 +27,7 @@ module.exports = function aboutPage({ site }) {
 
         <div class="content-block">
           <h2>Where We Work</h2>
-          <p>We're based in Rochester and serve the entire Greater Rochester area, the Finger Lakes region, and Western and Central New York. We work in hotels, convention centers, corporate offices, outdoor venues, houses of worship, and event spaces of all sizes. We regularly support events in Buffalo, Syracuse, and the surrounding regions.</p>
+          <p>We're based in Rochester and serve the entire Greater Rochester area, the Finger Lakes region, and Western and Central New York. We work in hotels, convention centers, corporate offices, outdoor venues, houses of worship, and event spaces of all sizes. We support events in Buffalo, Syracuse, and the surrounding regions.</p>
         </div>
 
         <div class="content-cta">

@@ -64,7 +64,7 @@ function fireVisitorNotification(visit) {
 <head><meta name="color-scheme" content="dark"><meta name="supported-color-schemes" content="dark light"></head>
 <body style="background:#1a1a1a;color:#e0e0e0;font-family:monospace;padding:24px;margin:0;">
   <div style="max-width:480px;margin:0 auto;background:#242424;border-radius:8px;padding:24px;border:1px solid #333;">
-    <h2 style="color:#cc2222;margin:0 0 20px 0;font-size:16px;letter-spacing:2px;">HM-AV.COM — NEW VISITOR</h2>
+    <h2 style="color:#cc2222;margin:0 0 20px 0;font-size:16px;letter-spacing:2px;">HIGHLANDMEDIA.COM — NEW VISITOR</h2>
     <table style="width:100%;border-collapse:collapse;">
       <tr><td style="color:#888;padding:6px 0;width:110px;">TIME</td><td style="color:#e0e0e0;padding:6px 0;">${now} EST</td></tr>
       <tr><td style="color:#888;padding:6px 0;">LOCATION</td><td style="color:#e0e0e0;padding:6px 0;">${visit.location}</td></tr>
@@ -353,11 +353,13 @@ app.get('/', (req, res) => {
     saveSession(res, session);
   }
   const shuffledReviews = reviewOrder.map(i => reviews[i]);
+  const shuffledVenues = [...venues].sort(() => Math.random() - 0.5);
+  const shuffledClients = [...clients].sort(() => Math.random() - 0.5);
   res.send(layout({
     title: site.meta.defaultTitle,
     description: site.meta.defaultDescription,
     path: '/',
-    body: homePage({ site, services, equipment, reviews: shuffledReviews, venues, clients }),
+    body: homePage({ site, services, equipment, reviews: shuffledReviews, venues: shuffledVenues, clients: shuffledClients }),
     site, services, equipment,
     schema: buildLocalBusinessSchema()
   }));
@@ -425,8 +427,8 @@ app.get('/equipment/:slug', (req, res) => {
 // About
 app.get('/about', (req, res) => {
   res.send(layout({
-    title: `About HM-AV | AV Production in Rochester, NY`,
-    description: 'Over 20 years of audio visual and event production experience in Rochester, NY. Learn about HM-AV.',
+    title: `About HIGHLANDMEDIA | AV Production in Rochester, NY`,
+    description: 'Over 20 years of audio visual and event production experience in Rochester, NY. Learn about HIGHLANDMEDIA.',
     path: '/about',
     body: aboutPage({ site }),
     site, services, equipment
@@ -436,7 +438,7 @@ app.get('/about', (req, res) => {
 // Contact
 app.get('/contact', (req, res) => {
   res.send(layout({
-    title: `Contact HM-AV | Get a Quote | Rochester, NY`,
+    title: `Contact HIGHLANDMEDIA | Get a Quote | Rochester, NY`,
     description: 'Request a quote for AV rental or event production in Rochester, NY. Call (585) 210-2350 or email info@hm-av.com.',
     path: '/contact',
     body: contactPage({ site, success: req.query.success === '1', error: req.query.error === '1' }),
@@ -474,7 +476,7 @@ Submitted: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }
 
   try {
     await resend.emails.send({
-      from: 'HM-AV Quote Request <onboarding@resend.dev>',
+      from: 'HIGHLANDMEDIA Quote Request <onboarding@resend.dev>',
       to: 'info@hm-av.com',
       replyTo: email,
       subject: `Quote Request: ${name}${organization ? ' / ' + organization : ''}`,
@@ -492,7 +494,7 @@ Submitted: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }
 // FAQ
 app.get('/faq', (req, res) => {
   res.send(layout({
-    title: `FAQ — AV Rental & Event Production | HM-AV`,
+    title: `FAQ — AV Rental & Event Production | HIGHLANDMEDIA`,
     description: 'Frequently asked questions about AV equipment rental and event production services in Rochester, NY.',
     path: '/faq',
     body: faqPage({ site, faq }),
@@ -504,7 +506,7 @@ app.get('/faq', (req, res) => {
 // Portfolio
 app.get('/portfolio', (req, res) => {
   res.send(layout({
-    title: `Portfolio — Event Production Work | HM-AV`,
+    title: `Portfolio — Event Production Work | HIGHLANDMEDIA`,
     description: 'See our event production work across Rochester, NY. Corporate events, conferences, galas, and more.',
     path: '/portfolio',
     body: portfolioPage({ site }),
@@ -558,7 +560,7 @@ function buildLocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService"],
     "name": site.business.name,
-    "alternateName": "HM-AV",
+    "alternateName": "HIGHLANDMEDIA",
     "description": site.meta.defaultDescription,
     "url": site.business.url,
     "telephone": site.business.phoneTel,
@@ -619,5 +621,5 @@ function buildFAQSchema(faqItems) {
 // ─── Start ──────────────────────────────────────────────
 
 app.listen(PORT, '127.0.0.1', () => {
-  console.log(`HM-AV site running on http://localhost:${PORT}`);
+  console.log(`HIGHLANDMEDIA site running on http://localhost:${PORT}`);
 });

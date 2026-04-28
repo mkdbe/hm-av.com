@@ -3,12 +3,16 @@
     "slug": "audio",
     "title": "Audio",
     "navTitle": "Audio",
-    "metaTitle": "Sound Reinforcement & Audio Services in Rochester, NY | HM-AV",
+    "metaTitle": "Sound Reinforcement & Audio Services in Rochester, NY | HIGHLANDMEDIA",
     "metaDescription": "Professional sound reinforcement, wireless microphones, and audio engineering for corporate events and live productions in Rochester, NY.",
     "heroHeading": "Sound Reinforcement & Audio Services",
     "cardDescription": "Full-service sound reinforcement for events of any scale. From intimate corporate meetings to large-scale conferences, we deliver clear, balanced audio that keeps your audience engaged.",
-    "cardTags": ["Sound Reinforcement", "Mixing", "Wireless Mics", "IEM"],
-    "intro": "Full-service sound reinforcement for events of any scale. From intimate corporate meetings to large-scale conferences, we deliver clear, balanced audio that keeps your audience engaged. HM-AV provides professional audio engineering and equipment for events across the Rochester and Finger Lakes region.",
+    "cardTags": [
+      "Sound Reinforcement",
+      "Mixing",
+      "Wireless Mics"
+    ],
+    "intro": "Full-service sound reinforcement for events of any scale. From intimate corporate meetings to large-scale conferences, we deliver clear, balanced audio that keeps your audience engaged. HIGHLANDMEDIA provides professional audio engineering and equipment for events across the Rochester and Finger Lakes region.",
     "sections": [
       {
         "heading": "Sound Reinforcement & Mixing",
@@ -16,51 +20,78 @@
       },
       {
         "heading": "Wireless Microphone Systems",
-        "content": "We provide professional wireless microphone systems — handheld, lavalier, and headset — for any event format. Panel discussions, keynote presentations, Q&A sessions, and performances all demand reliable wireless audio. Our systems are frequency-coordinated for interference-free operation in any venue."
+        "content": "We provide professional wireless microphone systems \u2014 handheld, lavalier, and headset \u2014 for any event format. Panel discussions, keynote presentations, Q&A sessions, and performances all demand reliable wireless audio. Our systems are frequency-coordinated for interference-free operation in any venue."
       },
       {
         "heading": "Full Inventory",
-        "content": "Powered and passive speaker systems, digital mixing consoles, wireless and wired microphone systems, in-ear monitor (IEM) systems, audio distribution and processing, DI boxes, and press feed/mult boxes for media events. We carry the equipment to support events from 20 to 2,000+ attendees."
+        "content": "Powered and passive speaker systems, digital mixing consoles, wireless and wired microphone systems, audio distribution and processing, DI boxes, and press feed/mult boxes for media events. We carry the equipment to support events from 20 to 2,000+ attendees."
       }
     ],
-    "keywords": ["sound reinforcement Rochester NY", "PA rental Rochester", "wireless microphone rental Rochester", "audio equipment rental Rochester NY", "event sound system Rochester", "audio engineer Rochester NY"]
+    "keywords": [
+      "sound reinforcement Rochester NY",
+      "PA rental Rochester",
+      "wireless microphone rental Rochester",
+      "audio equipment rental Rochester NY",
+      "event sound system Rochester",
+      "audio engineer Rochester NY"
+    ]
   },
   {
     "slug": "video",
     "title": "Video",
     "navTitle": "Video",
-    "metaTitle": "Video Production, Recording & Projection in Rochester, NY | HM-AV",
+    "metaTitle": "Video Production, Recording & Projection in Rochester, NY | HIGHLANDMEDIA",
     "metaDescription": "Multi-camera video production, live switching, recording, editing, and projection for events in Rochester, NY. IMAG, content capture, and post-production services.",
-    "heroHeading": "Video Production, Recording & Projection",
-    "cardDescription": "Multi-camera video production and switching for live events. We handle everything from camera operation to real-time mixing, ensuring your content looks professional on any screen.",
-    "cardTags": ["Multi-Camera", "Live Switching", "Recording", "Projection"],
-    "intro": "Multi-camera video production and switching for live events. We handle everything from camera operation to real-time mixing, ensuring your content looks professional on any screen. HM-AV provides complete video production services for events throughout the Rochester and Finger Lakes region.",
+    "heroHeading": "Projection and Display",
+    "cardDescription": "Display technology that ensures your message reaches every person in the room \u2014 impactful, clear, and professionally executed.",
+    "cardTags": [
+      "Projection",
+      "Display",
+      "Multi-Camera",
+      "Live Switching",
+      "Recording",
+      "Post"
+    ],
+    "intro": "Display technology that ensures your message reaches every person in the room \u2014 impactful, clear, and professionally executed. HIGHLANDMEDIA provides complete video production services for events throughout the Rochester and Finger Lakes region.",
     "sections": [
       {
-        "heading": "Multi-Camera Production & Live Switching",
-        "content": "For conferences and large-format events, our multi-camera production capabilities include IMAG (image magnification) so audiences in large rooms can see presenters clearly on screen. We provide camera operation, video switching, graphics insertion, and confidence monitors for speakers — all mixed in real time for a polished, broadcast-quality look."
+        "heading": "Projection & Display",
+        "content": "We carry a range of projectors from portable units for meeting rooms to high-lumen models for large ballrooms and outdoor events. Paired with front and rear projection screens in multiple sizes, we create impactful visuals in any venue."
       },
       {
-        "heading": "Projection & Display",
-        "content": "We carry a range of projectors from portable units for meeting rooms to high-lumen models for large ballrooms and outdoor events. Paired with front and rear projection screens in multiple sizes, we create impactful visuals in any venue. For events requiring seamless, high-brightness visuals, we also offer LED video wall panels."
+        "heading": "Multi-Camera Production & Live Switching",
+        "content": "For conferences and large-format events, our multi-camera production capabilities include IMAG (image magnification) so audiences in large rooms can see presenters clearly on screen. We provide camera operation, video switching, graphics insertion, and confidence monitors for speakers \u2014 all mixed in real time for a polished, broadcast-quality look."
       },
       {
         "heading": "Recording & Post-Production",
-        "content": "Capture your event for future use. We provide professional multi-camera recording of presentations, sessions, and performances. After the event, our editing services deliver polished final content — highlight reels, individual session recordings, speaker clips, and branded recap videos ready for distribution, training, or marketing use."
+        "content": "Capture your event for future use. We provide professional multi-camera recording of presentations, sessions, and performances. After the event, our editing services deliver polished final content \u2014 highlight reels, individual session recordings, speaker clips, and branded recap videos ready for distribution, training, or marketing use."
       }
     ],
-    "keywords": ["video production Rochester NY", "multi-camera production Rochester", "event recording Rochester NY", "projector rental Rochester", "IMAG Rochester NY", "video editing Rochester NY", "event videography Rochester"]
+    "keywords": [
+      "video production Rochester NY",
+      "multi-camera production Rochester",
+      "event recording Rochester NY",
+      "projector rental Rochester",
+      "IMAG Rochester NY",
+      "video editing Rochester NY",
+      "event videography Rochester"
+    ]
   },
   {
     "slug": "lighting",
     "title": "Lighting",
     "navTitle": "Lighting",
-    "metaTitle": "Event Lighting Design & Rental in Rochester, NY | HM-AV",
+    "metaTitle": "Event Lighting Design & Rental in Rochester, NY | HIGHLANDMEDIA",
     "metaDescription": "Intelligent lighting design for corporate events, galas, and live productions in Rochester, NY. Stage wash, LED fixtures, programming, and operation.",
     "heroHeading": "Event Lighting Design & Rental",
-    "cardDescription": "Intelligent lighting design that sets the right mood for your event. Stage wash, accent lighting, and dynamic effects — all programmed and operated by our experienced team.",
-    "cardTags": ["Stage Wash", "LED Fixtures", "Programming", "Design"],
-    "intro": "Intelligent lighting design that sets the right mood for your event. Stage wash, accent lighting, and dynamic effects — all programmed and operated by our experienced team. HM-AV provides lighting design and equipment for events across Rochester and the Finger Lakes.",
+    "cardDescription": "Intelligent lighting design that sets the right mood for your event. Stage wash, accent lighting, and dynamic effects \u2014 all programmed and operated by our experienced team.",
+    "cardTags": [
+      "Stage Wash",
+      "LED Fixtures",
+      "Programming",
+      "Design"
+    ],
+    "intro": "Intelligent lighting design that sets the right mood for your event. Stage wash, accent lighting, and dynamic effects \u2014 all programmed and operated by our experienced team. HIGHLANDMEDIA provides lighting design and equipment for events across Rochester and the Finger Lakes.",
     "sections": [
       {
         "heading": "Stage Wash & Presentation Lighting",
@@ -75,18 +106,29 @@
         "content": "For larger productions, we provide full lighting design services including plot planning, fixture selection, console programming, and live operation. Whether it's a corporate keynote, fashion show, or concert production, our lighting team works with your creative vision to deliver polished results."
       }
     ],
-    "keywords": ["event lighting Rochester NY", "uplighting rental Rochester", "stage lighting Rochester", "lighting design Rochester NY", "LED lighting Rochester NY"]
+    "keywords": [
+      "event lighting Rochester NY",
+      "uplighting rental Rochester",
+      "stage lighting Rochester",
+      "lighting design Rochester NY",
+      "LED lighting Rochester NY"
+    ]
   },
   {
     "slug": "livestreaming",
     "title": "Livestreaming",
     "navTitle": "Livestreaming",
-    "metaTitle": "Professional Livestreaming Services in Rochester, NY | HM-AV",
+    "metaTitle": "Professional Livestreaming Services in Rochester, NY | HIGHLANDMEDIA",
     "metaDescription": "Broadcast-quality livestreaming for events in Rochester, NY. Multi-camera production, real-time encoding, graphics, and multi-platform streaming.",
     "heroHeading": "Professional Livestreaming Services",
     "cardDescription": "Professional broadcast-quality streaming to any platform. Seamless multi-camera production with real-time encoding, graphics, and technical support so your remote audience never misses a moment.",
-    "cardTags": ["Multi-Platform", "Encoding", "Graphics", "Technical Support"],
-    "intro": "Professional broadcast-quality streaming to any platform. Seamless multi-camera production with real-time encoding, graphics, and technical support so your remote audience never misses a moment. HM-AV provides livestreaming services for events throughout the Rochester and Finger Lakes region.",
+    "cardTags": [
+      "Multi-Platform",
+      "Encoding",
+      "Graphics",
+      "Technical Support"
+    ],
+    "intro": "Professional broadcast-quality streaming to any platform. Seamless multi-camera production with real-time encoding, graphics, and technical support so your remote audience never misses a moment. HIGHLANDMEDIA provides livestreaming services for events throughout the Rochester and Finger Lakes region.",
     "sections": [
       {
         "heading": "Broadcast-Quality Production",
@@ -94,29 +136,40 @@
       },
       {
         "heading": "Multi-Platform Streaming",
-        "content": "Stream simultaneously to YouTube, Facebook, LinkedIn, Vimeo, your website, or dedicated event platforms. We handle the encoding and distribution so your content reaches your audience wherever they are. We work with whatever platform your organization uses — Zoom, Microsoft Teams, Webex, or custom RTMP destinations."
+        "content": "Stream simultaneously to YouTube, Facebook, LinkedIn, Vimeo, your website, or dedicated event platforms. We handle the encoding and distribution so your content reaches your audience wherever they are. We work with whatever platform your organization uses \u2014 Zoom, Microsoft Teams, Webex, or custom RTMP destinations."
       },
       {
         "heading": "On-Site Technical Support",
         "content": "Every livestream includes a dedicated streaming technician who monitors the feed, manages encoding quality, and troubleshoots in real time. Network connectivity, bandwidth management, and redundant failover systems ensure your stream stays live from start to finish."
       }
     ],
-    "keywords": ["livestreaming Rochester NY", "live streaming service Rochester", "event streaming Rochester NY", "professional livestream Rochester", "corporate livestream Rochester NY"]
+    "keywords": [
+      "livestreaming Rochester NY",
+      "live streaming service Rochester",
+      "event streaming Rochester NY",
+      "professional livestream Rochester",
+      "corporate livestream Rochester NY"
+    ]
   },
   {
     "slug": "hybrid-events",
     "title": "Hybrid Events",
     "navTitle": "Hybrid Events",
-    "metaTitle": "Hybrid Event Production in Rochester, NY | HM-AV",
+    "metaTitle": "Hybrid Event Production in Rochester, NY | HIGHLANDMEDIA",
     "metaDescription": "Hybrid event production bridging in-person and remote audiences in Rochester, NY. Virtual integration, interactive Q&A, and remote speaker support.",
     "heroHeading": "Hybrid Event Production",
-    "cardDescription": "Bridging in-person and remote audiences seamlessly. We integrate live production with interactive virtual components so every attendee — regardless of location — has a first-class experience.",
-    "cardTags": ["Virtual Integration", "Interactive", "Remote Speakers", "Q&A"],
-    "intro": "Bridging in-person and remote audiences seamlessly. We integrate live production with interactive virtual components so every attendee — regardless of location — has a first-class experience. HM-AV provides hybrid event solutions for organizations across the Rochester and Finger Lakes region.",
+    "cardDescription": "Bridging in-person and remote audiences seamlessly. We integrate live production with interactive virtual components so every attendee \u2014 regardless of location \u2014 has a first-class experience.",
+    "cardTags": [
+      "Virtual Integration",
+      "Interactive",
+      "Remote Speakers",
+      "Q&A"
+    ],
+    "intro": "Bridging in-person and remote audiences seamlessly. We integrate live production with interactive virtual components so every attendee \u2014 regardless of location \u2014 has a first-class experience. HIGHLANDMEDIA provides hybrid event solutions for organizations across the Rochester and Finger Lakes region.",
     "sections": [
       {
         "heading": "Virtual Integration",
-        "content": "Hybrid events combine a live in-person audience with remote participants. Done well, both audiences feel equally engaged. We provide the camera, audio, and streaming infrastructure to connect your physical event to virtual attendees — with matched production quality on both sides of the screen."
+        "content": "Hybrid events combine a live in-person audience with remote participants. Done well, both audiences feel equally engaged. We provide the camera, audio, and streaming infrastructure to connect your physical event to virtual attendees \u2014 with matched production quality on both sides of the screen."
       },
       {
         "heading": "Remote Speakers & Interactive Q&A",
@@ -124,21 +177,32 @@
       },
       {
         "heading": "Seamless Experience Design",
-        "content": "The goal of a hybrid event is that no attendee feels like a second-class participant. We design the technical infrastructure — cameras, microphones, monitors, and streaming — so that in-person and virtual audiences receive equally engaging experiences. From breakout sessions to main stage keynotes, every element is considered."
+        "content": "The goal of a hybrid event is that no attendee feels like a second-class participant. We design the technical infrastructure \u2014 cameras, microphones, monitors, and streaming \u2014 so that in-person and virtual audiences receive equally engaging experiences. From breakout sessions to main stage keynotes, every element is considered."
       }
     ],
-    "keywords": ["hybrid event production Rochester NY", "hybrid meeting Rochester", "virtual hybrid event Rochester", "remote audience integration Rochester NY", "hybrid conference Rochester"]
+    "keywords": [
+      "hybrid event production Rochester NY",
+      "hybrid meeting Rochester",
+      "virtual hybrid event Rochester",
+      "remote audience integration Rochester NY",
+      "hybrid conference Rochester"
+    ]
   },
   {
     "slug": "equipment-rentals",
     "title": "Equipment Rentals",
     "navTitle": "Equipment Rentals",
-    "metaTitle": "AV Equipment Rental in Rochester, NY | HM-AV",
-    "metaDescription": "Rent professional AV equipment in Rochester, NY. Speakers, cameras, switchers, microphones, and more — maintained to the highest standard. Delivery and setup available.",
+    "metaTitle": "AV Equipment Rental in Rochester, NY | HIGHLANDMEDIA",
+    "metaDescription": "Rent professional AV equipment in Rochester, NY. Speakers, cameras, switchers, microphones, and more \u2014 maintained to the highest standard. Delivery and setup available.",
     "heroHeading": "AV Equipment Rentals in Rochester, NY",
-    "cardDescription": "Professional AV equipment available for rent with or without our crew. Microphones, speakers, cameras, switchers, and more — all maintained to the highest standard.",
-    "cardTags": ["Speakers", "Cameras", "Switchers", "Microphones"],
-    "intro": "Professional AV equipment available for rent with or without our crew. Microphones, speakers, cameras, switchers, and more — all maintained to the highest standard. HM-AV provides equipment rentals for events across the Rochester and Finger Lakes region.",
+    "cardDescription": "Professional AV equipment available for rent with or without our crew. Microphones, speakers, cameras, switchers, and more \u2014 all maintained to the highest standard.",
+    "cardTags": [
+      "Speakers",
+      "Cameras",
+      "Switchers",
+      "Microphones"
+    ],
+    "intro": "Professional AV equipment available for rent with or without our crew. Microphones, speakers, cameras, switchers, and more \u2014 all maintained to the highest standard. HIGHLANDMEDIA provides equipment rentals for events across the Rochester and Finger Lakes region.",
     "sections": [
       {
         "heading": "What We Rent",
@@ -153,6 +217,13 @@
         "content": "Every rental includes delivery to your venue and pickup after your event. We can drop off the gear for your team to operate, or add on-site setup and configuration so everything is dialed in when you walk in the door. Phone support is included with every rental in case you need help during your event. For events that need hands-on technical operation, ask about our full-service production packages."
       }
     ],
-    "keywords": ["AV equipment rental Rochester NY", "audio visual rental Rochester", "projector rental Rochester NY", "speaker rental Rochester", "AV gear rental Rochester NY", "event equipment rental Rochester"]
+    "keywords": [
+      "AV equipment rental Rochester NY",
+      "audio visual rental Rochester",
+      "projector rental Rochester NY",
+      "speaker rental Rochester",
+      "AV gear rental Rochester NY",
+      "event equipment rental Rochester"
+    ]
   }
 ]
