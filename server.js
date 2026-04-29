@@ -367,16 +367,17 @@ app.get('/', (req, res) => {
 
 // Services overview
 app.get('/services', (req, res) => {
-  const session = getSession(req);
-  const { photos, changed } = pickServicePhotos(services, session);
-  if (changed) {
-    session.servicePhotos = photos;
-    saveSession(res, session);
-  }
-  const servicesWithPhotos = services.map(s => ({
-    ...s,
-    photo: photos[s.slug] ? `/assets/services/${s.slug}/${photos[s.slug]}` : null
-  }));
+  const fs = require('fs');
+  const path = require('path');
+  const servicesWithPhotos = services.map(s => {
+    const dir = path.join(__dirname, 'public/assets/services', s.slug);
+    let photo = null;
+    try {
+      const files = fs.readdirSync(dir).filter(f => /\.(jpg|jpeg|png|webp)$/i.test(f));
+      if (files.length > 0) photo = `/assets/services/${s.slug}/${files[0]}`;
+    } catch(e) {}
+    return { ...s, photo };
+  });
   res.send(layout({
     title: `AV Services in Rochester, NY | ${site.business.brandName}`,
     description: 'Audio visual services including sound, video, lighting, event production, and virtual event solutions in Rochester, NY.',

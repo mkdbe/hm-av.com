@@ -13,9 +13,10 @@ module.exports = function equipmentPage({ site, equipment }) {
         ${equipment.map(e => `
         <a href="/equipment/${e.slug}" class="equip-detail-card">
           <div class="equip-detail-card-image">
-            <div class="placeholder-image" aria-hidden="true">
-              <span>${e.title}</span>
-            </div>
+            ${e.image
+              ? `<img src="${e.image}" alt="${e.title}" style="width:100%;height:100%;object-fit:cover;">`
+              : `<div class="placeholder-image" aria-hidden="true"><span>${e.title}</span></div>`
+            }
           </div>
           <div class="equip-detail-card-body">
             <h2 class="equip-detail-card-title">${e.title}</h2>
