@@ -1,4 +1,4 @@
-module.exports = function layout({ title, description, path, body, site, services, equipment, schema }) {
+module.exports = function layout({ title, description, path, body, site, services, equipment, schema, noindex }) {
   const biz = site.business;
   const currentYear = new Date().getFullYear();
 
@@ -54,7 +54,7 @@ module.exports = function layout({ title, description, path, body, site, service
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title}</title>
   <meta name="description" content="${description}">
-  <meta name="robots" content="${site.meta.noindex ? 'noindex, nofollow' : 'index, follow'}">
+  <meta name="robots" content="${(noindex !== undefined ? noindex : site.meta.noindex) ? 'noindex, nofollow' : 'index, follow'}">
   ${site.meta.noindex ? '<!-- DEVELOPMENT MODE: Remove noindex in site.json when ready to go live -->' : ''}
   <link rel="canonical" href="${biz.url}${path === '/' ? '' : path}">
 
@@ -68,14 +68,14 @@ module.exports = function layout({ title, description, path, body, site, service
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="/css/style.css?v=22">
+  <link rel="stylesheet" href="/css/style.css?v=35">
 
   ${schema ? `<script type="application/ld+json">${schema}</script>` : ''}
 </head>

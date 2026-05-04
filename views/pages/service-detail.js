@@ -3,17 +3,15 @@ module.exports = function serviceDetailPage({ site, service, services }) {
   const otherServices = services.filter(s => s.slug !== service.slug);
 
   return `
-  <section class="page-hero page-hero-sm">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a>
-        <span class="breadcrumb-sep" aria-hidden="true">/</span>
-        <a href="/services">Services</a>
-        <span class="breadcrumb-sep" aria-hidden="true">/</span>
-        <span aria-current="page">${service.title}</span>
-      </nav>
-      <h1 class="page-title">${service.heroHeading}</h1>
-    </div>
+  <section class="page-hero page-hero--new">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep" aria-hidden="true">/</span>
+      <a href="/services">Services</a>
+      <span class="breadcrumb-sep" aria-hidden="true">/</span>
+      <span aria-current="page">${service.title}</span>
+    </nav>
+    <h1 class="page-title">${service.heroHeading}</h1>
   </section>
 
   <section class="section">

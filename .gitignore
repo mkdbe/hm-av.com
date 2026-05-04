@@ -22,3 +22,6 @@ Thumbs.db
 # Backups
 *.bak*
 *.backup
+
+# Runtime data
+analytics.json

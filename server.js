@@ -196,6 +196,7 @@ const aboutPage = require('./views/pages/about');
 const contactPage = require('./views/pages/contact');
 const faqPage = require('./views/pages/faq');
 const portfolioPage = require('./views/pages/portfolio');
+const setupsBallroomPage = require('./views/pages/setups-ballroom');
 const { getSession, saveSession, pickServicePhotos, getReviewOrder } = require('./lib/session');
 
 // ─── Analytics API Routes ───────────────────────────────
@@ -618,6 +619,19 @@ function buildFAQSchema(faqItems) {
     }))
   }, null, 2);
 }
+
+
+// ─── Private pages ────────────────────────────────────
+app.get(['/setups/ballroom', '/setups/ballroom/'], (req, res) => {
+  res.send(layout({
+    title: 'Ballroom Setup Options — HIGHLANDMEDIA',
+    description: 'Ballroom AV configuration options from Highland Media Services.',
+    path: '/setups/ballroom',
+    body: setupsBallroomPage({ site }),
+    site, services, equipment,
+    noindex: true
+  }));
+});
 
 // ─── Start ──────────────────────────────────────────────
 

@@ -6,17 +6,15 @@ module.exports = function equipmentDetailPage({ site, item, equipment, services 
     : [];
 
   return `
-  <section class="page-hero page-hero-sm">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a>
-        <span class="breadcrumb-sep" aria-hidden="true">/</span>
-        <a href="/equipment">Equipment</a>
-        <span class="breadcrumb-sep" aria-hidden="true">/</span>
-        <span aria-current="page">${item.title}</span>
-      </nav>
-      <h1 class="page-title">${item.heroHeading}</h1>
-    </div>
+  <section class="page-hero page-hero--new">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep" aria-hidden="true">/</span>
+      <a href="/equipment">Equipment</a>
+      <span class="breadcrumb-sep" aria-hidden="true">/</span>
+      <span aria-current="page">${item.title}</span>
+    </nav>
+    <h1 class="page-title">${item.heroHeading}</h1>
   </section>
 
   <section class="section">

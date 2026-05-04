@@ -21,14 +21,27 @@ module.exports = function portfolioPage({ site }) {
     { file: 'Copilot_20260416_144618.png', alt: 'BEV NY conference — dual screen ballroom presentation' },
     { file: 'GFXR2753.jpg', alt: 'M&T Bank Capital Markets event — stage projection and uplighting' },
     { file: 'IMG_2208.jpg', alt: 'Historic ballroom — full-wall projection mapping' },
+    { file: 'LS-5788.jpg', alt: 'Auditorium livestream — production station with video switcher and camera' },
+    { file: 'LS-5882.jpg', alt: 'Upstate NY MWBE Summit — multicam livestream production in historic hall' },
+    { file: 'LS-5888.jpg', alt: 'Hybrid event — dual-laptop production and camera setup' },
+    { file: 'DSC03616.jpg', alt: 'Theater production — dual monitors and tablet audio control at FOH' },
+    { file: 'DSCF2899.jpg', alt: 'Theater pre-show — livestream station with video switcher and camera' },
+    { file: 'GFXR3062.jpg', alt: 'BEV NY conference — wireless mics, digital audio console, and video production' },
+    { file: 'GFXR3288-2.jpg', alt: 'Conference room setup — camera on tripod with dual LED screens' },
+    { file: 'GFXR3303.jpg', alt: 'Disrupt Rochester — full audience with dual sponsor screens and live speakers' },
+    { file: 'GFXR3308.jpg', alt: 'Disrupt Rochester — live event camera operation in modern venue' },
   ];
 
+  for (let i = images.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [images[i], images[j]] = [images[j], images[i]];
+  }
+
   return `
-  <section class="page-hero page-hero-sm">
-    <div class="container">
-      <h1 class="page-title">Portfolio</h1>
-      <p class="page-subtitle">Event production work across Rochester, NY and the Finger Lakes region.</p>
-    </div>
+  <section class="page-hero page-hero--new">
+    <div class="page-kicker">Our Work</div>
+    <h1 class="page-title">Event <em>Portfolio.</em></h1>
+    <p class="page-subtitle">Event production work across Rochester, NY and the Finger Lakes region. Corporate events, conferences, galas, and live productions.</p>
   </section>
 
   <section class="section">

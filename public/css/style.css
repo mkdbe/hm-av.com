@@ -1892,3 +1892,799 @@ select.form-input {
   .equip-home-card:nth-child(3),
   .equip-home-card:nth-child(4) { border-bottom: none; }
 }
+
+
+/* =============================================================
+   DESIGN SYSTEM 2.0 — Page Redesign (services, equipment,
+   portfolio, about)
+   ============================================================= */
+
+:root {
+  --accent-hm: #8B1A0A;
+  --bg: #0c0c0a;
+  --bg2: #141412;
+  --fg: #f0ece4;
+  --fg-dim: #7a7670;
+  --rule: rgba(240,236,228,0.09);
+}
+
+body { background: var(--bg); }
+
+/* --- Scoped hero -------------------------------------------- */
+
+.page-hero--new {
+  padding: 72px 80px 64px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+}
+
+.page-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent-hm);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.page-kicker::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--accent-hm);
+  flex-shrink: 0;
+}
+
+.page-hero--new .page-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(56px, 7vw, 96px);
+  line-height: 0.88;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+  color: var(--fg);
+}
+
+.page-hero--new .page-title em {
+  font-style: normal;
+  color: var(--accent-hm);
+}
+
+.page-hero--new .page-subtitle {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--fg-dim);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+/* --- Services list ------------------------------------------ */
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.svc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--rule);
+  min-height: 420px;
+}
+
+.svc-row.alt { direction: rtl; }
+.svc-row.alt > * { direction: ltr; }
+
+.svc-graphic {
+  border-right: 1px solid var(--rule);
+  background: #080808;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svc-row.alt .svc-graphic {
+  border-right: none;
+  border-left: 1px solid var(--rule);
+}
+
+.svc-graphic svg { width: 100%; height: 100%; display: block; }
+
+.svc-content {
+  padding: 52px 80px 52px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.svc-row.alt .svc-content { padding: 52px 52px 52px 80px; }
+
+.svc-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-hm);
+  opacity: 0.7;
+}
+
+.svc-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 4vw, 60px);
+  letter-spacing: 0.03em;
+  color: var(--fg);
+  line-height: 0.95;
+}
+
+.svc-title a { color: inherit; text-decoration: none; transition: color 0.2s; }
+.svc-title a:hover { color: var(--accent-hm); }
+
+.svc-text {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--fg-dim);
+  line-height: 1.75;
+  max-width: 420px;
+}
+
+.svc-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-hm);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s;
+  margin-top: 4px;
+}
+
+.svc-link:hover { gap: 14px; color: var(--accent-hm); }
+.svc-link::after { content: '→'; }
+
+/* --- Equipment cards --------------------------------------- */
+
+.equip-detail-card {
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  transition: background 0.25s;
+  text-decoration: none;
+  color: var(--fg);
+  overflow: hidden;
+}
+
+.equip-detail-card:nth-child(2n) { border-right: none; }
+.equip-detail-card:nth-child(3),
+.equip-detail-card:nth-child(4) { border-bottom: none; }
+a.equip-detail-card:hover { background: rgba(240,236,228,0.02); color: var(--fg); }
+
+.equip-detail-card-image {
+  height: auto;
+  aspect-ratio: 16 / 7;
+  background: #080808;
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.equip-detail-card-image svg { width: 100%; height: 100%; display: block; }
+
+.equip-detail-card-body {
+  padding: 36px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.equip-detail-card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.equip-detail-card-text {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--fg-dim);
+  line-height: 1.75;
+  max-width: 400px;
+  margin-bottom: 0;
+}
+
+.equip-preview-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+
+.equip-preview-list li {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--fg-dim);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  position: static;
+}
+
+.equip-preview-list li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: var(--accent-hm);
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: static;
+  top: auto;
+  left: auto;
+}
+
+.card-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-hm);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s;
+  font-weight: 400;
+  margin-top: 8px;
+}
+
+.equip-detail-card:hover .card-link { gap: 14px; }
+
+.card-grid-2 { grid-template-columns: 1fr 1fr; gap: 0; }
+
+/* --- Equipment split section ------------------------------ */
+
+.split-section {
+  padding: 72px 80px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--rule);
+}
+
+.split-section-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 4vw, 52px);
+  letter-spacing: 0.02em;
+  color: var(--fg);
+  margin-bottom: 40px;
+  line-height: 1;
+}
+
+.split-section .two-col { grid-template-columns: 1fr 1fr; gap: 0; }
+
+.split-section .two-col-item {
+  padding-right: 48px;
+  border-right: 1px solid var(--rule);
+  border-bottom: none;
+}
+
+.split-section .two-col-item:last-child {
+  border-right: none;
+  padding-right: 0;
+  padding-left: 48px;
+}
+
+.split-section .two-col-item h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.split-section .two-col-item p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--fg-dim);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.split-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-hm);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s;
+}
+
+.split-link:hover { gap: 14px; color: var(--accent-hm); }
+.split-link::after { content: '→'; }
+
+/* --- Portfolio -------------------------------------------- */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.portfolio-item {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--bg2);
+}
+
+.portfolio-item img {
+  width: 100%;
+  display: block;
+  opacity: 0.88;
+  transition: opacity 0.3s;
+}
+
+.portfolio-item:hover img { opacity: 1; }
+
+/* --- About content section -------------------------------- */
+
+.content-section {
+  padding: 72px 80px;
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 64px;
+  align-items: start;
+}
+
+.content-section .content-intro {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--fg);
+  line-height: 1.7;
+  margin-bottom: 48px;
+  max-width: 620px;
+}
+
+.content-section .content-block {
+  margin-bottom: 40px;
+  padding: 0 0 40px 0;
+  border: none;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  background: none;
+}
+
+.content-section .content-block:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.content-section .content-block h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.content-section .content-block p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--fg-dim);
+  line-height: 1.8;
+  max-width: 580px;
+  margin-bottom: 12px;
+}
+
+.content-section .content-block p:last-child { margin-bottom: 0; }
+
+.content-section .content-cta {
+  margin-top: 48px;
+  padding: 48px 0 0 0;
+  border: none;
+  border-top: 1px solid var(--rule);
+  border-radius: 0;
+  background: none;
+}
+
+.content-section .content-cta h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.content-section .content-cta p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--fg-dim);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.content-section .content-cta-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.content-section .btn-primary {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg);
+  background: var(--accent-hm);
+  padding: 13px 28px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 2px;
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+
+.content-section .btn-primary:hover { opacity: 0.85; color: var(--fg); }
+
+.content-section .btn-outline {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  background: none;
+  padding: 13px 28px;
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 2px;
+  display: inline-block;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.content-section .btn-outline:hover {
+  color: var(--fg);
+  border-color: rgba(240,236,228,0.25);
+}
+
+/* --- About sidebar ---------------------------------------- */
+
+.content-section .content-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: sticky;
+  top: 88px;
+}
+
+.content-section .sidebar-card {
+  background: var(--bg2);
+  border: 1px solid var(--rule);
+  padding: 28px 28px 32px;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.content-section .sidebar-card:first-child { border-bottom: none; }
+
+.content-section .sidebar-heading {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-hm);
+  opacity: 0.8;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.content-section .sidebar-heading::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--accent-hm);
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.content-section .sidebar-stats { display: flex; flex-direction: column; gap: 0; }
+
+.content-section .sidebar-stats dt {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  letter-spacing: 0.02em;
+  color: var(--accent-hm);
+  line-height: 1;
+  margin-top: 16px;
+}
+
+.content-section .sidebar-stats dt:first-child { margin-top: 0; }
+
+.content-section .sidebar-stats dd {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--fg-dim);
+  margin-left: 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.content-section .sidebar-stats dd:last-child { border-bottom: none; padding-bottom: 0; }
+
+.content-section .sidebar-card p {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--fg-dim);
+  line-height: 1.7;
+}
+
+.content-section .sidebar-card a { color: var(--fg); text-decoration: none; transition: color 0.2s; }
+.content-section .sidebar-card a:hover { color: var(--accent-hm); }
+
+.content-section .sidebar-phone {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  color: var(--fg);
+  line-height: 1.1;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* --- Responsive: new components --------------------------- */
+
+@media (max-width: 768px) {
+  .page-hero--new { padding: 48px 24px 40px; }
+
+  .svc-row { grid-template-columns: 1fr; min-height: auto; }
+  .svc-row.alt { direction: ltr; }
+
+  .svc-graphic {
+    aspect-ratio: 4 / 3;
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .svc-row.alt .svc-graphic { border-left: none; border-bottom: 1px solid var(--rule); }
+  .svc-content, .svc-row.alt .svc-content { padding: 36px 24px; }
+
+  .card-grid-2 { grid-template-columns: 1fr; }
+
+  .split-section { padding: 48px 24px; }
+  .split-section .two-col { grid-template-columns: 1fr; }
+
+  .split-section .two-col-item {
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+  }
+
+  .split-section .two-col-item:last-child {
+    padding-left: 0;
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .content-section { padding: 48px 24px; grid-template-columns: 1fr; gap: 48px; }
+  .content-section .content-sidebar { position: static; }
+
+  .equip-detail-card-body { padding: 28px 24px 32px; }
+}
+
+/* --- Header clearance fix for redesigned hero --- */
+.page-hero--new {
+  padding: calc(var(--header-height) + 4rem) 80px 64px;
+}
+
+@media (max-width: 768px) {
+  .page-hero--new {
+    padding: calc(var(--header-height) + 2rem) 24px 40px;
+  }
+}
+
+/* --- Sitewide background grid ----------------------------- */
+
+html {
+  background: var(--bg);
+}
+
+body {
+  background: transparent;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(240,236,228,0.025) 59px, rgba(240,236,228,0.025) 60px),
+    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(240,236,228,0.025) 59px, rgba(240,236,228,0.025) 60px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* --- Container-width alignment for all redesigned pages --- */
+/*
+  Formula: max(var(--gap), calc((100% - var(--container)) / 2 + var(--gap)))
+  = same visual alignment as .container on every viewport width
+*/
+
+.page-hero--new {
+  padding-left:  max(var(--gap), calc((100% - var(--container)) / 2 + var(--gap)));
+  padding-right: max(var(--gap), calc((100% - var(--container)) / 2 + var(--gap)));
+}
+
+/* Service rows: full-width borders, container-aligned inner content */
+.svc-content {
+  padding-top: 52px;
+  padding-bottom: 52px;
+  padding-left:  max(var(--gap), calc((100vw - var(--container)) / 2 + var(--gap)));
+  padding-right: 52px;
+}
+
+.svc-row.alt .svc-content {
+  padding-left:  52px;
+  padding-right: max(var(--gap), calc((100vw - var(--container)) / 2 + var(--gap)));
+}
+
+/* Equipment cards: constrain grid to container width */
+.card-grid-2 {
+  max-width: var(--container);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Split section: container-aligned padding */
+.split-section {
+  padding-left:  max(var(--gap), calc((100% - var(--container)) / 2 + var(--gap)));
+  padding-right: max(var(--gap), calc((100% - var(--container)) / 2 + var(--gap)));
+}
+
+/* About content section: constrain width + container padding */
+.content-section {
+  max-width: var(--container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left:  var(--gap);
+  padding-right: var(--gap);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .svc-content,
+  .svc-row.alt .svc-content {
+    padding-left:  var(--gap);
+    padding-right: var(--gap);
+  }
+
+  .split-section {
+    padding-left:  var(--gap);
+    padding-right: var(--gap);
+  }
+}
+
+/* --- Service row outer margin fix ------------------------- */
+/* Mirror the container-aligned left margin on the outer edge
+   of the graphic panel so both sides have equal spacing      */
+
+.svc-graphic {
+  padding-right: max(var(--gap), calc((100vw - var(--container)) / 2 + var(--gap)));
+}
+
+.svc-row.alt .svc-graphic {
+  padding-right: 0;
+  padding-left: max(var(--gap), calc((100vw - var(--container)) / 2 + var(--gap)));
+}
+
+@media (max-width: 768px) {
+  .svc-graphic,
+  .svc-row.alt .svc-graphic {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* --- Services list: constrain to container (matches equipment grid) --- */
+
+.services-list {
+  max-width: var(--container);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Simplify svc-content padding now that list is container-constrained */
+.svc-content {
+  padding-top: 52px;
+  padding-bottom: 52px;
+  padding-left: var(--gap);
+  padding-right: 52px;
+}
+
+.svc-row.alt .svc-content {
+  padding-left: 52px;
+  padding-right: var(--gap);
+}
+
+/* Remove the outer padding hack from graphic panels */
+.svc-graphic {
+  padding-right: 0;
+}
+
+.svc-row.alt .svc-graphic {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* --- Equipment card title: match service row title size --- */
+.equip-detail-card-title {
+  font-size: clamp(40px, 4vw, 60px);
+  line-height: 0.95;
+  letter-spacing: 0.03em;
+}
+
+/* --- Service title: match equipment card title size --- */
+.equip-detail-card-title {
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.svc-title {
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+/* --- Service rows: unified dark background across both columns --- */
+.svc-row {
+  background: #080808;
+}
+
+/* --- Service rows: dark gray background (bg2) instead of black --- */
+.svc-row {
+  background: var(--bg2);
+}
+
+.svc-graphic {
+  background: var(--bg2);
+}
+
+/* --- Service rows: transparent content side so grid shows through --- */
+.svc-row {
+  background: transparent;
+}
+
+/* --- Service rows: 25% shorter --- */
+.svc-row {
+  min-height: 315px;
+}
