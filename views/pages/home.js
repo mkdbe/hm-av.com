@@ -92,6 +92,18 @@ module.exports = function homePage({ site, services, equipment, reviews, venues,
   ` : ''}
 
 
+  <!-- Clients -->
+  <section class="section clients-section">
+    <div class="container">
+      <span class="section-label">Our Clients</span>
+      <h2 class="section-heading section-heading-lg">Trusted<br>By.</h2>
+      <ul class="client-list">
+        ${clients.map(c => `<li class="client-item">${c.name}</li>`).join('')}
+      </ul>
+    </div>
+  </section>
+
+
   <!-- Venues -->
   <section class="section venues-section">
     <div class="container">
@@ -104,18 +116,6 @@ module.exports = function homePage({ site, services, equipment, reviews, venues,
           <span class="venue-card-name">${v.name}</span>
         </a>`).join('')}
       </div>
-    </div>
-  </section>
-
-
-  <!-- Clients -->
-  <section class="section clients-section">
-    <div class="container">
-      <span class="section-label">Our Clients</span>
-      <h2 class="section-heading section-heading-lg">Trusted<br>By.</h2>
-      <ul class="client-list">
-        ${clients.map(c => `<li class="client-item">${c.name}</li>`).join('')}
-      </ul>
     </div>
   </section>
 

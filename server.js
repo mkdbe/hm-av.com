@@ -172,6 +172,14 @@ app.use(express.static(path.join(__dirname, 'public'), {
   index: false
 }));
 
+app.use((req, res, next) => {
+  if (req.path !== '/' && req.path.endsWith('/')) {
+    const query = req.url.slice(req.path.length);
+    return res.redirect(301, req.path.slice(0, -1) + query);
+  }
+  next();
+});
+
 // Load data
 function loadJSON(filename) {
   return JSON.parse(fs.readFileSync(path.join(__dirname, 'data', filename), 'utf8'));
@@ -348,12 +356,7 @@ app.get("/analytics", (req, res) => {
 // Home
 app.get('/', (req, res) => {
   const session = getSession(req);
-  const reviewOrder = getReviewOrder(reviews, session);
-  if (!session.reviewOrder) {
-    session.reviewOrder = reviewOrder;
-    saveSession(res, session);
-  }
-  const shuffledReviews = reviewOrder.map(i => reviews[i]);
+  const shuffledReviews = [...reviews].sort(() => Math.random() - 0.5);
   const shuffledVenues = [...venues].sort(() => Math.random() - 0.5);
   const shuffledClients = [...clients].sort(() => Math.random() - 0.5);
   res.send(layout({
@@ -511,7 +514,7 @@ app.get('/portfolio', (req, res) => {
     title: `Portfolio — Event Production Work | HIGHLANDMEDIA`,
     description: 'See our event production work across Rochester, NY. Corporate events, conferences, galas, and more.',
     path: '/portfolio',
-    body: portfolioPage({ site }),
+    body: portfolioPage({ site, venues }),
     site, services, equipment
   }));
 });
@@ -583,7 +586,14 @@ function buildLocalBusinessSchema() {
       "https://www.facebook.com/highlandmediaagency/",
       "https://highlandmediaservices.com"
     ],
-    "priceRange": "$$"
+    "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": (reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1),
+      "reviewCount": reviews.length,
+      "bestRating": "5",
+      "worstRating": "1"
+    }
   }, null, 2);
 }
 

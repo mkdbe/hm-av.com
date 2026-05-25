@@ -7,7 +7,7 @@
 }
 
 :root {
-  --bg-primary: #0c0c0a;
+  --bg-primary: #080808;
   --bg-secondary: #141412;
   --bg-elevated: #1c1c19;
   --bg-card: #1c1c19;
@@ -864,7 +864,7 @@ details[open] .faq-chevron {
 /* ─── CTA Section ────────────────────────────────── */
 
 .cta-section {
-  background: var(--bg-secondary);
+  background: var(--bg);
   border-top: 1px solid var(--border);
 }
 
@@ -1197,9 +1197,7 @@ select.form-input {
   content: '';
   position: absolute;
   inset: 0;
-  background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(240,236,228,0.025) 59px, rgba(240,236,228,0.025) 60px),
-    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(240,236,228,0.025) 59px, rgba(240,236,228,0.025) 60px);
+  background-image: none;
   pointer-events: none;
   z-index: 0;
 }
@@ -1280,7 +1278,7 @@ select.form-input {
 }
 
 .fhero-tagline {
-  font-size: 13.5px;
+  font-size: 15px;
   font-weight: 300;
   color: var(--text-secondary);
   line-height: 1.7;
@@ -1292,7 +1290,7 @@ select.form-input {
   color: var(--text-primary);
   font-weight: 500;
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 6px;
 }
 
@@ -1310,7 +1308,7 @@ select.form-input {
 
 .fsvc-header span {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--text-secondary);
@@ -1367,7 +1365,7 @@ select.form-input {
 
 .fsvc-title {
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: 36px;
   letter-spacing: 0.05em;
   color: var(--text-primary);
   margin-bottom: 8px;
@@ -1901,7 +1899,7 @@ select.form-input {
 
 :root {
   --accent-hm: #8B1A0A;
-  --bg: #0c0c0a;
+  --bg: #080808;
   --bg2: #141412;
   --fg: #f0ece4;
   --fg-dim: #7a7670;
@@ -1979,7 +1977,7 @@ body { background: var(--bg); }
 
 .svc-graphic {
   border-right: 1px solid var(--rule);
-  background: #080808;
+  background: var(--bg);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -2005,7 +2003,7 @@ body { background: var(--bg); }
 
 .svc-num {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent-hm);
@@ -2065,13 +2063,13 @@ body { background: var(--bg); }
 .equip-detail-card:nth-child(2n) { border-right: none; }
 .equip-detail-card:nth-child(3),
 .equip-detail-card:nth-child(4) { border-bottom: none; }
-a.equip-detail-card:hover { background: rgba(240,236,228,0.02); color: var(--fg); }
+a.equip-detail-card:hover { background: rgba(240,236,228,0.05); color: var(--fg); }
 
 .equip-detail-card-image {
   height: auto;
   aspect-ratio: 16 / 7;
-  background: #080808;
-  border-bottom: 1px solid var(--rule);
+  background: transparent;
+  
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -2519,18 +2517,45 @@ html {
 }
 
 body {
-  background: transparent;
+  background: #080808;
 }
 
 body::before {
   content: '';
   position: fixed;
   inset: 0;
+  background-image: linear-gradient(rgba(237,232,224,0.012) 1px, transparent 1px), linear-gradient(90deg, rgba(237,232,224,0.012) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+/* ─── Home page grid texture (below hero) ────────── */
+.fsvc-section,
+.fvalue-strip,
+.fcopy-band {
+  position: relative;
+}
+
+.fsvc-section::before,
+.fvalue-strip::before,
+.fcopy-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background-image:
     repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(240,236,228,0.025) 59px, rgba(240,236,228,0.025) 60px),
     repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(240,236,228,0.025) 59px, rgba(240,236,228,0.025) 60px);
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
+}
+
+.fsvc-section > *,
+.fvalue-strip > *,
+.fcopy-band > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* --- Container-width alignment for all redesigned pages --- */
@@ -2654,13 +2679,13 @@ body::before {
 
 /* --- Service title: match equipment card title size --- */
 .equip-detail-card-title {
-  font-size: 32px;
+  font-size: 36px;
   line-height: 1;
   letter-spacing: 0.04em;
 }
 
 .svc-title {
-  font-size: 32px;
+  font-size: 36px;
   line-height: 1;
   letter-spacing: 0.04em;
 }
@@ -2676,7 +2701,7 @@ body::before {
 }
 
 .svc-graphic {
-  background: var(--bg2);
+  background: transparent;
 }
 
 /* --- Service rows: transparent content side so grid shows through --- */

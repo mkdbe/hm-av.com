@@ -1,201 +1,365 @@
 module.exports = function equipmentPage({ site, equipment }) {
   const svgs = {
-    'projectors-screens': `<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" fill="none">
-      <defs>
-        <pattern id="pg" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" stroke="rgba(240,236,228,0.09)" stroke-width="0.5"/></pattern>
-        <linearGradient id="pbeam" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#8B1A0A" stop-opacity="0.28"/><stop offset="100%" stop-color="#8B1A0A" stop-opacity="0"/></linearGradient>
-      </defs>
-      <rect width="800" height="350" fill="url(#pg)"/>
-      <polygon points="215,175 450,58 450,292" fill="url(#pbeam)"/>
-      <rect x="450" y="46" width="248" height="188" rx="2" fill="#252520" stroke="rgba(240,236,228,0.33)" stroke-width="1.5"/>
-      <rect x="459" y="55" width="230" height="170" fill="#2a2a26"/>
-      <rect x="475" y="74" width="100" height="9" rx="1" fill="rgba(139,26,10,0.88)"/>
-      <rect x="475" y="89" width="148" height="3" rx="1" fill="rgba(240,236,228,0.26)"/>
-      <rect x="475" y="98" width="124" height="3" rx="1" fill="rgba(240,236,228,0.18)"/>
-      <rect x="475" y="107" width="136" height="3" rx="1" fill="rgba(240,236,228,0.18)"/>
-      <rect x="476" y="133" width="20" height="56" rx="1" fill="rgba(139,26,10,0.64)"/>
-      <rect x="502" y="149" width="20" height="40" rx="1" fill="rgba(139,26,10,0.45)"/>
-      <rect x="528" y="139" width="20" height="50" rx="1" fill="rgba(139,26,10,0.56)"/>
-      <rect x="554" y="127" width="20" height="62" rx="1" fill="rgba(139,26,10,0.80)"/>
-      <rect x="580" y="143" width="20" height="46" rx="1" fill="rgba(139,26,10,0.48)"/>
-      <rect x="606" y="131" width="20" height="58" rx="1" fill="rgba(139,26,10,0.67)"/>
-      <line x1="574" y1="234" x2="574" y2="286" stroke="rgba(240,236,228,0.44)" stroke-width="2"/>
-      <line x1="542" y1="286" x2="606" y2="286" stroke="rgba(240,236,228,0.44)" stroke-width="2"/>
-      <rect x="126" y="150" width="94" height="50" rx="3" fill="#2a2a26" stroke="rgba(240,236,228,0.40)" stroke-width="1.5"/>
-      <circle cx="206" cy="175" r="15" fill="#131311" stroke="#b82010" stroke-width="1.5"/>
-      <circle cx="206" cy="175" r="9" fill="#181816" stroke="rgba(139,26,10,0.64)" stroke-width="1"/>
-      <circle cx="206" cy="175" r="3.5" fill="#b82010" opacity="0.8"/>
-      <line x1="140" y1="160" x2="140" y2="190" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <line x1="147" y1="160" x2="147" y2="190" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <line x1="154" y1="160" x2="154" y2="190" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <circle cx="165" cy="164" r="3.5" fill="#b82010" opacity="0.9"/>
-      <rect x="152" y="200" width="7" height="16" rx="1" fill="rgba(240,236,228,0.33)"/>
-    </svg>`,
-    'sound-pa-systems': `<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" fill="none">
-      <defs>
-        <pattern id="spg" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" stroke="rgba(240,236,228,0.09)" stroke-width="0.5"/></pattern>
-      </defs>
-      <rect width="800" height="350" fill="url(#spg)"/>
-      <circle cx="400" cy="175" r="135" stroke="rgba(139,26,10,0.11)" stroke-width="1"/>
-      <circle cx="400" cy="175" r="102" stroke="rgba(139,26,10,0.16)" stroke-width="1"/>
-      <circle cx="400" cy="175" r="68" stroke="rgba(139,26,10,0.24)" stroke-width="1"/>
-      <rect x="88" y="96" width="62" height="158" rx="3" fill="#252520" stroke="rgba(240,236,228,0.33)" stroke-width="1.5"/>
-      <circle cx="119" cy="122" r="11" fill="#2a2a26" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <circle cx="119" cy="122" r="6" fill="#181816" stroke="rgba(139,26,10,0.48)" stroke-width="0.8"/>
-      <circle cx="119" cy="148" r="11" fill="#2a2a26" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <circle cx="119" cy="148" r="6" fill="#181816" stroke="rgba(139,26,10,0.48)" stroke-width="0.8"/>
-      <circle cx="119" cy="175" r="11" fill="#2a2a26" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <circle cx="119" cy="175" r="6" fill="#181816" stroke="rgba(139,26,10,0.48)" stroke-width="0.8"/>
-      <circle cx="119" cy="202" r="11" fill="#2a2a26" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <circle cx="119" cy="202" r="6" fill="#181816" stroke="rgba(139,26,10,0.48)" stroke-width="0.8"/>
-      <circle cx="119" cy="228" r="11" fill="#2a2a26" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <circle cx="119" cy="228" r="6" fill="#181816" stroke="rgba(139,26,10,0.48)" stroke-width="0.8"/>
-      <rect x="98" y="92" width="42" height="8" rx="1" fill="rgba(240,236,228,0.22)"/>
-      <rect x="650" y="96" width="62" height="158" rx="3" fill="#252520" stroke="rgba(240,236,228,0.33)" stroke-width="1.5"/>
-      <circle cx="681" cy="122" r="11" fill="#2a2a26" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <circle cx="681" cy="122" r="6" fill="#181816" stroke="rgba(139,26,10,0.48)" stroke-width="0.8"/>
-      <circle cx="681" cy="148" r="11" fill="#2a2a26" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <circle cx="681" cy="148" r="6" fill="#181816" stroke="rgba(139,26,10,0.48)" stroke-width="0.8"/>
-      <circle cx="681" cy="175" r="11" fill="#2a2a26" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <circle cx="681" cy="175" r="6" fill="#181816" stroke="rgba(139,26,10,0.48)" stroke-width="0.8"/>
-      <circle cx="681" cy="202" r="11" fill="#2a2a26" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <circle cx="681" cy="202" r="6" fill="#181816" stroke="rgba(139,26,10,0.48)" stroke-width="0.8"/>
-      <circle cx="681" cy="228" r="11" fill="#2a2a26" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <circle cx="681" cy="228" r="6" fill="#181816" stroke="rgba(139,26,10,0.48)" stroke-width="0.8"/>
-      <rect x="660" y="92" width="42" height="8" rx="1" fill="rgba(240,236,228,0.22)"/>
-      <rect x="290" y="230" width="220" height="82" rx="3" fill="#252520" stroke="rgba(240,236,228,0.33)" stroke-width="1.5"/>
-      <rect x="306" y="240" width="6" height="50" rx="1" fill="rgba(240,236,228,0.13)"/>
-      <rect x="322" y="240" width="6" height="50" rx="1" fill="rgba(240,236,228,0.13)"/>
-      <rect x="338" y="240" width="6" height="50" rx="1" fill="rgba(240,236,228,0.13)"/>
-      <rect x="354" y="240" width="6" height="50" rx="1" fill="rgba(240,236,228,0.13)"/>
-      <rect x="370" y="240" width="6" height="50" rx="1" fill="rgba(240,236,228,0.13)"/>
-      <rect x="386" y="240" width="6" height="50" rx="1" fill="rgba(240,236,228,0.13)"/>
-      <rect x="402" y="240" width="6" height="50" rx="1" fill="rgba(240,236,228,0.13)"/>
-      <rect x="418" y="240" width="6" height="50" rx="1" fill="rgba(240,236,228,0.13)"/>
-      <rect x="434" y="240" width="6" height="50" rx="1" fill="rgba(240,236,228,0.13)"/>
-      <rect x="450" y="240" width="6" height="50" rx="1" fill="rgba(240,236,228,0.13)"/>
-      <rect x="304" y="258" width="10" height="5" rx="1" fill="rgba(240,236,228,0.66)"/>
-      <rect x="320" y="266" width="10" height="5" rx="1" fill="rgba(240,236,228,0.66)"/>
-      <rect x="336" y="252" width="10" height="5" rx="1" fill="rgba(139,26,10,0.95)"/>
-      <rect x="352" y="270" width="10" height="5" rx="1" fill="rgba(240,236,228,0.66)"/>
-      <rect x="368" y="260" width="10" height="5" rx="1" fill="rgba(240,236,228,0.66)"/>
-      <rect x="384" y="248" width="10" height="5" rx="1" fill="rgba(139,26,10,0.95)"/>
-      <rect x="400" y="265" width="10" height="5" rx="1" fill="rgba(240,236,228,0.66)"/>
-      <rect x="416" y="257" width="10" height="5" rx="1" fill="rgba(240,236,228,0.66)"/>
-      <rect x="470" y="240" width="30" height="50" rx="1" fill="#2a2a26" stroke="rgba(240,236,228,0.18)" stroke-width="1"/>
-      <rect x="473" y="276" width="24" height="4" rx="0.5" fill="rgba(139,26,10,0.80)"/>
-      <rect x="473" y="270" width="24" height="4" rx="0.5" fill="rgba(139,26,10,0.64)"/>
-      <rect x="473" y="264" width="18" height="4" rx="0.5" fill="rgba(139,26,10,0.48)"/>
-      <rect x="392" y="110" width="16" height="36" rx="8" fill="#252520" stroke="rgba(240,236,228,0.40)" stroke-width="1.5"/>
-      <line x1="400" y1="146" x2="400" y2="162" stroke="rgba(240,236,228,0.33)" stroke-width="1.5"/>
-      <path d="M386,160 Q400,174 414,160" stroke="rgba(240,236,228,0.33)" stroke-width="1.5" fill="none"/>
-    </svg>`,
-    'lighting-fixtures': `<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" fill="none">
-      <defs>
-        <pattern id="lgg" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" stroke="rgba(240,236,228,0.09)" stroke-width="0.5"/></pattern>
-        <linearGradient id="lb1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(139,26,10,0)"/><stop offset="65%" stop-color="rgba(139,26,10,0.35)"/><stop offset="100%" stop-color="rgba(139,26,10,0.08)"/></linearGradient>
-        <linearGradient id="lb2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(200,160,80,0)"/><stop offset="65%" stop-color="rgba(200,160,80,0.22)"/><stop offset="100%" stop-color="rgba(200,160,80,0.05)"/></linearGradient>
-      </defs>
-      <rect width="800" height="350" fill="url(#lgg)"/>
-      <rect x="60" y="54" width="680" height="10" rx="2" fill="#2a2a26" stroke="rgba(240,236,228,0.26)" stroke-width="1"/>
-      <circle cx="160" cy="59" r="2.5" fill="rgba(240,236,228,0.44)"/>
-      <circle cx="280" cy="59" r="2.5" fill="rgba(240,236,228,0.44)"/>
-      <circle cx="400" cy="59" r="2.5" fill="rgba(240,236,228,0.44)"/>
-      <circle cx="520" cy="59" r="2.5" fill="rgba(240,236,228,0.44)"/>
-      <circle cx="640" cy="59" r="2.5" fill="rgba(240,236,228,0.44)"/>
-      <rect x="96" y="20" width="8" height="38" rx="1" fill="#252520" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <rect x="696" y="20" width="8" height="38" rx="1" fill="#252520" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-      <g transform="translate(172,64) rotate(16,0,0)">
-        <polygon points="-3,0 3,0 26,108 -26,108" fill="url(#lb1)"/>
-        <rect x="-11" y="-30" width="22" height="30" rx="3" fill="#2a2a26" stroke="rgba(240,236,228,0.40)" stroke-width="1.5"/>
-        <rect x="-7" y="-26" width="14" height="12" rx="1" fill="#b82010" opacity="0.65"/>
-        <circle cx="0" cy="-8" r="6" fill="#2a2a26" stroke="rgba(139,26,10,0.64)" stroke-width="1"/>
-        <circle cx="0" cy="-8" r="3" fill="#b82010" opacity="0.8"/>
-      </g>
-      <g transform="translate(322,64) rotate(-5,0,0)">
-        <polygon points="-3,0 3,0 30,125 -30,125" fill="url(#lb2)"/>
-        <rect x="-12" y="-34" width="24" height="34" rx="3" fill="#2a2a26" stroke="rgba(240,236,228,0.40)" stroke-width="1.5"/>
-        <rect x="-8" y="-30" width="16" height="14" rx="1" fill="rgba(200,160,80,0.72)"/>
-        <circle cx="0" cy="-10" r="7" fill="#2a2a26" stroke="rgba(200,160,80,0.56)" stroke-width="1"/>
-        <circle cx="0" cy="-10" r="3.5" fill="rgba(200,160,80,0.85)"/>
-      </g>
-      <g transform="translate(478,64) rotate(9,0,0)">
-        <polygon points="-3,0 3,0 28,112 -28,112" fill="url(#lb1)" opacity="0.8"/>
-        <rect x="-11" y="-32" width="22" height="32" rx="3" fill="#2a2a26" stroke="rgba(240,236,228,0.40)" stroke-width="1.5"/>
-        <rect x="-7" y="-28" width="14" height="12" rx="1" fill="#b82010" opacity="0.6"/>
-        <circle cx="0" cy="-10" r="6" fill="#2a2a26" stroke="rgba(139,26,10,0.64)" stroke-width="1"/>
-        <circle cx="0" cy="-10" r="3" fill="#b82010" opacity="0.75"/>
-      </g>
-      <g transform="translate(628,64) rotate(-12,0,0)">
-        <polygon points="-2,0 2,0 20,88 -20,88" fill="url(#lb1)" opacity="0.75"/>
-        <rect x="-10" y="-26" width="20" height="26" rx="3" fill="#2a2a26" stroke="rgba(240,236,228,0.40)" stroke-width="1.5"/>
-        <circle cx="0" cy="-8" r="6" fill="#2a2a26" stroke="rgba(139,26,10,0.64)" stroke-width="1"/>
-        <circle cx="0" cy="-8" r="3" fill="#b82010" opacity="0.7"/>
-      </g>
-      <line x1="60" y1="308" x2="740" y2="308" stroke="rgba(240,236,228,0.15)" stroke-width="1"/>
-      <ellipse cx="182" cy="310" rx="58" ry="8" fill="rgba(139,26,10,0.16)"/>
-      <ellipse cx="328" cy="313" rx="72" ry="9" fill="rgba(200,160,80,0.11)"/>
-      <ellipse cx="486" cy="311" rx="64" ry="8" fill="rgba(139,26,10,0.14)"/>
-      <ellipse cx="624" cy="309" rx="52" ry="7" fill="rgba(139,26,10,0.13)"/>
-      <rect x="300" y="272" width="200" height="26" rx="3" fill="#252520" stroke="rgba(240,236,228,0.26)" stroke-width="1"/>
-      <circle cx="320" cy="285" r="5" fill="rgba(139,26,10,0.88)"/>
-      <circle cx="338" cy="285" r="5" fill="rgba(200,160,80,0.64)"/>
-      <circle cx="356" cy="285" r="5" fill="rgba(139,26,10,0.80)"/>
-      <circle cx="374" cy="285" r="5" fill="rgba(200,160,80,0.61)"/>
-      <circle cx="392" cy="285" r="5" fill="rgba(139,26,10,0.88)"/>
-      <circle cx="410" cy="285" r="5" fill="rgba(200,160,80,0.64)"/>
-      <circle cx="428" cy="285" r="5" fill="rgba(139,26,10,0.77)"/>
-      <circle cx="446" cy="285" r="5" fill="rgba(200,160,80,0.61)"/>
-      <circle cx="464" cy="285" r="5" fill="rgba(139,26,10,0.80)"/>
-      <circle cx="482" cy="285" r="5" fill="rgba(200,160,80,0.56)"/>
-    </svg>`,
-    'video-cameras-switchers': `<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" fill="none">
-      <defs>
-        <pattern id="vgg" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" stroke="rgba(240,236,228,0.09)" stroke-width="0.5"/></pattern>
-        <linearGradient id="vs" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#111110"/><stop offset="100%" stop-color="#1a1a17"/></linearGradient>
-      </defs>
-      <rect width="800" height="350" fill="url(#vgg)"/>
-      <rect x="272" y="146" width="256" height="98" rx="3" fill="#252520" stroke="rgba(240,236,228,0.33)" stroke-width="1.5"/>
-      <text x="284" y="163" font-family="'DM Mono', monospace" font-size="7" fill="rgba(240,236,228,0.55)" letter-spacing="2">VIDEO SWITCHER</text>
-      <rect x="284" y="170" width="22" height="14" rx="1.5" fill="rgba(139,26,10,0.95)" stroke="rgba(139,26,10,0.64)" stroke-width="0.5"/>
-      <text x="290" y="181" font-family="'DM Mono', monospace" font-size="7" fill="rgba(240,236,228,0.75)">1</text>
-      <rect x="312" y="170" width="22" height="14" rx="1.5" fill="#2a2a26" stroke="rgba(240,236,228,0.22)" stroke-width="0.5"/>
-      <text x="319" y="181" font-family="'DM Mono', monospace" font-size="7" fill="rgba(240,236,228,0.75)">2</text>
-      <rect x="340" y="170" width="22" height="14" rx="1.5" fill="#2a2a26" stroke="rgba(240,236,228,0.22)" stroke-width="0.5"/>
-      <text x="347" y="181" font-family="'DM Mono', monospace" font-size="7" fill="rgba(240,236,228,0.75)">3</text>
-      <rect x="368" y="170" width="22" height="14" rx="1.5" fill="#2a2a26" stroke="rgba(240,236,228,0.22)" stroke-width="0.5"/>
-      <text x="375" y="181" font-family="'DM Mono', monospace" font-size="7" fill="rgba(240,236,228,0.75)">4</text>
-      <rect x="462" y="166" width="56" height="38" rx="1" fill="#2a2a26" stroke="rgba(240,236,228,0.18)"/>
-      <rect x="464" y="168" width="52" height="34" fill="rgba(139,26,10,0.24)"/>
-      <text x="482" y="188" font-family="'DM Mono', monospace" font-size="6" fill="rgba(139,26,10,0.95)" letter-spacing="1">PGM</text>
-      <circle cx="284" cy="230" r="3" fill="#b82010" opacity="0.9"/>
-      <g transform="translate(82,128)">
-        <rect x="0" y="20" width="90" height="56" rx="3" fill="#2a2a26" stroke="rgba(240,236,228,0.40)" stroke-width="1.5"/>
-        <rect x="64" y="8" width="30" height="22" rx="2" fill="#1e1e1a" stroke="rgba(240,236,228,0.26)" stroke-width="1"/>
-        <rect x="67" y="11" width="24" height="16" rx="1" fill="#181816"/>
-        <circle cx="30" cy="48" r="22" fill="#1e1e1a" stroke="rgba(240,236,228,0.33)" stroke-width="1.5"/>
-        <circle cx="30" cy="48" r="16" fill="#181816" stroke="rgba(240,236,228,0.22)" stroke-width="1"/>
-        <circle cx="30" cy="48" r="9" fill="#141412" stroke="rgba(139,26,10,0.56)" stroke-width="0.8"/>
-        <circle cx="30" cy="48" r="4" fill="#0a0a09"/>
-        <circle cx="24" cy="42" r="2" fill="rgba(240,236,228,0.26)"/>
-        <circle cx="80" cy="28" r="4" fill="#b82010" opacity="0.9"/>
-        <path d="M90 52 Q130 52 158 86" stroke="rgba(240,236,228,0.15)" stroke-width="1.5" stroke-dasharray="3 3"/>
-      </g>
-      <g transform="translate(566,98)">
-        <rect x="0" y="0" width="148" height="106" rx="3" fill="#252520" stroke="rgba(240,236,228,0.33)" stroke-width="1.5"/>
-        <rect x="8" y="8" width="132" height="82" fill="url(#vs)"/>
-        <rect x="16" y="18" width="52" height="5" rx="0.5" fill="rgba(139,26,10,0.80)"/>
-        <rect x="16" y="27" width="84" height="3" rx="0.5" fill="rgba(240,236,228,0.22)"/>
-        <rect x="16" y="34" width="68" height="3" rx="0.5" fill="rgba(240,236,228,0.15)"/>
-        <rect x="98" y="14" width="30" height="12" rx="1" fill="#b82010" opacity="0.85"/>
-        <text x="105" y="23" font-family="'DM Mono', monospace" font-size="7" fill="rgba(240,236,228,0.75)" letter-spacing="1">LIVE</text>
-        <rect x="67" y="106" width="14" height="30" rx="1" fill="rgba(240,236,228,0.22)"/>
-        <rect x="48" y="136" width="52" height="6" rx="1" fill="rgba(240,236,228,0.22)"/>
-        <path d="M0 62 Q-32 62 -54 100" stroke="rgba(240,236,228,0.15)" stroke-width="1.5" stroke-dasharray="3 3"/>
-      </g>
-      <line x1="242" y1="195" x2="272" y2="195" stroke="rgba(240,236,228,0.22)" stroke-width="1.5" stroke-dasharray="4 3"/>
-      <line x1="528" y1="195" x2="566" y2="195" stroke="rgba(240,236,228,0.22)" stroke-width="1.5" stroke-dasharray="4 3"/>
-    </svg>`
+    'projectors-screens': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <defs>
+          <pattern id="pg-h1" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="rgba(237,232,224,0.07)" stroke-width="1"></line>
+          </pattern>
+          <pattern id="pg-h2" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="rgba(139,26,10,0.18)" stroke-width="1"></line>
+          </pattern>
+        </defs>
+
+        
+        <path d="M70,148 Q72,145 196,147 Q198,147 198,200 Q196,202 70,200 Q68,202 70,148 Z" fill="url(#pg-h1)" stroke="rgba(237,232,224,0.55)" stroke-width="2"></path>
+        
+        <circle cx="80" cy="156" r="2.5" fill="none" stroke="rgba(237,232,224,0.35)" stroke-width="1"></circle>
+        <circle cx="188" cy="156" r="2.5" fill="none" stroke="rgba(237,232,224,0.35)" stroke-width="1"></circle>
+        <circle cx="80" cy="192" r="2.5" fill="none" stroke="rgba(237,232,224,0.35)" stroke-width="1"></circle>
+        <circle cx="188" cy="192" r="2.5" fill="none" stroke="rgba(237,232,224,0.35)" stroke-width="1"></circle>
+        
+        <line x1="92" y1="160" x2="92" y2="188" stroke="rgba(237,232,224,0.22)" stroke-width="1"></line>
+        <line x1="100" y1="160" x2="100" y2="188" stroke="rgba(237,232,224,0.22)" stroke-width="1"></line>
+        <line x1="108" y1="160" x2="108" y2="188" stroke="rgba(237,232,224,0.22)" stroke-width="1"></line>
+        
+        <circle cx="128" cy="164" r="4" fill="none" stroke="rgba(139,26,10,0.75)" stroke-width="1.5"></circle>
+        <circle cx="128" cy="164" r="2" fill="rgba(139,26,10,0.9)"></circle>
+        
+        <circle cx="128" cy="184" r="3" fill="none" stroke="rgba(237,232,224,0.3)" stroke-width="1"></circle>
+
+        
+        <circle cx="178" cy="174" r="20" fill="url(#pg-h1)" stroke="rgba(237,232,224,0.55)" stroke-width="2"></circle>
+        <circle cx="178" cy="174" r="14" fill="none" stroke="rgba(237,232,224,0.3)" stroke-width="1" stroke-dasharray="3 2"></circle>
+        <circle cx="178" cy="174" r="9" fill="url(#pg-h2)" stroke="rgba(139,26,10,0.7)" stroke-width="1.5"></circle>
+        <circle cx="178" cy="174" r="4" fill="rgba(139,26,10,0.95)"></circle>
+        
+        <path d="M168,164 Q172,160 176,163" stroke="rgba(237,232,224,0.4)" stroke-width="1.5" fill="none"></path>
+
+        
+        <path d="M100,202 Q100,212 100,222" stroke="rgba(237,232,224,0.3)" stroke-width="2"></path>
+        <path d="M160,202 Q160,210 160,218" stroke="rgba(237,232,224,0.25)" stroke-width="1.5"></path>
+
+        
+        <line x1="198" y1="155" x2="448" y2="62" stroke="rgba(139,26,10,0.4)" stroke-width="1.5" stroke-dasharray="6 4"></line>
+        <line x1="198" y1="192" x2="448" y2="290" stroke="rgba(139,26,10,0.4)" stroke-width="1.5" stroke-dasharray="6 4"></line>
+        <polygon points="198,155 448,62 448,290 198,192" fill="rgba(139,26,10,0.05)"></polygon>
+        
+        <line x1="198" y1="174" x2="448" y2="176" stroke="rgba(139,26,10,0.2)" stroke-width="1" stroke-dasharray="2 4"></line>
+
+        
+        <path d="M448,54 Q450,52 700,54 Q702,54 702,294 Q700,296 448,296 Q446,296 448,54 Z" fill="url(#pg-h1)" stroke="rgba(237,232,224,0.55)" stroke-width="2"></path>
+        
+        <circle cx="460" cy="64" r="3" fill="none" stroke="rgba(237,232,224,0.35)" stroke-width="1.2"></circle>
+        <circle cx="690" cy="64" r="3" fill="none" stroke="rgba(237,232,224,0.35)" stroke-width="1.2"></circle>
+        <circle cx="460" cy="286" r="3" fill="none" stroke="rgba(237,232,224,0.35)" stroke-width="1.2"></circle>
+        <circle cx="690" cy="286" r="3" fill="none" stroke="rgba(237,232,224,0.35)" stroke-width="1.2"></circle>
+        
+        <path d="M462,68 L688,68 L688,282 L462,282 Z" fill="url(#pg-h2)" stroke="rgba(139,26,10,0.22)" stroke-width="1"></path>
+
+        
+        <path d="M478,96 L580,95" stroke="rgba(237,232,224,0.5)" stroke-width="3"></path>
+        <path d="M478,110 L630,109" stroke="rgba(237,232,224,0.18)" stroke-width="1.5"></path>
+        <path d="M478,120 L600,119" stroke="rgba(237,232,224,0.14)" stroke-width="1.5"></path>
+
+        
+        <line x1="484" y1="258" x2="484" y2="202" stroke="rgba(139,26,10,0.55)" stroke-width="16" stroke-linecap="butt"></line>
+        <line x1="510" y1="258" x2="510" y2="220" stroke="rgba(139,26,10,0.4)" stroke-width="16" stroke-linecap="butt"></line>
+        <line x1="536" y1="258" x2="536" y2="210" stroke="rgba(139,26,10,0.5)" stroke-width="16" stroke-linecap="butt"></line>
+        <line x1="562" y1="258" x2="562" y2="196" stroke="rgba(139,26,10,0.65)" stroke-width="16" stroke-linecap="butt"></line>
+        <line x1="588" y1="258" x2="588" y2="214" stroke="rgba(139,26,10,0.45)" stroke-width="16" stroke-linecap="butt"></line>
+        <line x1="614" y1="258" x2="614" y2="204" stroke="rgba(139,26,10,0.5)" stroke-width="16" stroke-linecap="butt"></line>
+        
+        <path d="M474,260 Q548,258 624,260" stroke="rgba(237,232,224,0.2)" stroke-width="1"></path>
+
+        
+        <path d="M572,296 Q571,316 572,330" stroke="rgba(237,232,224,0.35)" stroke-width="2.5"></path>
+        <path d="M540,330 Q572,326 604,330" stroke="rgba(237,232,224,0.35)" stroke-width="2"></path>
+
+        
+        <line x1="178" y1="138" x2="178" y2="118" stroke="rgba(237,232,224,0.18)" stroke-width="1"></line>
+        <text x="116" y="115" font-family="&#39;DM Mono&#39;, monospace" font-size="9" fill="rgba(237,232,224,0.22)" letter-spacing="2">PROJECTOR</text>
+        <line x1="575" y1="56" x2="575" y2="36" stroke="rgba(237,232,224,0.18)" stroke-width="1"></line>
+        <text x="510" y="33" font-family="&#39;DM Mono&#39;, monospace" font-size="9" fill="rgba(237,232,224,0.22)" letter-spacing="2">SCREEN</text>
+      </svg>`,
+    'sound-pa-systems': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <defs>
+          <pattern id="eq-s1" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="rgba(237,232,224,0.07)" stroke-width="1"></line>
+          </pattern>
+          <pattern id="eq-s2" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="rgba(139,26,10,0.18)" stroke-width="1"></line>
+          </pattern>
+        </defs>
+
+        
+        <path d="M44,60 Q46,58 108,60 Q110,60 110,290 Q108,292 44,292 Q42,292 44,60 Z" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.52)" stroke-width="2"></path>
+        
+        <circle cx="76" cy="96" r="14" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.4)" stroke-width="1.5"></circle>
+        <circle cx="76" cy="96" r="7" fill="url(#eq-s2)" stroke="rgba(139,26,10,0.6)" stroke-width="1.5"></circle>
+        <circle cx="76" cy="96" r="3" fill="rgba(139,26,10,0.9)"></circle>
+        <circle cx="76" cy="140" r="14" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.4)" stroke-width="1.5"></circle>
+        <circle cx="76" cy="140" r="7" fill="url(#eq-s2)" stroke="rgba(139,26,10,0.6)" stroke-width="1.5"></circle>
+        <circle cx="76" cy="140" r="3" fill="rgba(139,26,10,0.9)"></circle>
+        <circle cx="76" cy="184" r="14" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.4)" stroke-width="1.5"></circle>
+        <circle cx="76" cy="184" r="7" fill="url(#eq-s2)" stroke="rgba(139,26,10,0.6)" stroke-width="1.5"></circle>
+        <circle cx="76" cy="184" r="3" fill="rgba(139,26,10,0.9)"></circle>
+        <circle cx="76" cy="228" r="14" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.4)" stroke-width="1.5"></circle>
+        <circle cx="76" cy="228" r="7" fill="url(#eq-s2)" stroke="rgba(139,26,10,0.6)" stroke-width="1.5"></circle>
+        <circle cx="76" cy="228" r="3" fill="rgba(139,26,10,0.9)"></circle>
+        <circle cx="76" cy="272" r="14" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.4)" stroke-width="1.5"></circle>
+        <circle cx="76" cy="272" r="7" fill="url(#eq-s2)" stroke="rgba(139,26,10,0.6)" stroke-width="1.5"></circle>
+        <circle cx="76" cy="272" r="3" fill="rgba(139,26,10,0.9)"></circle>
+        
+        <path d="M54,54 Q76,50 98,54" stroke="rgba(237,232,224,0.3)" stroke-width="2" fill="none"></path>
+
+        
+        <path d="M692,60 Q694,58 756,60 Q758,60 758,290 Q756,292 692,292 Q690,292 692,60 Z" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.52)" stroke-width="2"></path>
+        <circle cx="724" cy="96" r="14" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.4)" stroke-width="1.5"></circle>
+        <circle cx="724" cy="96" r="7" fill="url(#eq-s2)" stroke="rgba(139,26,10,0.6)" stroke-width="1.5"></circle>
+        <circle cx="724" cy="96" r="3" fill="rgba(139,26,10,0.9)"></circle>
+        <circle cx="724" cy="140" r="14" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.4)" stroke-width="1.5"></circle>
+        <circle cx="724" cy="140" r="7" fill="url(#eq-s2)" stroke="rgba(139,26,10,0.6)" stroke-width="1.5"></circle>
+        <circle cx="724" cy="140" r="3" fill="rgba(139,26,10,0.9)"></circle>
+        <circle cx="724" cy="184" r="14" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.4)" stroke-width="1.5"></circle>
+        <circle cx="724" cy="184" r="7" fill="url(#eq-s2)" stroke="rgba(139,26,10,0.6)" stroke-width="1.5"></circle>
+        <circle cx="724" cy="184" r="3" fill="rgba(139,26,10,0.9)"></circle>
+        <circle cx="724" cy="228" r="14" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.4)" stroke-width="1.5"></circle>
+        <circle cx="724" cy="228" r="7" fill="url(#eq-s2)" stroke="rgba(139,26,10,0.6)" stroke-width="1.5"></circle>
+        <circle cx="724" cy="228" r="3" fill="rgba(139,26,10,0.9)"></circle>
+        <circle cx="724" cy="272" r="14" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.4)" stroke-width="1.5"></circle>
+        <circle cx="724" cy="272" r="7" fill="url(#eq-s2)" stroke="rgba(139,26,10,0.6)" stroke-width="1.5"></circle>
+        <circle cx="724" cy="272" r="3" fill="rgba(139,26,10,0.9)"></circle>
+        <path d="M702,54 Q724,50 746,54" stroke="rgba(237,232,224,0.3)" stroke-width="2" fill="none"></path>
+
+        
+        <path d="M244,218 Q246,215 556,217 Q558,217 558,318 Q556,320 244,320 Q242,320 244,218 Z" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.5)" stroke-width="2"></path>
+        
+        <line x1="268" y1="234" x2="268" y2="304" stroke="rgba(237,232,224,0.1)" stroke-width="6" stroke-linecap="butt"></line>
+        <path d="M262,254 Q262,250 274,250 Q274,258 262,258 Z" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.45)" stroke-width="1.5"></path>
+        <line x1="300" y1="234" x2="300" y2="304" stroke="rgba(237,232,224,0.1)" stroke-width="6" stroke-linecap="butt"></line>
+        <path d="M294,268 Q294,264 306,264 Q306,272 294,272 Z" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.45)" stroke-width="1.5"></path>
+        <line x1="332" y1="234" x2="332" y2="304" stroke="rgba(237,232,224,0.1)" stroke-width="6" stroke-linecap="butt"></line>
+        <path d="M326,246 Q326,242 338,242 Q338,250 326,250 Z" fill="url(#eq-s2)" stroke="rgba(139,26,10,0.75)" stroke-width="1.5"></path>
+        <line x1="364" y1="234" x2="364" y2="304" stroke="rgba(237,232,224,0.1)" stroke-width="6" stroke-linecap="butt"></line>
+        <path d="M358,274 Q358,270 370,270 Q370,278 358,278 Z" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.45)" stroke-width="1.5"></path>
+        <line x1="396" y1="234" x2="396" y2="304" stroke="rgba(237,232,224,0.1)" stroke-width="6" stroke-linecap="butt"></line>
+        <path d="M390,256 Q390,252 402,252 Q402,260 390,260 Z" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.45)" stroke-width="1.5"></path>
+        <line x1="428" y1="234" x2="428" y2="304" stroke="rgba(237,232,224,0.1)" stroke-width="6" stroke-linecap="butt"></line>
+        <path d="M422,244 Q422,240 434,240 Q434,248 422,248 Z" fill="url(#eq-s2)" stroke="rgba(139,26,10,0.65)" stroke-width="1.5"></path>
+        <line x1="460" y1="234" x2="460" y2="304" stroke="rgba(237,232,224,0.1)" stroke-width="6" stroke-linecap="butt"></line>
+        <path d="M454,262 Q454,258 466,258 Q466,266 454,266 Z" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.45)" stroke-width="1.5"></path>
+        
+        <line x1="510" y1="234" x2="510" y2="304" stroke="rgba(237,232,224,0.12)" stroke-width="10" stroke-linecap="butt"></line>
+        <path d="M502,256 Q502,250 518,250 Q518,262 502,262 Z" fill="url(#eq-s2)" stroke="rgba(139,26,10,0.85)" stroke-width="2"></path>
+        
+        <path d="M530,232 L548,231 L549,308 L531,309 Z" fill="rgba(0,0,0,0.3)" stroke="rgba(237,232,224,0.2)" stroke-width="1.5"></path>
+        <line x1="533" y1="298" x2="545" y2="298" stroke="rgba(139,26,10,0.65)" stroke-width="3" stroke-linecap="butt"></line>
+        <line x1="533" y1="292" x2="545" y2="292" stroke="rgba(139,26,10,0.55)" stroke-width="3" stroke-linecap="butt"></line>
+        <line x1="533" y1="286" x2="545" y2="286" stroke="rgba(139,26,10,0.45)" stroke-width="3" stroke-linecap="butt"></line>
+        <line x1="533" y1="280" x2="545" y2="280" stroke="rgba(139,26,10,0.35)" stroke-width="3" stroke-linecap="butt"></line>
+        <line x1="533" y1="274" x2="539" y2="274" stroke="rgba(237,232,224,0.1)" stroke-width="3" stroke-linecap="butt"></line>
+
+        
+        <path d="M392,64 Q392,58 400,58 Q408,58 408,64 L408,118 Q408,124 400,124 Q392,124 392,118 Z" fill="url(#eq-s1)" stroke="rgba(237,232,224,0.5)" stroke-width="1.5"></path>
+        <line x1="394" y1="74" x2="406" y2="74" stroke="rgba(237,232,224,0.25)" stroke-width="1"></line>
+        <line x1="394" y1="83" x2="406" y2="83" stroke="rgba(237,232,224,0.25)" stroke-width="1"></line>
+        <line x1="394" y1="92" x2="406" y2="92" stroke="rgba(237,232,224,0.25)" stroke-width="1"></line>
+        <line x1="394" y1="101" x2="406" y2="101" stroke="rgba(237,232,224,0.25)" stroke-width="1"></line>
+        <line x1="394" y1="110" x2="406" y2="110" stroke="rgba(237,232,224,0.25)" stroke-width="1"></line>
+        <path d="M400,124 Q399,150 400,168" stroke="rgba(237,232,224,0.3)" stroke-width="2"></path>
+        <path d="M383,166 Q391,178 400,168 Q409,178 417,166" stroke="rgba(237,232,224,0.3)" stroke-width="1.5" fill="none"></path>
+        <path d="M400,178 Q399,196 400,218" stroke="rgba(237,232,224,0.3)" stroke-width="2"></path>
+
+        
+        <path d="M110,175 Q132,148 132,175 Q132,202 110,175" stroke="rgba(139,26,10,0.6)" stroke-width="1.5" fill="none"></path>
+        <path d="M110,175 Q148,130 148,175 Q148,220 110,175" stroke="rgba(139,26,10,0.35)" stroke-width="1.5" fill="none"></path>
+        <path d="M692,175 Q670,148 670,175 Q670,202 692,175" stroke="rgba(139,26,10,0.6)" stroke-width="1.5" fill="none"></path>
+        <path d="M692,175 Q654,130 654,175 Q654,220 692,175" stroke="rgba(139,26,10,0.35)" stroke-width="1.5" fill="none"></path>
+
+        
+        <path d="M110,240 Q180,240 244,268" stroke="rgba(237,232,224,0.12)" stroke-width="1.5" stroke-dasharray="4 3" fill="none"></path>
+        <path d="M692,240 Q622,240 558,268" stroke="rgba(237,232,224,0.12)" stroke-width="1.5" stroke-dasharray="4 3" fill="none"></path>
+      </svg>`,
+    'lighting-fixtures': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <defs>
+          <pattern id="eq-l1" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="rgba(237,232,224,0.07)" stroke-width="1"></line>
+          </pattern>
+          <pattern id="eq-l2" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="rgba(139,26,10,0.18)" stroke-width="1"></line>
+          </pattern>
+        </defs>
+
+        
+        <path d="M48,46 Q200,42 400,44 Q600,42 752,46" stroke="rgba(237,232,224,0.55)" stroke-width="3" fill="none"></path>
+        <path d="M48,56 Q200,52 400,54 Q600,52 752,56" stroke="rgba(237,232,224,0.3)" stroke-width="1.5" fill="none"></path>
+        
+        <line x1="108" y1="46" x2="128" y2="56" stroke="rgba(237,232,224,0.2)" stroke-width="1"></line>
+        <line x1="148" y1="56" x2="168" y2="46" stroke="rgba(237,232,224,0.2)" stroke-width="1"></line>
+        <line x1="228" y1="46" x2="248" y2="56" stroke="rgba(237,232,224,0.2)" stroke-width="1"></line>
+        <line x1="268" y1="56" x2="288" y2="46" stroke="rgba(237,232,224,0.2)" stroke-width="1"></line>
+        <line x1="368" y1="46" x2="388" y2="56" stroke="rgba(237,232,224,0.2)" stroke-width="1"></line>
+        <line x1="408" y1="56" x2="428" y2="46" stroke="rgba(237,232,224,0.2)" stroke-width="1"></line>
+        <line x1="508" y1="46" x2="528" y2="56" stroke="rgba(237,232,224,0.2)" stroke-width="1"></line>
+        <line x1="548" y1="56" x2="568" y2="46" stroke="rgba(237,232,224,0.2)" stroke-width="1"></line>
+        <line x1="628" y1="46" x2="648" y2="56" stroke="rgba(237,232,224,0.2)" stroke-width="1"></line>
+        <line x1="668" y1="56" x2="688" y2="46" stroke="rgba(237,232,224,0.2)" stroke-width="1"></line>
+        
+        <circle cx="160" cy="51" r="5" fill="none" stroke="rgba(237,232,224,0.35)" stroke-width="1.5"></circle>
+        <circle cx="310" cy="51" r="5" fill="none" stroke="rgba(237,232,224,0.35)" stroke-width="1.5"></circle>
+        <circle cx="460" cy="51" r="5" fill="none" stroke="rgba(237,232,224,0.35)" stroke-width="1.5"></circle>
+        <circle cx="600" cy="51" r="5" fill="none" stroke="rgba(237,232,224,0.35)" stroke-width="1.5"></circle>
+        
+        <path d="M52,16 Q52,30 52,46" stroke="rgba(237,232,224,0.4)" stroke-width="3"></path>
+        <path d="M748,16 Q748,30 748,46" stroke="rgba(237,232,224,0.4)" stroke-width="3"></path>
+
+        
+        <g transform="translate(160,56) rotate(18,0,0)">
+          <polygon points="-5,0 5,0 38,130 -38,130" fill="rgba(139,26,10,0.07)" stroke="none"></polygon>
+          <path d="M-13,0 Q-14,-34 0,-36 Q14,-34 13,0 Z" fill="url(#eq-l1)" stroke="rgba(237,232,224,0.5)" stroke-width="1.5"></path>
+          <circle cx="0" cy="-17" r="9" fill="none" stroke="rgba(237,232,224,0.4)" stroke-width="1.5"></circle>
+          <circle cx="0" cy="-17" r="5" fill="rgba(139,26,10,0.55)" stroke="rgba(139,26,10,0.75)" stroke-width="1"></circle>
+          <path d="M-16,-3 L-23,20" stroke="rgba(237,232,224,0.3)" stroke-width="2"></path>
+          <path d="M16,-3 L23,20" stroke="rgba(237,232,224,0.3)" stroke-width="2"></path>
+        </g>
+
+        
+        <g transform="translate(310,56) rotate(-5,0,0)">
+          <polygon points="-6,0 6,0 46,148 -46,148" fill="rgba(139,26,10,0.06)" stroke="none"></polygon>
+          <path d="M-15,0 Q-16,-40 0,-42 Q16,-40 15,0 Z" fill="url(#eq-l1)" stroke="rgba(237,232,224,0.5)" stroke-width="1.5"></path>
+          <circle cx="0" cy="-20" r="10" fill="none" stroke="rgba(237,232,224,0.4)" stroke-width="1.5"></circle>
+          <circle cx="0" cy="-20" r="5" fill="rgba(139,26,10,0.6)" stroke="rgba(139,26,10,0.8)" stroke-width="1"></circle>
+          <path d="M-18,-3 L-26,24" stroke="rgba(237,232,224,0.3)" stroke-width="2"></path>
+          <path d="M18,-3 L26,24" stroke="rgba(237,232,224,0.3)" stroke-width="2"></path>
+          <path d="M-10,-40 L-13,-55" stroke="rgba(237,232,224,0.28)" stroke-width="2"></path>
+          <path d="M10,-40 L13,-55" stroke="rgba(237,232,224,0.28)" stroke-width="2"></path>
+        </g>
+
+        
+        <g transform="translate(460,56) rotate(9,0,0)">
+          <polygon points="-5,0 5,0 36,126 -36,126" fill="rgba(139,26,10,0.07)" stroke="none"></polygon>
+          <path d="M-12,0 Q-13,-32 0,-34 Q13,-32 12,0 Z" fill="url(#eq-l1)" stroke="rgba(237,232,224,0.48)" stroke-width="1.5"></path>
+          <circle cx="0" cy="-16" r="8" fill="none" stroke="rgba(237,232,224,0.38)" stroke-width="1.5"></circle>
+          <circle cx="0" cy="-16" r="4" fill="rgba(139,26,10,0.55)" stroke="rgba(139,26,10,0.7)" stroke-width="1"></circle>
+          <path d="M-14,-2 L-20,18" stroke="rgba(237,232,224,0.28)" stroke-width="2"></path>
+          <path d="M14,-2 L20,18" stroke="rgba(237,232,224,0.28)" stroke-width="2"></path>
+        </g>
+
+        
+        <g transform="translate(600,56) rotate(-14,0,0)">
+          <polygon points="-4,0 4,0 28,110 -28,110" fill="rgba(139,26,10,0.06)" stroke="none"></polygon>
+          <path d="M-11,0 Q-12,-28 0,-30 Q12,-28 11,0 Z" fill="url(#eq-l1)" stroke="rgba(237,232,224,0.45)" stroke-width="1.5"></path>
+          <circle cx="0" cy="-14" r="7" fill="none" stroke="rgba(237,232,224,0.35)" stroke-width="1.5"></circle>
+          <circle cx="0" cy="-14" r="3.5" fill="rgba(139,26,10,0.55)" stroke="rgba(139,26,10,0.7)" stroke-width="1"></circle>
+        </g>
+
+        
+        <path d="M48,296 Q250,292 400,294 Q550,292 752,296" stroke="rgba(237,232,224,0.18)" stroke-width="1.5" fill="none"></path>
+        
+        <ellipse cx="175" cy="298" rx="54" ry="8" fill="rgba(139,26,10,0.1)" stroke="rgba(139,26,10,0.25)" stroke-width="1"></ellipse>
+        <ellipse cx="316" cy="302" rx="68" ry="10" fill="rgba(139,26,10,0.08)" stroke="rgba(139,26,10,0.2)" stroke-width="1"></ellipse>
+        <ellipse cx="463" cy="299" rx="58" ry="8" fill="rgba(139,26,10,0.09)" stroke="rgba(139,26,10,0.22)" stroke-width="1"></ellipse>
+        <ellipse cx="594" cy="297" rx="48" ry="7" fill="rgba(139,26,10,0.07)" stroke="rgba(139,26,10,0.18)" stroke-width="1"></ellipse>
+
+        
+        <path d="M260,262 Q261,258 400,258 Q539,258 540,262 L540,278 Q539,282 400,282 Q261,282 260,278 Z" fill="url(#eq-l1)" stroke="rgba(237,232,224,0.4)" stroke-width="1.5"></path>
+        <circle cx="282" cy="270" r="5" fill="none" stroke="rgba(139,26,10,0.7)" stroke-width="1.5"></circle>
+        <circle cx="306" cy="270" r="5" fill="rgba(139,26,10,0.4)" stroke="rgba(139,26,10,0.55)" stroke-width="1"></circle>
+        <circle cx="330" cy="270" r="5" fill="none" stroke="rgba(139,26,10,0.7)" stroke-width="1.5"></circle>
+        <circle cx="354" cy="270" r="5" fill="rgba(139,26,10,0.4)" stroke="rgba(139,26,10,0.55)" stroke-width="1"></circle>
+        <circle cx="378" cy="270" r="5" fill="none" stroke="rgba(139,26,10,0.7)" stroke-width="1.5"></circle>
+        <circle cx="402" cy="270" r="5" fill="rgba(139,26,10,0.4)" stroke="rgba(139,26,10,0.55)" stroke-width="1"></circle>
+        <circle cx="426" cy="270" r="5" fill="none" stroke="rgba(139,26,10,0.7)" stroke-width="1.5"></circle>
+        <circle cx="450" cy="270" r="5" fill="rgba(139,26,10,0.4)" stroke="rgba(139,26,10,0.55)" stroke-width="1"></circle>
+        <circle cx="474" cy="270" r="5" fill="none" stroke="rgba(139,26,10,0.7)" stroke-width="1.5"></circle>
+        <circle cx="498" cy="270" r="5" fill="rgba(139,26,10,0.4)" stroke="rgba(139,26,10,0.55)" stroke-width="1"></circle>
+        <circle cx="522" cy="270" r="5" fill="none" stroke="rgba(139,26,10,0.7)" stroke-width="1.5"></circle>
+      </svg>`,
+    'video-cameras-switchers': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <defs>
+          <pattern id="eq-v1" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="rgba(237,232,224,0.07)" stroke-width="1"></line>
+          </pattern>
+          <pattern id="eq-v2" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="rgba(139,26,10,0.18)" stroke-width="1"></line>
+          </pattern>
+        </defs>
+
+        
+        <path d="M52,118 Q54,115 188,117 Q190,117 190,222 Q188,224 52,222 Q50,222 52,118 Z" fill="url(#eq-v1)" stroke="rgba(237,232,224,0.52)" stroke-width="2"></path>
+        
+        <circle cx="108" cy="170" r="44" fill="url(#eq-v1)" stroke="rgba(237,232,224,0.48)" stroke-width="2"></circle>
+        <circle cx="108" cy="170" r="32" fill="none" stroke="rgba(237,232,224,0.25)" stroke-width="1" stroke-dasharray="3 2"></circle>
+        <circle cx="108" cy="170" r="20" fill="url(#eq-v2)" stroke="rgba(139,26,10,0.65)" stroke-width="1.5"></circle>
+        <circle cx="108" cy="170" r="8" fill="none" stroke="rgba(237,232,224,0.45)" stroke-width="1.5"></circle>
+        <circle cx="108" cy="170" r="3" fill="rgba(139,26,10,0.95)"></circle>
+        <path d="M94,156 Q98,151 104,154" stroke="rgba(237,232,224,0.35)" stroke-width="1.5" fill="none"></path>
+        
+        <path d="M148,98 Q150,95 190,97 Q192,97 192,130 Q190,132 148,132 Q146,132 148,98 Z" fill="url(#eq-v1)" stroke="rgba(237,232,224,0.38)" stroke-width="1.5"></path>
+        <path d="M154,104 L184,104 L184,126 L154,126 Z" fill="rgba(0,0,0,0.4)" stroke="rgba(237,232,224,0.18)" stroke-width="1"></path>
+        
+        <circle cx="170" cy="113" r="5" fill="none" stroke="rgba(139,26,10,0.8)" stroke-width="1.5"></circle>
+        <circle cx="170" cy="113" r="2.5" fill="rgba(139,26,10,0.95)"></circle>
+        
+        <path d="M80,117 Q80,106 84,104 L160,102 Q164,104 164,117" fill="none" stroke="rgba(237,232,224,0.35)" stroke-width="1.5"></path>
+        
+        <path d="M120,222 Q118,248 116,280" stroke="rgba(237,232,224,0.35)" stroke-width="2.5"></path>
+        <path d="M116,280 Q92,308 74,332" stroke="rgba(237,232,224,0.3)" stroke-width="2"></path>
+        <path d="M116,280 Q116,308 116,334" stroke="rgba(237,232,224,0.3)" stroke-width="2"></path>
+        <path d="M116,280 Q140,308 158,332" stroke="rgba(237,232,224,0.3)" stroke-width="2"></path>
+        <path d="M82,312 Q116,308 150,312" stroke="rgba(237,232,224,0.18)" stroke-width="1" stroke-dasharray="3 2"></path>
+
+        
+        <path d="M230,144 Q232,141 570,143 Q572,143 572,242 Q570,244 230,242 Q228,242 230,144 Z" fill="url(#eq-v1)" stroke="rgba(237,232,224,0.52)" stroke-width="2"></path>
+        <text x="244" y="162" font-family="&#39;DM Mono&#39;, monospace" font-size="8" fill="rgba(237,232,224,0.28)" letter-spacing="2">VIDEO SWITCHER</text>
+        
+        <path d="M244,168 L284,167 L285,186 L245,187 Z" fill="url(#eq-v2)" stroke="rgba(139,26,10,0.8)" stroke-width="1.5"></path>
+        <text x="252" y="181" font-family="&#39;DM Mono&#39;, monospace" font-size="8" fill="rgba(237,232,224,0.7)" letter-spacing="1">1</text>
+        <path d="M292,168 L332,167 L333,186 L293,187 Z" fill="url(#eq-v1)" stroke="rgba(237,232,224,0.25)" stroke-width="1.5"></path>
+        <text x="306" y="181" font-family="&#39;DM Mono&#39;, monospace" font-size="8" fill="rgba(237,232,224,0.35)" letter-spacing="1">2</text>
+        <path d="M340,168 L380,167 L381,186 L341,187 Z" fill="url(#eq-v1)" stroke="rgba(237,232,224,0.25)" stroke-width="1.5"></path>
+        <text x="354" y="181" font-family="&#39;DM Mono&#39;, monospace" font-size="8" fill="rgba(237,232,224,0.35)" letter-spacing="1">3</text>
+        <path d="M388,168 L428,167 L429,186 L389,187 Z" fill="url(#eq-v1)" stroke="rgba(237,232,224,0.25)" stroke-width="1.5"></path>
+        <text x="402" y="181" font-family="&#39;DM Mono&#39;, monospace" font-size="8" fill="rgba(237,232,224,0.35)" letter-spacing="1">4</text>
+        
+        <line x1="456" y1="158" x2="456" y2="232" stroke="rgba(237,232,224,0.12)" stroke-width="8" stroke-linecap="butt"></line>
+        <path d="M446,192 Q446,186 466,186 Q466,198 446,198 Z" fill="url(#eq-v1)" stroke="rgba(237,232,224,0.45)" stroke-width="1.5"></path>
+        
+        <path d="M480,158 L548,157 L549,212 L481,213 Z" fill="url(#eq-v2)" stroke="rgba(139,26,10,0.4)" stroke-width="1.5"></path>
+        <path d="M488,164 L540,163 L541,206 L489,207 Z" fill="rgba(0,0,0,0.4)" stroke="rgba(139,26,10,0.3)" stroke-width="1"></path>
+        
+        <text x="497" y="190" font-family="&#39;DM Mono&#39;, monospace" font-size="8" fill="rgba(139,26,10,0.7)" letter-spacing="1">PGM</text>
+        
+        <circle cx="244" cy="230" r="4" fill="none" stroke="rgba(139,26,10,0.8)" stroke-width="1.5"></circle>
+        <circle cx="244" cy="230" r="2" fill="rgba(139,26,10,0.9)"></circle>
+        <circle cx="258" cy="230" r="4" fill="none" stroke="rgba(237,232,224,0.2)" stroke-width="1.5"></circle>
+        <circle cx="272" cy="230" r="4" fill="none" stroke="rgba(237,232,224,0.2)" stroke-width="1.5"></circle>
+
+        
+        <path d="M598,76 Q600,73 728,75 Q730,75 730,192 Q728,194 598,194 Q596,194 598,76 Z" fill="url(#eq-v1)" stroke="rgba(237,232,224,0.52)" stroke-width="2"></path>
+        <path d="M607,85 L720,85 L720,183 L607,183 Z" fill="url(#eq-v2)" stroke="rgba(139,26,10,0.2)" stroke-width="1"></path>
+        
+        <path d="M618,100 L680,99" stroke="rgba(237,232,224,0.45)" stroke-width="3"></path>
+        <path d="M618,112 L702,111" stroke="rgba(237,232,224,0.18)" stroke-width="1.5"></path>
+        <path d="M618,121 L686,120" stroke="rgba(237,232,224,0.14)" stroke-width="1.5"></path>
+        
+        <path d="M680,90 L718,89 L719,103 L681,104 Z" fill="rgba(139,26,10,0.55)" stroke="rgba(139,26,10,0.8)" stroke-width="1.5"></path>
+        <text x="687" y="100" font-family="&#39;DM Mono&#39;, monospace" font-size="7.5" fill="rgba(237,232,224,0.9)" letter-spacing="1.5">LIVE</text>
+        
+        <path d="M607,168 L720,168 L720,180 L607,180 Z" fill="rgba(0,0,0,0.35)" stroke="none"></path>
+        <text x="614" y="177" font-family="&#39;DM Mono&#39;, monospace" font-size="7" fill="rgba(237,232,224,0.3)" letter-spacing="1">00:01:42:14</text>
+        
+        <path d="M663,194 Q662,214 663,228" stroke="rgba(237,232,224,0.3)" stroke-width="2"></path>
+        <path d="M638,228 Q663,224 688,228" stroke="rgba(237,232,224,0.3)" stroke-width="1.5"></path>
+
+        
+        <path d="M190,175 Q210,175 230,193" stroke="rgba(237,232,224,0.15)" stroke-width="1.5" stroke-dasharray="4 3" fill="none"></path>
+        <path d="M572,193 Q585,193 598,135" stroke="rgba(237,232,224,0.15)" stroke-width="1.5" stroke-dasharray="4 3" fill="none"></path>
+
+        
+        <line x1="663" y1="76" x2="638" y2="56" stroke="rgba(237,232,224,0.18)" stroke-width="1"></line>
+        <text x="570" y="52" font-family="&#39;DM Mono&#39;, monospace" font-size="9" fill="rgba(237,232,224,0.22)" letter-spacing="2">CONFIDENCE MONITOR</text>
+      </svg>`
   };
 
   return `

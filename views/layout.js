@@ -64,6 +64,9 @@ module.exports = function layout({ title, description, path, body, site, service
   <meta property="og:type" content="website">
   <meta property="og:url" content="${biz.url}${path === '/' ? '' : path}">
   <meta property="og:site_name" content="${biz.name}">
+  <meta property="og:image" content="${biz.url}/assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,9 +78,17 @@ module.exports = function layout({ title, description, path, body, site, service
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="/css/style.css?v=35">
+  <link rel="stylesheet" href="/css/style.css?v=52">
 
   ${schema ? `<script type="application/ld+json">${schema}</script>` : ''}
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7CENFRFK3E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7CENFRFK3E');
+  </script>
 </head>
 <body>
 
