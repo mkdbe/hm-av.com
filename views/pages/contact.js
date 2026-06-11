@@ -93,6 +93,11 @@ module.exports = function contactPage({ site, success, error }) {
               <textarea id="details" name="details" class="form-input form-textarea" rows="5" placeholder="Tell us about your event — what are you planning, what do you need, any special requirements?"></textarea>
             </div>
 
+            <div style=display:none aria-hidden=true>
+              <label for=website>Website</label>
+              <input type=text id=website name=website tabindex=-1 autocomplete=off>
+            </div>
+
             <button type="submit" class="btn btn-primary btn-lg btn-block">Send Request</button>
           </form>
 

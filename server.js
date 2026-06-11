@@ -56,8 +56,8 @@ function fireVisitorNotification(visit) {
     }
 
     resend.emails.send({
-        from: "onboarding@resend.dev",
-        to: "mbesaw@gmail.com",
+        from: "alerts@hm-av.com",
+        to: "info@hm-av.com",
         subject: `👤 New visitor on hm-av.com — ${visit.location}`,
         html: `<!DOCTYPE html>
 <html>
@@ -453,7 +453,10 @@ app.get('/contact', (req, res) => {
 
 // Contact form submission
 app.post('/contact', async (req, res) => {
-  const { name, organization, email, phone, eventDate, venue, attendees, services: svcList, details } = req.body;
+  if (!req.body) return res.redirect('/contact?error=1');
+  const { name, organization, email, phone, eventDate, venue, attendees, services: svcList, details, website } = req.body;
+
+  if (website) return res.redirect('/contact?success=1');
 
   if (!name || !email) {
     return res.redirect('/contact?error=1');
@@ -481,7 +484,7 @@ Submitted: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }
 
   try {
     await resend.emails.send({
-      from: 'HIGHLANDMEDIA Quote Request <onboarding@resend.dev>',
+      from: 'HIGHLANDMEDIA <quotes@hm-av.com>',
       to: 'info@hm-av.com',
       replyTo: email,
       subject: `Quote Request: ${name}${organization ? ' / ' + organization : ''}`,
