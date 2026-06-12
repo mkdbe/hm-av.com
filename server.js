@@ -1,4 +1,6 @@
 const express = require('express');
+const crypto = require('crypto');
+const FORM_SECRET = process.env.FORM_SECRET || crypto.randomBytes(32).toString('hex');
 const path = require('path');
 const fs = require('fs');
 const { Resend } = require('resend');
@@ -446,7 +448,7 @@ app.get('/contact', (req, res) => {
     title: `Contact HIGHLANDMEDIA | Get a Quote | Rochester, NY`,
     description: 'Request a quote for AV rental or event production in Rochester, NY. Call (585) 210-2350 or email info@hm-av.com.',
     path: '/contact',
-    body: contactPage({ site, success: req.query.success === '1', error: req.query.error === '1' }),
+    body: (function() { const _fts = String(Date.now()); return contactPage({ site, success: req.query.success === '1', error: req.query.error === '1', formTimestamp: _fts, formToken: crypto.createHmac('sha256', FORM_SECRET).update(_fts).digest('hex') }); })(),
     site, services, equipment
   }));
 });
@@ -457,6 +459,14 @@ app.post('/contact', async (req, res) => {
   const { name, organization, email, phone, eventDate, venue, attendees, services: svcList, details, website } = req.body;
 
   if (website) return res.redirect('/contact?success=1');
+
+  const fts = req.body._fts;
+  const ft = req.body._ft;
+  const elapsed = Date.now() - parseInt(fts || '0', 10);
+  const expectedToken = fts ? crypto.createHmac('sha256', FORM_SECRET).update(fts).digest('hex') : '';
+  if (!fts || !ft || ft !== expectedToken || elapsed < 3000 || elapsed > 3600000) {
+    return res.redirect('/contact?success=1');
+  }
 
   if (!name || !email) {
     return res.redirect('/contact?error=1');

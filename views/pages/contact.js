@@ -1,4 +1,4 @@
-module.exports = function contactPage({ site, success, error }) {
+module.exports = function contactPage({ site, success, error, formTimestamp, formToken }) {
   const biz = site.business;
 
   return `
@@ -92,6 +92,9 @@ module.exports = function contactPage({ site, success, error }) {
               <label for="details" class="form-label">Event Details</label>
               <textarea id="details" name="details" class="form-input form-textarea" rows="5" placeholder="Tell us about your event — what are you planning, what do you need, any special requirements?"></textarea>
             </div>
+
+            <input type="hidden" name="_fts" value="${formTimestamp}">
+            <input type="hidden" name="_ft" value="${formToken}">
 
             <div style=display:none aria-hidden=true>
               <label for=website>Website</label>
