@@ -25,4 +25,5 @@ Thumbs.db
 
 # Runtime data
 analytics.json
+notifications-state.json
 CLAUDE.md

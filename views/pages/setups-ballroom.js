@@ -63,7 +63,7 @@ module.exports = function setupsBallroomPage({ site }) {
     .setup-item:hover .setup-arrow { color: var(--accent); transform: translateX(4px); }
 
     .ballroom-viewer {
-      display: none; position: fixed; inset: 0; z-index: 200;
+      display: none; position: fixed; inset: 0; z-index: 2000;
       background: rgba(0,0,0,0.97); backdrop-filter: blur(6px);
       flex-direction: column; align-items: center; justify-content: center;
     }
@@ -115,6 +115,15 @@ module.exports = function setupsBallroomPage({ site }) {
       transition: background 0.2s;
     }
     .viewer-dot.active { background: var(--accent); }
+    .viewer-photo-close {
+      position: absolute; top: 20px; right: 24px; z-index: 210;
+      background: rgba(20,20,18,0.7); border: 1px solid rgba(255,255,255,0.2);
+      color: #fff; width: 44px; height: 44px;
+      border-radius: 50%; cursor: pointer; font-size: 1.5rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .viewer-photo-close:hover { background: var(--accent); border-color: var(--accent); }
 
     @media (max-width: 640px) {
       .ballroom-wrap { padding: 32px 24px 80px; }
@@ -188,8 +197,8 @@ module.exports = function setupsBallroomPage({ site }) {
         <div class="viewer-title" id="viewerTitle"></div>
         <div class="viewer-count" id="viewerCount"></div>
       </div>
-      <button class="viewer-close" id="viewerClose" aria-label="Close">&times;</button>
     </div>
+    <button class="viewer-photo-close" id="viewerPhotoClose" aria-label="Close">&times;</button>
     <div class="viewer-img-wrap">
       <button class="viewer-nav prev" id="viewerPrev">&#8592;</button>
       <img id="viewerImg" src="" alt="">
@@ -206,7 +215,6 @@ module.exports = function setupsBallroomPage({ site }) {
     const viewerDots = document.getElementById('viewerDots');
     const viewerPrev = document.getElementById('viewerPrev');
     const viewerNext = document.getElementById('viewerNext');
-    const viewerClose = document.getElementById('viewerClose');
     let currentImages = [], currentIndex = 0, isFirstLoad = false;
 
     function openViewer(images, title, startIndex) {
@@ -215,11 +223,15 @@ module.exports = function setupsBallroomPage({ site }) {
       updateViewer();
       viewer.classList.add('active');
       document.body.style.overflow = 'hidden';
+      history.pushState({ viewer: true }, '');
     }
     function closeViewer() {
       viewer.classList.remove('active');
       document.body.style.overflow = '';
     }
+    window.addEventListener('popstate', () => {
+      if (viewer.classList.contains('active')) closeViewer();
+    });
     function updateViewer() {
       if (isFirstLoad) {
         viewerImg.classList.add('loading');
@@ -247,7 +259,7 @@ module.exports = function setupsBallroomPage({ site }) {
     document.querySelectorAll('.setup-item').forEach(item => {
       item.addEventListener('click', () => openViewer(JSON.parse(item.dataset.images), item.dataset.title, 0));
     });
-    viewerClose.addEventListener('click', closeViewer);
+    document.getElementById('viewerPhotoClose').addEventListener('click', closeViewer);
     viewer.addEventListener('click', (e) => { if (e.target === viewer) closeViewer(); });
     viewerPrev.addEventListener('click', (e) => { e.stopPropagation(); if (currentIndex > 0) { currentIndex--; updateViewer(); } });
     viewerNext.addEventListener('click', (e) => { e.stopPropagation(); if (currentIndex < currentImages.length - 1) { currentIndex++; updateViewer(); } });

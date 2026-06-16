@@ -37,8 +37,19 @@ function isHumanVisit(visit) {
 }
 
 // ── Email notification setup ──────────────────────────────────────────
-const recentlyNotified = new Map();
-const pendingNotifications = new Map();
+const NOTIF_STATE_FILE = path.join(__dirname, 'notifications-state.json');
+
+function loadNotifState() {
+    try {
+        return JSON.parse(fs.readFileSync(NOTIF_STATE_FILE, 'utf8'));
+    } catch (err) {
+        return { pending: {}, notifiedIPs: {} };
+    }
+}
+
+function saveNotifState(state) {
+    fs.writeFileSync(NOTIF_STATE_FILE, JSON.stringify(state, null, 2));
+}
 
 function fireVisitorNotification(visit) {
     const now = new Date().toLocaleString('en-US', { timeZone: 'America/New_York' });
@@ -83,42 +94,57 @@ function fireVisitorNotification(visit) {
   </div>
 </body>
 </html>`
-    }).catch(err => console.error("Email failed:", err.message));
+    }).then(({ error }) => { if (error) console.error("Email failed:", JSON.stringify(error)); });
 }
 
 function scheduleVisitorNotification(sessionId) {
-    if (pendingNotifications.has(sessionId)) {
-        clearTimeout(pendingNotifications.get(sessionId));
+    const state = loadNotifState();
+    state.pending[sessionId] = Date.now() + 2 * 60 * 1000;
+    saveNotifState(state);
+}
+
+// Persisted to disk so a service restart can't silently drop a notification
+// that was scheduled but hadn't fired yet (this happened in production).
+function processPendingNotifications() {
+    const state = loadNotifState();
+    const now = Date.now();
+    let changed = false;
+
+    for (const [ip, t] of Object.entries(state.notifiedIPs)) {
+        if (now - t > 3600000) {
+            delete state.notifiedIPs[ip];
+            changed = true;
+        }
     }
 
-    const timer = setTimeout(() => {
-        pendingNotifications.delete(sessionId);
+    for (const [sessionId, dueAt] of Object.entries(state.pending)) {
+        if (dueAt > now) continue;
+        delete state.pending[sessionId];
+        changed = true;
 
         try {
             const data = JSON.parse(fs.readFileSync(ANALYTICS_FILE, 'utf8'));
             const visit = data.visits.find(v => v.sessionId === sessionId);
-
-            if (!visit) return;
+            if (!visit) continue;
 
             // Check 1hr cooldown per IP
-            const lastNotified = recentlyNotified.get(visit.ip);
-            if (lastNotified && (Date.now() - lastNotified) < 3600000) return;
+            const lastNotified = state.notifiedIPs[visit.ip];
+            if (lastNotified && (now - lastNotified) < 3600000) continue;
 
             if (isHumanVisit(visit)) {
-                recentlyNotified.set(visit.ip, Date.now());
-                if (recentlyNotified.size > 100) {
-                    for (const [k, t] of recentlyNotified.entries())
-                        if (Date.now() - t > 3600000) recentlyNotified.delete(k);
-                }
+                state.notifiedIPs[visit.ip] = now;
                 fireVisitorNotification(visit);
             }
         } catch (err) {
             console.error('Notification error:', err.message);
         }
-    }, 2 * 60 * 1000);
+    }
 
-    pendingNotifications.set(sessionId, timer);
+    if (changed) saveNotifState(state);
 }
+
+setInterval(processPendingNotifications, 20 * 1000);
+processPendingNotifications();
 
 // Helper: extract visitor info from request
 function getVisitorInfo(req) {
@@ -171,7 +197,8 @@ function getVisitorInfo(req) {
 // Static files
 app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: '7d',
-  index: false
+  index: false,
+  redirect: false
 }));
 
 app.use((req, res, next) => {
@@ -493,7 +520,7 @@ ${details || '(none provided)'}
 Submitted: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })} EST`;
 
   try {
-    await resend.emails.send({
+    const { error: sendErr } = await resend.emails.send({
       from: 'HIGHLANDMEDIA <quotes@hm-av.com>',
       to: 'info@hm-av.com',
       replyTo: email,
@@ -501,10 +528,14 @@ Submitted: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }
       text: emailBody
     });
 
+    if (sendErr) {
+      console.error('[CONTACT] Email failed:', JSON.stringify(sendErr));
+      return res.redirect('/contact?error=1');
+    }
     console.log(`[CONTACT] Quote request from ${name} <${email}>`);
     res.redirect('/contact?success=1');
   } catch (err) {
-    console.error('[CONTACT] Email failed:', err.message);
+    console.error('[CONTACT] Email exception:', err.message);
     res.redirect('/contact?error=1');
   }
 });
@@ -645,6 +676,10 @@ function buildFAQSchema(faqItems) {
 
 
 // ─── Private pages ────────────────────────────────────
+app.get(['/livestream', '/livestream/'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/livestream/index.html'));
+});
+
 app.get(['/setups/ballroom', '/setups/ballroom/'], (req, res) => {
   res.send(layout({
     title: 'Ballroom Setup Options — HIGHLANDMEDIA',
