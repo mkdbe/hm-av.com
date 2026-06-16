@@ -21,7 +21,7 @@ const resend = new Resend('re_Ney6x6dy_GaHZwQ41q4uC2qtR6vvrqRVL');
 const ANALYTICS_FILE = path.join(__dirname, 'analytics.json');
 
 const EXCLUDED_IPS = [
-    '38.49.72.41',
+    '38.49.92.159',
 ];
 
 if (!fs.existsSync(ANALYTICS_FILE)) {

@@ -190,6 +190,2922 @@
       "navigations": 4,
       "lastHeartbeat": "2026-04-16T14:37:09.530Z",
       "duration": 80
+    },
+    {
+      "sessionId": "guw7bjww3rhmo9hyjgh",
+      "timestamp": "2026-04-22T03:32:26.769Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "146.112.163.36",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "n9nzygc8bpmoaaw5pl",
+      "timestamp": "2026-04-22T17:02:24.543Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "91.98.176.11",
+      "location": "IR",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "cz7coy3k0remoalupiw",
+      "timestamp": "2026-04-22T22:09:12.663Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "135.232.19.14",
+      "location": "Chicago, IL, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.7444.162 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-04-22T22:09:42.152Z",
+      "duration": 29
+    },
+    {
+      "sessionId": "nj43letcx69mokkps9b",
+      "timestamp": "2026-04-29T21:35:05.033Z",
+      "path": "/",
+      "pages": [
+        "/",
+        "/services",
+        "/portfolio",
+        "/about",
+        "/"
+      ],
+      "ip": "209.198.119.84",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://hm-av.com/",
+      "navigations": 14,
+      "lastHeartbeat": "2026-04-29T21:36:39.404Z",
+      "duration": 94
+    },
+    {
+      "sessionId": "ahrhq1rov0imokkrwq4",
+      "timestamp": "2026-04-29T21:36:44.132Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "209.198.119.84",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "cd6f00yncsomokks1rf",
+      "timestamp": "2026-04-29T21:36:50.663Z",
+      "path": "/",
+      "pages": [
+        "/",
+        "/services/audio",
+        "/"
+      ],
+      "ip": "209.198.119.84",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://hm-av.com/",
+      "navigations": 4,
+      "lastHeartbeat": "2026-04-29T21:37:27.735Z",
+      "duration": 37
+    },
+    {
+      "sessionId": "adh9no0udu7mol29gux",
+      "timestamp": "2026-04-30T05:46:16.865Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "44.200.159.234",
+      "location": "Ashburn, VA, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/138.0.7204.23 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "m27orvmop6omongpgq1",
+      "timestamp": "2026-05-01T22:06:10.298Z",
+      "path": "/",
+      "pages": [
+        "/",
+        "/services",
+        "/equipment",
+        "/portfolio",
+        "/"
+      ],
+      "ip": "209.76.207.54",
+      "location": "Vacaville, CA, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://hm-av.com/",
+      "navigations": 10,
+      "lastHeartbeat": "2026-05-01T22:07:37.828Z",
+      "duration": 87
+    },
+    {
+      "sessionId": "97ikbtkc4cnmonhopkc",
+      "timestamp": "2026-05-01T22:33:34.633Z",
+      "path": "/services",
+      "pages": [
+        "/services"
+      ],
+      "ip": "209.76.207.54",
+      "location": "Vacaville, CA, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/150.0 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://hm-av.com/equipment/projectors-screens",
+      "navigations": 0
+    },
+    {
+      "sessionId": "8ktnsak5b6ymonj3p1p",
+      "timestamp": "2026-05-01T23:13:13.440Z",
+      "path": "/services",
+      "pages": [
+        "/services"
+      ],
+      "ip": "209.76.207.54",
+      "location": "Vacaville, CA, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/150.0 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://hm-av.com/equipment/projectors-screens",
+      "navigations": 0
+    },
+    {
+      "sessionId": "99ob6bn0ztlmoof769n",
+      "timestamp": "2026-05-02T14:11:44.651Z",
+      "path": "/",
+      "pages": [
+        "/",
+        "/services",
+        "/equipment",
+        "/services",
+        "/equipment",
+        "/services",
+        "/equipment",
+        "/services",
+        "/equipment",
+        "/portfolio",
+        "/about",
+        "/",
+        "/equipment/lighting-fixtures",
+        "/"
+      ],
+      "ip": "107.175.102.176",
+      "location": "Buffalo, NY, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64; rv:150.0) Gecko/20100101 Firefox/150.0",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Firefox",
+      "referer": "https://hm-av.com/",
+      "navigations": 13,
+      "lastHeartbeat": "2026-05-02T14:13:27.223Z",
+      "duration": 102
+    },
+    {
+      "sessionId": "vhetpwvhncsmot0rm9b",
+      "timestamp": "2026-05-05T19:26:33.852Z",
+      "path": "/equipment/sound-pa-systems",
+      "pages": [
+        "/",
+        "/services/equipment-rentals",
+        "/equipment/sound-pa-systems"
+      ],
+      "ip": "128.151.71.12",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "https://www.google.com/",
+      "navigations": 5,
+      "lastHeartbeat": "2026-05-05T19:27:12.748Z",
+      "duration": 38
+    },
+    {
+      "sessionId": "fxvh2uhpdrmotxwymk",
+      "timestamp": "2026-05-06T10:54:31.951Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "150.5.134.3",
+      "location": "JP",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.119 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "734rws5f8rrmov4gzcx",
+      "timestamp": "2026-05-07T06:45:51.329Z",
+      "path": "/contact",
+      "pages": [
+        "/",
+        "/contact"
+      ],
+      "ip": "103.53.52.146",
+      "location": "IN",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "https://docs.google.com/",
+      "navigations": 5,
+      "lastHeartbeat": "2026-05-07T06:56:08.229Z",
+      "duration": 616
+    },
+    {
+      "sessionId": "gmw1c5fvqxamovi90sd",
+      "timestamp": "2026-05-07T13:11:31.896Z",
+      "path": "/equipment/sound-pa-systems",
+      "pages": [
+        "/",
+        "/contact",
+        "/equipment/projectors-screens",
+        "/services/hybrid-events",
+        "/equipment/sound-pa-systems"
+      ],
+      "ip": "23.155.8.104",
+      "location": "US",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 45,
+      "lastHeartbeat": "2026-05-07T13:12:07.666Z",
+      "duration": 35
+    },
+    {
+      "sessionId": "sods9untbhmovib0du",
+      "timestamp": "2026-05-07T13:13:04.759Z",
+      "path": "/services/video",
+      "pages": [
+        "/services/equipment-rentals",
+        "/equipment/video-cameras-switchers",
+        "/services/video"
+      ],
+      "ip": "45.84.107.76",
+      "location": "DE",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 2
+    },
+    {
+      "sessionId": "71b5afa139movzgw5o",
+      "timestamp": "2026-05-07T21:13:32.399Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "34.122.147.229",
+      "location": "Council Bluffs, IA, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 1,
+      "lastHeartbeat": "2026-05-07T21:14:02.394Z",
+      "duration": 29
+    },
+    {
+      "sessionId": "48htws57myvmovzgw97",
+      "timestamp": "2026-05-07T21:13:32.515Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "205.169.39.37",
+      "location": "Engelhard, NC, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.5938.132 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-05-07T21:13:52.736Z",
+      "duration": 20
+    },
+    {
+      "sessionId": "jjsda6d8wznmovzh0df",
+      "timestamp": "2026-05-07T21:13:37.865Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "34.123.170.104",
+      "location": "Council Bluffs, IA, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 1,
+      "lastHeartbeat": "2026-05-07T21:14:07.851Z",
+      "duration": 29
+    },
+    {
+      "sessionId": "m7cgiaodmbmovzjzoy",
+      "timestamp": "2026-05-07T21:15:56.925Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "103.196.9.109",
+      "location": "Ashburn, VA, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/144.0.7559.95 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-05-07T21:16:06.925Z",
+      "duration": 10
+    },
+    {
+      "sessionId": "bnfmh4rhd07movzm7wv",
+      "timestamp": "2026-05-07T21:17:40.949Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "152.39.212.112",
+      "location": "Ashburn, VA, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/144.0.7559.95 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-05-07T21:17:50.950Z",
+      "duration": 10
+    },
+    {
+      "sessionId": "7boksvajvopmow0f1j6",
+      "timestamp": "2026-05-07T21:40:05.642Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "3.95.199.64",
+      "location": "Ashburn, VA, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/138.0.7204.23 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "mme6guc33himow742zd",
+      "timestamp": "2026-05-08T00:47:31.746Z",
+      "path": "/services/audio",
+      "pages": [
+        "/",
+        "/contact",
+        "/equipment/sound-pa-systems",
+        "/services/lighting",
+        "/services/audio"
+      ],
+      "ip": "109.70.100.6",
+      "location": "Vienna, 9, AT",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 48,
+      "lastHeartbeat": "2026-05-08T00:48:12.583Z",
+      "duration": 40
+    },
+    {
+      "sessionId": "qfxss5iee3mow7a7cf",
+      "timestamp": "2026-05-08T00:52:17.402Z",
+      "path": "/services/audio",
+      "pages": [
+        "/",
+        "/contact",
+        "/equipment/sound-pa-systems",
+        "/services/lighting",
+        "/services/hybrid-events",
+        "/services/livestreaming",
+        "/equipment/lighting-fixtures",
+        "/services/audio"
+      ],
+      "ip": "185.220.101.178",
+      "location": "Brandenburg, BB, DE",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 48,
+      "lastHeartbeat": "2026-05-08T00:52:54.625Z",
+      "duration": 37
+    },
+    {
+      "sessionId": "bfqaphvsdpmowcn391",
+      "timestamp": "2026-05-08T03:22:16.590Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "35.85.220.231",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.7778.96 Safari/537.36 Edge/18.19582",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Edge",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "8f31efehxo2mowcn8ic",
+      "timestamp": "2026-05-08T03:22:23.354Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "35.85.220.231",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "61py131wrrvmowcuq13",
+      "timestamp": "2026-05-08T03:28:12.835Z",
+      "path": "/equipment",
+      "pages": [
+        "/",
+        "/contact",
+        "/equipment"
+      ],
+      "ip": "192.159.99.27",
+      "location": "NL",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 43,
+      "lastHeartbeat": "2026-05-08T03:29:04.268Z",
+      "duration": 51
+    },
+    {
+      "sessionId": "tac5zh2ow5mowlkqxo",
+      "timestamp": "2026-05-08T07:32:23.784Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "100.31.134.231",
+      "location": "Ashburn, VA, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/138.0.7204.23 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "rkf91v9x07nmowma4qz",
+      "timestamp": "2026-05-08T07:52:08.085Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "13.223.233.86",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/138.0.7204.23 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "hh2jwj5s1s6moxhxjl2",
+      "timestamp": "2026-05-08T22:38:09.973Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "47.251.88.238",
+      "location": "CA, US",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "sysws2tbh2moxmyf6a",
+      "timestamp": "2026-05-09T00:58:47.707Z",
+      "path": "/services/lighting",
+      "pages": [
+        "/",
+        "/contact",
+        "/services/lighting"
+      ],
+      "ip": "185.220.101.138",
+      "location": "Brandenburg, BB, DE",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 44,
+      "lastHeartbeat": "2026-05-09T00:59:29.272Z",
+      "duration": 41
+    },
+    {
+      "sessionId": "ogk4oshl2zdmoyzi3d7",
+      "timestamp": "2026-05-09T23:37:47.023Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "172.76.5.28",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "kaw210lyibmoyzy2rs",
+      "timestamp": "2026-05-09T23:50:12.737Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "104.28.154.174",
+      "location": "Sydney, NSW, AU",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "v9cgqnkly9moz4q5c4",
+      "timestamp": "2026-05-10T02:04:00.924Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "104.28.154.179",
+      "location": "Oxford Park, QLD, AU",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "v57ppbe4qz9mozazk16",
+      "timestamp": "2026-05-10T04:59:17.461Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "34.221.50.112",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 8.0.0; SM-G965U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.7778.96 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "jn8q0kdckjomozyvv4t",
+      "timestamp": "2026-05-10T16:08:16.291Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "64.233.172.2",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.116 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "o2vn994cstomozyxjk4",
+      "timestamp": "2026-05-10T16:09:34.766Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "64.233.172.14",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.116 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "7ehf7ddhymmmozyxk1s",
+      "timestamp": "2026-05-10T16:09:36.909Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "66.249.74.5",
+      "location": "US",
+      "userAgent": "GoogleOther",
+      "device": "Desktop",
+      "os": "Unknown",
+      "browser": "Unknown",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "8k87907apusmozzalho",
+      "timestamp": "2026-05-10T16:19:43.574Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "66.102.8.102",
+      "location": "SC, US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.116 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "o7whs74p6fmp0cvt77",
+      "timestamp": "2026-05-10T22:40:09.763Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "47.251.88.238",
+      "location": "CA, US",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-05-10T22:40:20.057Z",
+      "duration": 10
+    },
+    {
+      "sessionId": "64yfc1u07o2mp0pd1i2",
+      "timestamp": "2026-05-11T04:29:27.431Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "34.219.197.149",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.7778.96 Safari/537.36",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "88z8y1jtapmp0udb8j",
+      "timestamp": "2026-05-11T06:49:38.182Z",
+      "path": "/contact",
+      "pages": [
+        "/",
+        "/contact"
+      ],
+      "ip": "185.220.100.244",
+      "location": "DE",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 42,
+      "lastHeartbeat": "2026-05-11T06:50:28.315Z",
+      "duration": 50
+    },
+    {
+      "sessionId": "heev8nmb4jhmp0w94mf",
+      "timestamp": "2026-05-11T07:42:25.732Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "101.47.25.61",
+      "location": "Singapore, SG",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-05-11T07:42:34.242Z",
+      "duration": 8
+    },
+    {
+      "sessionId": "8kaepoopn2mp21u0no",
+      "timestamp": "2026-05-12T03:06:21.062Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "16.146.54.195",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "sainv5vmzdmp2aiwko",
+      "timestamp": "2026-05-12T07:09:46.980Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "66.249.74.5",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.137 Mobile Safari/537.36 (compatible; GoogleOther)",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "sainv5vmzdmp2ehkdk",
+      "timestamp": "2026-05-12T09:00:41.954Z",
+      "path": "/services/video",
+      "pages": [
+        "/services/video"
+      ],
+      "ip": "66.249.74.5",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.137 Mobile Safari/537.36 (compatible; GoogleOther)",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "sainv5vmzdmp2fx100",
+      "timestamp": "2026-05-12T09:40:43.760Z",
+      "path": "/portfolio",
+      "pages": [
+        "/portfolio"
+      ],
+      "ip": "66.249.74.5",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.137 Mobile Safari/537.36 (compatible; GoogleOther)",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "n0ja7c6z2vmp2k628b",
+      "timestamp": "2026-05-12T11:39:38.383Z",
+      "path": "/equipment/lighting-fixtures",
+      "pages": [
+        "/equipment/lighting-fixtures"
+      ],
+      "ip": "66.249.74.5",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.137 Mobile Safari/537.36 (compatible; GoogleOther)",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "n0ja7c6z2vmp2mb80b",
+      "timestamp": "2026-05-12T12:39:39.172Z",
+      "path": "/equipment/lighting-fixtures",
+      "pages": [
+        "/equipment/lighting-fixtures"
+      ],
+      "ip": "66.249.74.5",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.137 Mobile Safari/537.36 (compatible; GoogleOther)",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "noeo4gfx81mp2aiwjp",
+      "timestamp": "2026-05-12T13:04:40.796Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "66.249.74.5",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.137 Mobile Safari/537.36 (compatible; GoogleOther)",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "n0ja7c6z2vmp2piyob",
+      "timestamp": "2026-05-12T14:09:38.839Z",
+      "path": "/services",
+      "pages": [
+        "/services"
+      ],
+      "ip": "66.249.74.7",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.137 Mobile Safari/537.36 (compatible; GoogleOther)",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "n0ja7c6z2vmp2pvtmz",
+      "timestamp": "2026-05-12T14:19:39.990Z",
+      "path": "/about",
+      "pages": [
+        "/about"
+      ],
+      "ip": "66.249.74.6",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.137 Mobile Safari/537.36 (compatible; GoogleOther)",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "n0ja7c6z2vmp2qli0r",
+      "timestamp": "2026-05-12T14:39:38.501Z",
+      "path": "/services/audio",
+      "pages": [
+        "/services/audio"
+      ],
+      "ip": "66.249.74.5",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.137 Mobile Safari/537.36 (compatible; GoogleOther)",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "sainv5vmzdmp2tup6o",
+      "timestamp": "2026-05-12T16:10:45.189Z",
+      "path": "/services/lighting",
+      "pages": [
+        "/services/lighting"
+      ],
+      "ip": "66.249.74.5",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.137 Mobile Safari/537.36 (compatible; GoogleOther)",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "e4ghzh6egvjmp2xh20g",
+      "timestamp": "2026-05-12T17:52:03.984Z",
+      "path": "/contact",
+      "pages": [
+        "/",
+        "/services/equipment-rentals",
+        "/equipment",
+        "/equipment/projectors-screens",
+        "/contact"
+      ],
+      "ip": "104.229.28.74",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://www.google.com/",
+      "navigations": 21,
+      "lastHeartbeat": "2026-05-12T17:54:45.123Z",
+      "duration": 161
+    },
+    {
+      "sessionId": "n0ja7c6z2vmp308yib",
+      "timestamp": "2026-05-12T19:09:47.177Z",
+      "path": "/equipment",
+      "pages": [
+        "/equipment"
+      ],
+      "ip": "66.249.73.73",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.137 Mobile Safari/537.36 (compatible; GoogleOther)",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "lfkcv9w5269mp38cvkb",
+      "timestamp": "2026-05-12T22:56:44.873Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "91.90.126.114",
+      "location": "Panama City, 8, PA",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "n0ja7c6z2vmp3abnlv",
+      "timestamp": "2026-05-12T23:51:51.397Z",
+      "path": "/services",
+      "pages": [
+        "/services"
+      ],
+      "ip": "66.249.73.64",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.137 Mobile Safari/537.36 (compatible; GoogleOther)",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "k9fanemkwyhmp3fdw4h",
+      "timestamp": "2026-05-13T02:13:29.483Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "54.200.36.134",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.7778.96 Safari/537.36 Edge/18.19582",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Edge",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "n0ja7c6z2vmp4234bf",
+      "timestamp": "2026-05-13T12:49:11.893Z",
+      "path": "/services/hybrid-events",
+      "pages": [
+        "/services/hybrid-events"
+      ],
+      "ip": "66.249.73.65",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.137 Mobile Safari/537.36 (compatible; GoogleOther)",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "u5zji32zlokmp4f7zoh",
+      "timestamp": "2026-05-13T18:56:47.632Z",
+      "path": "/",
+      "pages": [
+        "/services",
+        "/equipment",
+        "/"
+      ],
+      "ip": "74.254.78.11",
+      "location": "Columbia, SC, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://hm-av.com/",
+      "navigations": 5,
+      "lastHeartbeat": "2026-05-13T18:57:32.054Z",
+      "duration": 44
+    },
+    {
+      "sessionId": "8xbgvonq29dmp4shwev",
+      "timestamp": "2026-05-14T01:08:17.662Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "34.215.7.160",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "nt2n9rpazxemp5hicee",
+      "timestamp": "2026-05-14T12:48:28.901Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "175.44.42.178",
+      "location": "CN",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "https://www.zsio.net/",
+      "navigations": 0
+    },
+    {
+      "sessionId": "qqbuv1z2ffnmp5zlwwa",
+      "timestamp": "2026-05-14T21:15:08.390Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "205.169.39.70",
+      "location": "Engelhard, NC, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "8zoll61mx2cmp66xnrx",
+      "timestamp": "2026-05-15T00:40:13.968Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "34.220.192.189",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.7778.167 Safari/537.36",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "yky0i9i11gsmp7jiu4j",
+      "timestamp": "2026-05-15T23:20:23.346Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "34.222.106.72",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.7778.167 Safari/537.36 Edge/18.19582",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Edge",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "2kema4wwk37mp8bl6qn",
+      "timestamp": "2026-05-16T12:26:03.389Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "47.251.88.238",
+      "location": "CA, US",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "4j1gi7m61kmp8d7ewk",
+      "timestamp": "2026-05-16T13:11:19.984Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "123.26.65.217",
+      "location": "Gia Nghia, 72, VN",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "r7j8u825r3mp8lue86",
+      "timestamp": "2026-05-16T17:13:07.982Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "3.237.40.39",
+      "location": "Ashburn, VA, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/138.0.7204.23 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "3p8uuixtwpmp8ne6j6",
+      "timestamp": "2026-05-16T17:56:30.831Z",
+      "path": "/services/lighting",
+      "pages": [
+        "/",
+        "/contact",
+        "/equipment/video-cameras-switchers",
+        "/services/lighting"
+      ],
+      "ip": "185.220.101.99",
+      "location": "Brandenburg, BB, DE",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 45,
+      "lastHeartbeat": "2026-05-16T17:57:08.863Z",
+      "duration": 38
+    },
+    {
+      "sessionId": "sqxz2x5pocmp983p56",
+      "timestamp": "2026-05-17T03:36:13.636Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "35.87.54.112",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "csb1jook064mpa4bnew",
+      "timestamp": "2026-05-17T18:38:12.426Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "49.49.251.118",
+      "location": "Bangkok, 10, TH",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/146.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "r2scee2lq58mpba1686",
+      "timestamp": "2026-05-18T14:05:47.535Z",
+      "path": "/services/equipment-rentals",
+      "pages": [
+        "/",
+        "/contact",
+        "/equipment/projectors-screens",
+        "/services/hybrid-events",
+        "/services/video",
+        "/services/lighting",
+        "/services/livestreaming",
+        "/equipment/sound-pa-systems",
+        "/services/audio",
+        "/services/equipment-rentals"
+      ],
+      "ip": "45.154.98.153",
+      "location": "Oude Meer, NH, NL",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 51,
+      "lastHeartbeat": "2026-05-18T14:06:28.390Z",
+      "duration": 40
+    },
+    {
+      "sessionId": "njp961q6nbmpbhfg31",
+      "timestamp": "2026-05-18T17:32:50.850Z",
+      "path": "/services/audio",
+      "pages": [
+        "/",
+        "/contact",
+        "/portfolio",
+        "/equipment/lighting-fixtures",
+        "/equipment/projectors-screens",
+        "/services/equipment-rentals",
+        "/services/lighting",
+        "/services/audio"
+      ],
+      "ip": "45.84.107.174",
+      "location": "DE",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 49,
+      "lastHeartbeat": "2026-05-18T17:33:31.081Z",
+      "duration": 40
+    },
+    {
+      "sessionId": "onwz333a2xbmpd4moa3",
+      "timestamp": "2026-05-19T21:10:05.238Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "74.254.78.32",
+      "location": "Columbia, SC, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "re59fm1c1rmmpeoopvo",
+      "timestamp": "2026-05-20T23:19:19.289Z",
+      "path": "/contact",
+      "pages": [
+        "/",
+        "/contact"
+      ],
+      "ip": "45.131.64.118",
+      "location": "Anaheim, CA, US",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 43,
+      "lastHeartbeat": "2026-05-20T23:20:02.093Z",
+      "duration": 42
+    },
+    {
+      "sessionId": "qrkpn9posylmpfiy8ch",
+      "timestamp": "2026-05-21T13:26:31.480Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "95.181.233.17",
+      "location": "Monaco, MC",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-05-21T13:26:41.660Z",
+      "duration": 10
+    },
+    {
+      "sessionId": "xfrrcv5fylmpfqop5t",
+      "timestamp": "2026-05-21T17:03:03.603Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "91.90.122.22",
+      "location": "Schaan, 07, LI",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "ga6hih56rampfqsfcf",
+      "timestamp": "2026-05-21T17:05:57.641Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "181.214.166.205",
+      "location": "Chicago, IL, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-05-21T17:06:07.522Z",
+      "duration": 9
+    },
+    {
+      "sessionId": "qj6xrpxvu8mpfwqv07",
+      "timestamp": "2026-05-21T19:52:42.585Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "47.251.88.238",
+      "location": "CA, US",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "ga0jtamy05tmpfwso0i",
+      "timestamp": "2026-05-21T19:54:07.843Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "36.65.81.9",
+      "location": "Surakarta, JT, ID",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "ypkht6vasnmpgl9u22",
+      "timestamp": "2026-05-22T07:19:18.392Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "54.176.59.228",
+      "location": "San Jose, CA, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.7680.107 YaBrowser/26.4.3.107.01 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "ko2751epzbfmpgmh0b3",
+      "timestamp": "2026-05-22T07:52:52.467Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "16.144.16.75",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "bzw58co2a1wmpguitw8",
+      "timestamp": "2026-05-22T11:38:14.372Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "100.54.47.106",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/138.0.7204.23 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "42fv7u76wt4mpgv0o32",
+      "timestamp": "2026-05-22T11:52:06.646Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "44.220.59.224",
+      "location": "Ashburn, VA, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/138.0.7204.23 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "jw5qz8bkckcmpgz29pn",
+      "timestamp": "2026-05-22T13:45:19.854Z",
+      "path": "/contact",
+      "pages": [
+        "/",
+        "/contact"
+      ],
+      "ip": "98.3.103.111",
+      "location": "Macedon, NY, US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "https://www.google.com/",
+      "navigations": 4,
+      "lastHeartbeat": "2026-05-22T13:45:49.789Z",
+      "duration": 29
+    },
+    {
+      "sessionId": "rhxdiptpww9mpgz2ccj",
+      "timestamp": "2026-05-22T13:45:23.266Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "209.191.218.132",
+      "location": "Bemidji, MN, US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/",
+      "navigations": 0
+    },
+    {
+      "sessionId": "hkvyusngzx8mpj77twm",
+      "timestamp": "2026-05-24T03:09:09.521Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "47.251.88.238",
+      "location": "CA, US",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "6u41eim921wmpk3qfw5",
+      "timestamp": "2026-05-24T18:19:24.689Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "175.44.42.128",
+      "location": "CN",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "https://www.snucm.com/",
+      "navigations": 0
+    },
+    {
+      "sessionId": "l8fn2sg71v9mpkeqcl8",
+      "timestamp": "2026-05-24T23:27:16.185Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "123.6.49.50",
+      "location": "CN",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; V2055A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-05-24T23:27:24.191Z",
+      "duration": 8
+    },
+    {
+      "sessionId": "dj0xf12hrsmpkeqqoq",
+      "timestamp": "2026-05-24T23:27:34.461Z",
+      "path": "/services/video",
+      "pages": [
+        "/services/video"
+      ],
+      "ip": "27.115.124.38",
+      "location": "Shanghai, SH, CN",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; HUAWEI P30 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-05-24T23:27:42.300Z",
+      "duration": 7
+    },
+    {
+      "sessionId": "z9j87b5xdqhmpkeqqq5",
+      "timestamp": "2026-05-24T23:27:34.503Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "27.115.124.6",
+      "location": "Shanghai, SH, CN",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; V2055A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-05-24T23:27:42.144Z",
+      "duration": 7
+    },
+    {
+      "sessionId": "yqnlas0ehsmpkequfz",
+      "timestamp": "2026-05-24T23:27:39.296Z",
+      "path": "/services/audio",
+      "pages": [
+        "/services/audio"
+      ],
+      "ip": "27.115.124.109",
+      "location": "Shanghai, SH, CN",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; V2055A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "ckz1r5dqp7ampkeqw89",
+      "timestamp": "2026-05-24T23:27:41.637Z",
+      "path": "/services",
+      "pages": [
+        "/services"
+      ],
+      "ip": "27.115.124.109",
+      "location": "Shanghai, SH, CN",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; V2055A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-05-24T23:27:49.006Z",
+      "duration": 7
+    },
+    {
+      "sessionId": "hktaifyknhmpker9q4",
+      "timestamp": "2026-05-24T23:27:59.105Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "27.115.124.6",
+      "location": "Shanghai, SH, CN",
+      "userAgent": "Mozilla/5.0 (Linux; Android 11; CPH2185) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-05-24T23:28:04.793Z",
+      "duration": 5
+    },
+    {
+      "sessionId": "i7pio34irhmpmknqem",
+      "timestamp": "2026-05-26T11:48:45.426Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "43.157.83.113",
+      "location": "Frankfurt am Main, HE, DE",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-05-26T11:48:59.677Z",
+      "duration": 14
+    },
+    {
+      "sessionId": "av31bnnrqqmpmkoahx",
+      "timestamp": "2026-05-26T11:49:11.042Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "103.184.50.98",
+      "location": "Sragen, JT, ID",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-05-26T11:49:25.047Z",
+      "duration": 14
+    },
+    {
+      "sessionId": "kuubh0c4mmpmo4kry",
+      "timestamp": "2026-05-26T13:25:49.107Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "185.158.242.194",
+      "location": "London, ENG, GB",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "64mucu7ihnnmpnjqvkj",
+      "timestamp": "2026-05-27T04:10:57.337Z",
+      "path": "/services/audio",
+      "pages": [
+        "/",
+        "/contact",
+        "/services/equipment-rentals",
+        "/equipment/projectors-screens",
+        "/equipment/video-cameras-switchers",
+        "/equipment/sound-pa-systems",
+        "/services/hybrid-events",
+        "/equipment/lighting-fixtures",
+        "/portfolio",
+        "/services/audio"
+      ],
+      "ip": "192.109.200.33",
+      "location": "BG",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 50,
+      "lastHeartbeat": "2026-05-27T04:11:34.838Z",
+      "duration": 37
+    },
+    {
+      "sessionId": "j247m5299ampofjb71",
+      "timestamp": "2026-05-27T19:00:51.977Z",
+      "path": "/services/video",
+      "pages": [
+        "/",
+        "/services/video",
+        "/contact",
+        "/services/video"
+      ],
+      "ip": "66.66.165.182",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64; rv:151.0) Gecko/20100101 Firefox/151.0",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Firefox",
+      "referer": "https://www.yelp.com/",
+      "navigations": 3,
+      "lastHeartbeat": "2026-05-27T23:29:28.213Z",
+      "duration": 16116
+    },
+    {
+      "sessionId": "q9qns8fwmqmpog9qa5",
+      "timestamp": "2026-05-27T19:21:24.814Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "74.254.78.62",
+      "location": "Columbia, SC, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://hm-av.com/",
+      "navigations": 4,
+      "lastHeartbeat": "2026-05-27T19:26:18.237Z",
+      "duration": 293
+    },
+    {
+      "sessionId": "cjf7rpip9ukmppp8c0o",
+      "timestamp": "2026-05-28T16:20:02.178Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "44.247.109.180",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "a9vn0jorexlmppyn3rp",
+      "timestamp": "2026-05-28T20:43:27.883Z",
+      "path": "/services",
+      "pages": [
+        "/",
+        "/about",
+        "/contact",
+        "/faq",
+        "/services"
+      ],
+      "ip": "18.200.218.82",
+      "location": "Dublin, L, IE",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 4
+    },
+    {
+      "sessionId": "lmi7y425x2mppza8q8",
+      "timestamp": "2026-05-28T21:01:27.376Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "205.169.39.18",
+      "location": "Engelhard, NC, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.5938.132 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "g5vya2hktc7mpq7tmqn",
+      "timestamp": "2026-05-29T01:00:28.981Z",
+      "path": "/contact",
+      "pages": [
+        "/",
+        "/contact"
+      ],
+      "ip": "51.38.225.46",
+      "location": "Paris, IDF, FR",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 42,
+      "lastHeartbeat": "2026-05-29T01:01:05.430Z",
+      "duration": 36
+    },
+    {
+      "sessionId": "xs8yeim2cvmpr4jh5z",
+      "timestamp": "2026-05-29T16:16:22.905Z",
+      "path": "/equipment/sound-pa-systems",
+      "pages": [
+        "/equipment/sound-pa-systems"
+      ],
+      "ip": "54.223.106.244",
+      "location": "HN, CN",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.9476.1246 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "5pnbxfjk1zbmpr6pt86",
+      "timestamp": "2026-05-29T17:17:17.415Z",
+      "path": "/services/video",
+      "pages": [
+        "/services/video"
+      ],
+      "ip": "112.20.136.240",
+      "location": "Suyicun, JS, CN",
+      "userAgent": "Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.5891.1348 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "dmokrvunoy5mpr6useu",
+      "timestamp": "2026-05-29T17:21:09.840Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "52.80.62.164",
+      "location": "HN, CN",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.1104.1487 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "k5iv7tg8on9mpr6zy2i",
+      "timestamp": "2026-05-29T17:25:10.436Z",
+      "path": "/equipment/sound-pa-systems",
+      "pages": [
+        "/equipment/sound-pa-systems"
+      ],
+      "ip": "54.222.243.8",
+      "location": "HN, CN",
+      "userAgent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.7496.1324 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "7iug8ozxx7xmprgzd0y",
+      "timestamp": "2026-05-29T22:04:39.128Z",
+      "path": "/services/video",
+      "pages": [
+        "/services/video"
+      ],
+      "ip": "111.19.62.18",
+      "location": "Xianyang, SN, CN",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.4096.1094 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "is8wqx855ydmprh4ixy",
+      "timestamp": "2026-05-29T22:08:40.359Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "52.81.120.145",
+      "location": "HN, CN",
+      "userAgent": "Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.9378.1802 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "ftnem61dyy4mps2live",
+      "timestamp": "2026-05-30T08:09:44.922Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "54.81.236.120",
+      "location": "Ashburn, VA, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/138.0.7204.23 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "gum6e3jn9njmpshswjg",
+      "timestamp": "2026-05-30T15:15:23.464Z",
+      "path": "/",
+      "pages": [
+        "/",
+        "/services/equipment-rentals",
+        "/contact",
+        "/"
+      ],
+      "ip": "98.10.36.151",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "https://www.google.com/",
+      "navigations": 17,
+      "lastHeartbeat": "2026-05-30T15:24:30.648Z",
+      "duration": 547
+    },
+    {
+      "sessionId": "dmlmq81t46mpuc06ts",
+      "timestamp": "2026-05-31T22:08:38.759Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "8.216.48.150",
+      "location": "Tokyo, 13, JP",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "pfk0xlkybv9mpwjzxe2",
+      "timestamp": "2026-06-02T11:27:55.211Z",
+      "path": "/equipment/video-cameras-switchers",
+      "pages": [
+        "/",
+        "/contact",
+        "/equipment/video-cameras-switchers"
+      ],
+      "ip": "185.220.101.154",
+      "location": "Brandenburg, BB, DE",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 44,
+      "lastHeartbeat": "2026-06-02T11:28:34.386Z",
+      "duration": 39
+    },
+    {
+      "sessionId": "4jrim2t90kwmpwk2q79",
+      "timestamp": "2026-06-02T11:30:05.912Z",
+      "path": "/services/equipment-rentals",
+      "pages": [
+        "/services/audio",
+        "/equipment/sound-pa-systems",
+        "/services/equipment-rentals"
+      ],
+      "ip": "107.189.12.157",
+      "location": "Luxembourg, LU, LU",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 2
+    },
+    {
+      "sessionId": "gtrm9nrd3mpxdsrch",
+      "timestamp": "2026-06-03T01:22:09.155Z",
+      "path": "/equipment/sound-pa-systems",
+      "pages": [
+        "/",
+        "/equipment",
+        "/equipment/sound-pa-systems"
+      ],
+      "ip": "50.48.234.250",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/148.0.7778.166 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://www.google.com/",
+      "navigations": 5,
+      "lastHeartbeat": "2026-06-03T01:23:23.838Z",
+      "duration": 74
+    },
+    {
+      "sessionId": "cqqukldumhmpy7iw9y",
+      "timestamp": "2026-06-03T15:14:17.470Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "47.197.137.24",
+      "location": "Lithia, FL, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://www.google.com/",
+      "navigations": 1,
+      "lastHeartbeat": "2026-06-03T15:14:37.482Z",
+      "duration": 20
+    },
+    {
+      "sessionId": "8o9lho57qebmpyhsl0h",
+      "timestamp": "2026-06-03T20:01:45.826Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "47.197.137.24",
+      "location": "Lithia, FL, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://www.google.com/",
+      "navigations": 0,
+      "lastHeartbeat": "2026-06-03T20:02:05.660Z",
+      "duration": 19
+    },
+    {
+      "sessionId": "hlbaemnny7smpyqbk33",
+      "timestamp": "2026-06-04T00:00:27.829Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "34.214.117.192",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.7827.53 Safari/537.36 Edge/18.19582",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Edge",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "uerpxgcye5pmq05uwbm",
+      "timestamp": "2026-06-05T00:03:10.574Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "149.56.150.172",
+      "location": "Montreal, QC, CA",
+      "userAgent": "Mozilla/5.0 (compatible; Dataprovider.com)",
+      "device": "Desktop",
+      "os": "Unknown",
+      "browser": "Unknown",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "xnetvxupyjnmq0h4w9o",
+      "timestamp": "2026-06-05T05:18:55.089Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "113.23.49.155",
+      "location": "Haiphong, HP, VN",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "zq95uhr19vjmq0mn43e",
+      "timestamp": "2026-06-05T07:53:00.804Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "54.163.43.207",
+      "location": "VA, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/138.0.7204.23 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "m4muyrqrepimq1b8dgd",
+      "timestamp": "2026-06-05T19:21:23.494Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "3.237.14.66",
+      "location": "Ashburn, VA, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "5tpuvvdsd5mmq2v8vf1",
+      "timestamp": "2026-06-06T21:29:25.340Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "8.47.103.248",
+      "location": "Fairport, NY, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://www.google.com/",
+      "navigations": 0,
+      "lastHeartbeat": "2026-06-06T21:30:05.359Z",
+      "duration": 40
+    },
+    {
+      "sessionId": "24ydrlpjcnmq34l4tg",
+      "timestamp": "2026-06-07T01:50:54.159Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "8.47.103.248",
+      "location": "Fairport, NY, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "i8kc1t09cpmq3dogfm",
+      "timestamp": "2026-06-07T06:05:25.664Z",
+      "path": "/equipment/sound-pa-systems",
+      "pages": [
+        "/",
+        "/contact",
+        "/services/audio",
+        "/equipment/video-cameras-switchers",
+        "/services/lighting",
+        "/services/video",
+        "/services/livestreaming",
+        "/equipment/sound-pa-systems"
+      ],
+      "ip": "107.189.29.8",
+      "location": "Luxembourg, LU, LU",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 49,
+      "lastHeartbeat": "2026-06-07T06:07:50.378Z",
+      "duration": 144
+    },
+    {
+      "sessionId": "0l0z2x8krcbmq59uqyb",
+      "timestamp": "2026-06-08T13:53:52.943Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "52.38.135.249",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/77.0.3835.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "z4xdg378pitmq5jsjxc",
+      "timestamp": "2026-06-08T18:32:06.615Z",
+      "path": "/contact",
+      "pages": [
+        "/",
+        "/services/video",
+        "/contact"
+      ],
+      "ip": "128.151.71.8",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "https://www.google.com/",
+      "navigations": 4,
+      "lastHeartbeat": "2026-06-08T19:20:10.100Z",
+      "duration": 2883
+    },
+    {
+      "sessionId": "ieug6b6jlvdmq6eb100",
+      "timestamp": "2026-06-09T08:46:17.203Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "175.44.42.232",
+      "location": "CN",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "https://www.antonyhome.com/",
+      "navigations": 0
+    },
+    {
+      "sessionId": "99v62gh5gw8mq72nxj9",
+      "timestamp": "2026-06-09T20:08:09.964Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "191.96.255.91",
+      "location": "Santa Clara, CA, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-06-09T20:08:19.965Z",
+      "duration": 10
+    },
+    {
+      "sessionId": "32gqwiisx9pmq7bp61v",
+      "timestamp": "2026-06-10T00:21:04.137Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "34.122.147.229",
+      "location": "Council Bluffs, IA, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 1,
+      "lastHeartbeat": "2026-06-10T00:21:34.137Z",
+      "duration": 30
+    },
+    {
+      "sessionId": "0znlrwpaosrmq7bpf9p",
+      "timestamp": "2026-06-10T00:21:16.082Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "205.169.39.43",
+      "location": "Engelhard, NC, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.5938.132 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "yxya8c49ombmq7bppzj",
+      "timestamp": "2026-06-10T00:21:29.961Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "205.169.39.129",
+      "location": "Engelhard, NC, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "gsy4yoxwqscmq97mx09",
+      "timestamp": "2026-06-11T08:02:53.021Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "54.214.157.150",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.7827.102 Safari/537.36 Edge/18.19582",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Edge",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "wv7q80yvowbmq9nlbpr",
+      "timestamp": "2026-06-11T15:29:32.665Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "212.56.53.62",
+      "location": "GB",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.7258.5 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-06-11T15:29:42.688Z",
+      "duration": 10
+    },
+    {
+      "sessionId": "fevvko93zgmq9nw0jv",
+      "timestamp": "2026-06-11T15:37:51.331Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "100.54.252.164",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/138.0.7204.23 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "jrr5pkuqcmmq9ru65t",
+      "timestamp": "2026-06-11T17:28:23.814Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "98.110.111.74",
+      "location": "Williamstown, NJ, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "https://www.google.com/",
+      "navigations": 1,
+      "lastHeartbeat": "2026-06-11T17:39:54.629Z",
+      "duration": 690
+    },
+    {
+      "sessionId": "w0haig6ybxnmqaha53o",
+      "timestamp": "2026-06-12T05:20:39.398Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "2.59.14.127",
+      "location": "RO",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.7049.1568 Safari/537.36",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "peibis7o3mmqakuqy5",
+      "timestamp": "2026-06-12T07:00:39.799Z",
+      "path": "/services/video",
+      "pages": [
+        "/",
+        "/contact",
+        "/services/equipment-rentals",
+        "/services/audio",
+        "/equipment/projectors-screens",
+        "/equipment/video-cameras-switchers",
+        "/services/video"
+      ],
+      "ip": "45.84.107.17",
+      "location": "DE",
+      "userAgent": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 48,
+      "lastHeartbeat": "2026-06-12T07:01:21.470Z",
+      "duration": 41
+    },
+    {
+      "sessionId": "kqlrc8cy1emmqam03eo",
+      "timestamp": "2026-06-12T07:32:48.616Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "44.248.222.47",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "dj816m4mgztmqayhul6",
+      "timestamp": "2026-06-12T13:22:32.403Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "84.200.73.232",
+      "location": "DE",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 OPR/113.0.0.0",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "za3ch4z8domqb8nats",
+      "timestamp": "2026-06-12T18:06:42.855Z",
+      "path": "/about",
+      "pages": [
+        "/",
+        "/contact",
+        "/about"
+      ],
+      "ip": "140.248.5.143",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://www.google.com/",
+      "navigations": 10,
+      "lastHeartbeat": "2026-06-12T18:19:12.390Z",
+      "duration": 749
+    },
+    {
+      "sessionId": "u8qiitmfdhmqc0b4ju",
+      "timestamp": "2026-06-13T07:01:04.144Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "54.214.157.150",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.7827.102 Safari/537.36",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "02hf6g6pcslmmqc8zq2h",
+      "timestamp": "2026-06-13T11:04:08.662Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "47.197.137.24",
+      "location": "Lithia, FL, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "nbf665kwf0imqc916go",
+      "timestamp": "2026-06-13T11:05:16.564Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "47.197.137.24",
+      "location": "Lithia, FL, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "wkcmnbuclhmqced3a7",
+      "timestamp": "2026-06-13T13:34:30.796Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "104.28.163.87",
+      "location": "ON, CA",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "qxiym7p0gnemqcf23qt",
+      "timestamp": "2026-06-13T13:53:57.365Z",
+      "path": "/about",
+      "pages": [
+        "/about"
+      ],
+      "ip": "146.75.237.92",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 0
+    },
+    {
+      "sessionId": "lpnybx0tuvhmqcfr9ca",
+      "timestamp": "2026-06-13T14:13:31.240Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "104.28.166.151",
+      "location": "ON, CA",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "726d0ji0olkmqcgxxpn",
+      "timestamp": "2026-06-13T14:46:42.342Z",
+      "path": "/about",
+      "pages": [
+        "/about"
+      ],
+      "ip": "146.75.245.86",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 0,
+      "lastHeartbeat": "2026-06-13T14:57:50.481Z",
+      "duration": 668
+    },
+    {
+      "sessionId": "x3hw04fyxwbmqclfb5p",
+      "timestamp": "2026-06-13T16:52:11.298Z",
+      "path": "/about",
+      "pages": [
+        "/about"
+      ],
+      "ip": "140.248.5.143",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 0,
+      "lastHeartbeat": "2026-06-13T16:54:07.380Z",
+      "duration": 116
+    },
+    {
+      "sessionId": "wt7i67tc1jmqcpaa3t",
+      "timestamp": "2026-06-13T18:40:15.260Z",
+      "path": "/about",
+      "pages": [
+        "/about"
+      ],
+      "ip": "146.75.237.92",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://hm-av.com/contact",
+      "navigations": 0
+    },
+    {
+      "sessionId": "hwo58r4fdgrmqdcrc43",
+      "timestamp": "2026-06-14T05:37:22.079Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "51.79.147.164",
+      "location": "Singapore, SG",
+      "userAgent": "Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.6998.166 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "z6x426fja1imqdcrtwq",
+      "timestamp": "2026-06-14T05:37:45.036Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "52.32.23.222",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (Linux; Android 8.0.0; SM-G965U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.7827.114 Mobile Safari/537.36",
+      "device": "Mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "huf54f7f97wmqe7577m",
+      "timestamp": "2026-06-14T19:47:57.443Z",
+      "path": "/services/equipment-rentals",
+      "pages": [
+        "/",
+        "/services/equipment-rentals"
+      ],
+      "ip": "146.75.237.76",
+      "location": "Ithaca, NY, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "https://www.google.com/",
+      "navigations": 3,
+      "lastHeartbeat": "2026-06-14T21:03:14.493Z",
+      "duration": 4517
+    },
+    {
+      "sessionId": "e9vkm9m5prkmqe9u5pl",
+      "timestamp": "2026-06-14T21:03:20.929Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "146.75.237.77",
+      "location": "Ithaca, NY, US",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1",
+      "device": "Mobile",
+      "os": "macOS",
+      "browser": "Safari",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-06-14T21:03:40.940Z",
+      "duration": 20
+    },
+    {
+      "sessionId": "rbmz0equm0lmqent4h7",
+      "timestamp": "2026-06-15T03:34:27.349Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "34.122.147.229",
+      "location": "Council Bluffs, IA, US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 1,
+      "lastHeartbeat": "2026-06-15T03:34:57.335Z",
+      "duration": 29
+    },
+    {
+      "sessionId": "xfsodl7uycomqeob5hr",
+      "timestamp": "2026-06-15T03:48:28.459Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "205.169.39.234",
+      "location": "Engelhard, NC, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "tpezf2okjklmqeojatf",
+      "timestamp": "2026-06-15T03:54:48.608Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "205.169.39.6",
+      "location": "Engelhard, NC, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.5938.132 Safari/537.36",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "fas5bmgb8vhmqeoscvp",
+      "timestamp": "2026-06-15T04:01:51.202Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "34.12.224.200",
+      "location": "US",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.142 Safari/537.36",
+      "device": "Desktop",
+      "os": "Linux",
+      "browser": "Chrome",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "o3vkkh7d6ecmqepor1y",
+      "timestamp": "2026-06-15T04:27:02.585Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "54.202.204.133",
+      "location": "Boardman, OR, US",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.7827.114 Safari/537.36 Edge/18.19582",
+      "device": "Desktop",
+      "os": "Windows",
+      "browser": "Edge",
+      "referer": "Direct",
+      "navigations": 0
+    },
+    {
+      "sessionId": "qxvfqee9w2rmqgv6ach",
+      "timestamp": "2026-06-16T16:36:11.258Z",
+      "path": "/",
+      "pages": [
+        "/"
+      ],
+      "ip": "38.49.92.159",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Firefox",
+      "referer": "Direct",
+      "navigations": 0,
+      "lastHeartbeat": "2026-06-16T16:36:21.307Z",
+      "duration": 10
+    },
+    {
+      "sessionId": "0rq5fs5itmsmqgv9gh0",
+      "timestamp": "2026-06-16T16:38:39.157Z",
+      "path": "/setups/ballroom",
+      "pages": [
+        "/setups/ballroom",
+        "/",
+        "/setups/ballroom",
+        "/",
+        "/setups/ballroom"
+      ],
+      "ip": "38.49.92.159",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Firefox",
+      "referer": "https://hm-av.com/setups/ballroom",
+      "navigations": 50,
+      "lastHeartbeat": "2026-06-16T18:34:10.514Z",
+      "duration": 6931
+    },
+    {
+      "sessionId": "pzq3n1es8hmqgvnazt",
+      "timestamp": "2026-06-16T16:49:25.215Z",
+      "path": "/setups/ballroom",
+      "pages": [
+        "/setups/ballroom"
+      ],
+      "ip": "38.49.92.159",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Firefox",
+      "referer": "Direct",
+      "navigations": 2,
+      "lastHeartbeat": "2026-06-16T16:50:15.329Z",
+      "duration": 50
+    },
+    {
+      "sessionId": "abjiy2lvii4mqgvorhp",
+      "timestamp": "2026-06-16T16:50:33.256Z",
+      "path": "/",
+      "pages": [
+        "/",
+        "/portfolio",
+        "/about",
+        "/"
+      ],
+      "ip": "38.49.92.159",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Firefox",
+      "referer": "https://hm-av.com/setups/ballroom",
+      "navigations": 9,
+      "lastHeartbeat": "2026-06-16T16:50:46.398Z",
+      "duration": 13
+    },
+    {
+      "sessionId": "fs22dt7u3htmqgz386p",
+      "timestamp": "2026-06-16T18:25:46.829Z",
+      "path": "/",
+      "pages": [
+        "/",
+        "/services",
+        "/",
+        "/portfolio",
+        "/services",
+        "/equipment/sound-pa-systems",
+        "/"
+      ],
+      "ip": "38.49.92.159",
+      "location": "Rochester, NY, US",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0",
+      "device": "Desktop",
+      "os": "macOS",
+      "browser": "Firefox",
+      "referer": "https://hm-av.com/livestream",
+      "navigations": 8,
+      "lastHeartbeat": "2026-06-16T18:42:26.791Z",
+      "duration": 999
     }
   ]
 }
