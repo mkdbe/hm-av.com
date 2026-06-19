@@ -82,6 +82,12 @@
             transition: all 0.15s;
         }
         .refresh-btn:hover { border-color: rgba(255,255,255,0.18); color: var(--text); }
+        #filter-btn {
+            width: 100px;
+            flex-shrink: 0;
+            text-align: center;
+            letter-spacing: 0;
+        }
 
         .filter-info {
             font-family: var(--mono);
@@ -246,6 +252,7 @@
         .chip.desktop { border-color: rgba(180,200,180,0.2);  color: rgba(180,200,180,0.55); }
         .chip.tablet  { border-color: rgba(180,180,210,0.2);  color: rgba(180,180,210,0.55); }
         .chip.human   { border-color: rgba(130,200,130,0.3);  color: rgba(130,200,130,0.6); }
+        .chip.lurker  { border-color: rgba(200,180,110,0.3);  color: rgba(200,180,110,0.6); }
         .chip.bot     { border-color: rgba(200,130,130,0.25); color: rgba(200,130,130,0.5); }
         .page-count { cursor: pointer; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
         .page-count:hover { color: var(--accent); }
@@ -296,13 +303,15 @@
         <div class="rules-box" id="rules-box">
             <strong>HUMAN CLASSIFICATION</strong><br>
             Duration ≥ 30s <span style="color:var(--dim)">AND</span> Clicks ≥ 1<br><br>
+            <strong>LURKER CLASSIFICATION</strong><br>
+            Some duration, but no clicks<br><br>
             <strong>GEO OVERRIDE</strong><br>
             Rochester-area visitors → always human<br><br>
             <strong>EXCLUDED IPs</strong><br>
             38.49.72.41<br><br>
             <span style="color:var(--dim);">Everything else = bot</span>
         </div>
-        <button class="refresh-btn" id="filter-btn" onclick="toggleFilter()">show bots</button>
+        <button class="refresh-btn" id="filter-btn" onclick="cycleFilter()">human</button>
         <button class="refresh-btn" onclick="location.reload()">↺ refresh</button>
     </div>
 </div>
@@ -310,12 +319,16 @@
 <div id="root" style="font-family:'DM Mono',monospace;font-size:12px;color:rgba(232,224,208,0.25);padding:60px 0;text-align:center">loading…</div>
 
 <script>
-var showHumansOnly = true;
+var FILTER_LEVELS = ['human', 'lurker', 'bot'];
+var filterLevel = 'human';
 var _pathData = {};
 
-function isHuman(v) {
-    if (/rochester/i.test(v.location || '')) return true;
-    return (v.duration || 0) >= 30 && (v.navigations || 0) >= 1;
+function classify(v) {
+    if (/rochester/i.test(v.location || '')) return 'human';
+    var dur = v.duration || 0, nav = v.navigations || 0;
+    if (dur >= 30 && nav >= 1) return 'human';
+    if (dur > 0) return 'lurker';
+    return 'bot';
 }
 
 function getSource(v) {
@@ -387,12 +400,10 @@ function toggleRules() {
     box.style.display = box.style.display === 'none' ? 'block' : 'none';
 }
 
-function toggleFilter() {
-    showHumansOnly = !showHumansOnly;
-    var btn = document.getElementById('filter-btn');
-    btn.textContent = showHumansOnly ? 'show bots' : 'hide bots';
-    btn.style.borderColor = showHumansOnly ? 'rgba(255,255,255,0.4)' : '';
-    btn.style.color = showHumansOnly ? 'var(--text)' : '';
+function cycleFilter() {
+    var idx = FILTER_LEVELS.indexOf(filterLevel);
+    filterLevel = FILTER_LEVELS[(idx + 1) % FILTER_LEVELS.length];
+    document.getElementById('filter-btn').textContent = filterLevel;
     init();
 }
 
@@ -408,15 +419,18 @@ async function init() {
     }
 
     var allVisits = data.visits || [];
-    var humanCount = allVisits.filter(function(v) { return isHuman(v); }).length;
-    var botCount = allVisits.length - humanCount;
-    var visits = showHumansOnly ? allVisits.filter(function(v) { return isHuman(v); }) : allVisits;
+    var counts = { human: 0, lurker: 0, bot: 0 };
+    allVisits.forEach(function(v) { counts[classify(v)]++; });
+    var visits = allVisits.filter(function(v) { return classify(v) === filterLevel; });
     var total = visits.length;
     var now = Date.now();
 
-    document.getElementById('filter-info').textContent = showHumansOnly
-        ? humanCount + ' humans \u00b7 ' + botCount + ' bots filtered'
-        : allVisits.length + ' total \u00b7 ' + humanCount + ' humans \u00b7 ' + botCount + ' bots';
+    var plural = function(n, word) { return n + ' ' + word + (n === 1 ? '' : 's'); };
+    var others = FILTER_LEVELS.filter(function(k) { return k !== filterLevel; });
+    document.getElementById('filter-info').textContent =
+        plural(counts[filterLevel], filterLevel) + ' \u00b7 ' +
+        others.map(function(k) { return plural(counts[k], k); }).join(' \u00b7 ') +
+        ' filtered';
 
     document.getElementById('ts').textContent = new Date().toLocaleString('en-US', {
         timeZone:'America/New_York', month:'short', day:'numeric',
@@ -505,8 +519,8 @@ async function init() {
             });
             var dev = (v.device||'').toLowerCase();
             var chip = dev==='mobile'?'mobile':dev==='tablet'?'tablet':'desktop';
-            var humanOrBot = isHuman(v) ? 'human' : 'bot';
-            var humanLabel = isHuman(v) ? '\u2713 human' : '\u2717 bot';
+            var category = classify(v);
+            var categoryLabel = category === 'human' ? '\u2713 human' : category === 'lurker' ? '\u25cb lurker' : '\u2717 bot';
             var pages = v.pages || [v.path || '/'];
             var pageCount = pages.length;
             var pathId = 'p' + idx;
@@ -521,7 +535,7 @@ async function init() {
                 '<td class="bright">' + (v.navigations||0) + '</td>' +
                 '<td class="bright"><span class="page-count" onclick="showPath(event,\'' + pathId + '\')">' + pageCount + '</span></td>' +
                 '<td>' + src + '</td>' +
-                '<td><span class="chip ' + humanOrBot + '">' + humanLabel + '</span></td>' +
+                '<td><span class="chip ' + category + '">' + categoryLabel + '</span></td>' +
                 '</tr>';
         }).join('');
 
