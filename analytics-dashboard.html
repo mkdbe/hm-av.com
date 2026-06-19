@@ -467,7 +467,7 @@ async function init() {
     var locs = countBy('location');
 
     var dayKeys = [], dayDisplay = [];
-    for (var i = 13; i >= 0; i--) {
+    for (var i = 29; i >= 0; i--) {
         var d = new Date(); d.setDate(d.getDate() - i);
         dayKeys.push(d.toISOString().slice(0,10));
         dayDisplay.push(i===0 ? 'today' : d.toLocaleDateString('en-US',{month:'short',day:'numeric'}));
@@ -547,7 +547,7 @@ async function init() {
         '<div class="kpi"><div class="kpi-value">' + bounceRate + '<span style="font-size:22px;opacity:.5">%</span></div><div class="kpi-label">Bounce Rate</div><div class="kpi-sub">avg ' + fmtDur(avgDur) + ' on site</div></div>' +
     '</div>' +
 
-    '<div class="spark-card"><div class="spark-header"><span class="spark-title">Daily visits \u2014 last 14 days</span><span class="spark-dates">' + dayKeys[0] + ' \u2192 ' + dayKeys[13] + '</span></div><div class="sparkline-wrap">' +
+    '<div class="spark-card"><div class="spark-header"><span class="spark-title">Daily visits \u2014 last 30 days</span><span class="spark-dates">' + dayKeys[0] + ' \u2192 ' + dayKeys[dayKeys.length-1] + '</span></div><div class="sparkline-wrap">' +
         sv.map(function(n,i) {
             var h = Math.max(2, Math.round((n/sm)*48));
             return '<div class="spark-bar ' + (n>0?'active':'') + '" style="height:' + h + 'px;opacity:' + (n>0?Math.max(0.25,n/sm):0.12) + '" title="' + dayDisplay[i] + ': ' + n + '"></div>';
