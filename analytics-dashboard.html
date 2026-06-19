@@ -541,7 +541,7 @@ async function init() {
 
     root.innerHTML =
     '<div class="kpi-row">' +
-        '<div class="kpi"><div class="kpi-value">' + total + '</div><div class="kpi-label">' + (showHumansOnly ? 'Human Visits' : 'Total Visits') + '</div>' + (!showHumansOnly ? '<div class="kpi-sub">' + humanCount + ' humans \u00b7 ' + botCount + ' bots</div>' : '') + '</div>' +
+        '<div class="kpi"><div class="kpi-value">' + total + '</div><div class="kpi-label">Total Visits</div></div>' +
         '<div class="kpi"><div class="kpi-value">' + last24h + '</div><div class="kpi-label">Last 24h</div></div>' +
         '<div class="kpi"><div class="kpi-value">' + last7d + '</div><div class="kpi-label">Last 7 Days</div></div>' +
         '<div class="kpi"><div class="kpi-value">' + bounceRate + '<span style="font-size:22px;opacity:.5">%</span></div><div class="kpi-label">Bounce Rate</div><div class="kpi-sub">avg ' + fmtDur(avgDur) + ' on site</div></div>' +
