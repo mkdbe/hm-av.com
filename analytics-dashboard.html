@@ -310,13 +310,15 @@
         <button class="refresh-btn" id="rules-btn" onclick="toggleRules()" title="Classification rules">ⓘ rules</button>
         <div class="rules-box" id="rules-box">
             <strong>HUMAN CLASSIFICATION</strong><br>
-            Duration ≥ 30s <span style="color:var(--dim)">AND</span> Clicks ≥ 1<br><br>
+            Duration ≥ 30s, <span style="color:var(--dim)">or</span> Rochester-metro override<br><br>
             <strong>LURKER CLASSIFICATION</strong><br>
-            Some duration, but no clicks<br><br>
+            Some duration, under 30s — likely bot, unconfirmed<br><br>
             <strong>GEO OVERRIDE</strong><br>
-            Rochester-area visitors → always human<br><br>
+            Monroe County + bordering counties → always human<br><br>
+            <strong>BOT-VELOCITY CHECK</strong><br>
+            &gt;0.5 clicks/sec sustained → always bot<br><br>
             <strong>EXCLUDED IPs</strong><br>
-            38.49.72.41<br><br>
+            38.49.92.159<br><br>
             <span style="color:var(--dim);">Everything else = bot</span>
         </div>
         <button class="refresh-btn" id="filter-btn" onclick="cycleFilter()">human</button>
@@ -331,10 +333,18 @@ var FILTER_LEVELS = ['human', 'lurker', 'bot'];
 var filterLevel = 'human';
 var _pathData = {};
 
+// Rochester metro: Monroe County + bordering counties (Genesee, Livingston,
+// Ontario, Orleans, Wayne, Wyoming). Many of these town names are common
+// elsewhere in the US (Avon, Geneva, Naples, York, Manchester, Perry,
+// Victor...), so the NY check below is required to avoid false matches.
+var ROCHESTER_METRO_TOWNS = /rochester|brighton|chili|clarkson|east rochester|gates|greece|hamlin|henrietta|irondequoit|mendon|ogden|parma|penfield|perinton|pittsford|riga|rush|sweden|webster|wheatland|brockport|churchville|fairport|hilton|honeoye falls|scottsville|spencerport|batavia|le ?roy|bergen|byron|corfu|alexander|darien|pavilion|pembroke|stafford|oakfield|geneseo|avon|mount morris|dansville|caledonia|lima|lakeville|nunda|york|leicester|livonia|canandaigua|victor|geneva|farmington|phelps|manchester|clifton springs|naples|honeoye|bristol|shortsville|albion|medina|holley|lyndonville|kendall|clarendon|lyons|newark|palmyra|sodus|williamson|macedon|clyde|wolcott|red creek|ontario|warsaw|attica|arcade|perry|silver springs|pike/i;
+
 function classify(v) {
-    if (/rochester/i.test(v.location || '')) return 'human';
     var dur = v.duration || 0, nav = v.navigations || 0;
-    if (dur >= 30 && nav >= 1) return 'human';
+    if (dur > 0 && nav / dur > 0.5) return 'bot';
+    var loc = v.location || '';
+    if (/,\s*NY\b/i.test(loc) && ROCHESTER_METRO_TOWNS.test(loc)) return 'human';
+    if (dur >= 30) return 'human';
     if (dur > 0) return 'lurker';
     return 'bot';
 }
