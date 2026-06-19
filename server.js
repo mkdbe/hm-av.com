@@ -239,7 +239,7 @@ const { getSession, saveSession, pickServicePhotos, getReviewOrder } = require('
 // ─── Analytics API Routes ───────────────────────────────
 
 // Track page view — creates or updates session by sessionId
-app.post('/api/track', (req, res) => {
+app.post('/api/visit', (req, res) => {
     const userAgent = req.headers['user-agent'] || 'Unknown';
     const { realIP, device, os, browser, location } = getVisitorInfo(req);
     const sessionId = req.body.sessionId;
@@ -310,7 +310,7 @@ app.post('/api/track', (req, res) => {
 });
 
 // Track clicks (non-navigation clicks like CTAs, buttons, etc.)
-app.post('/api/track-nav', (req, res) => {
+app.post('/api/interaction', (req, res) => {
     const userAgent = req.headers['user-agent'] || 'Unknown';
     const { realIP } = getVisitorInfo(req);
     const sessionId = req.body.sessionId;
@@ -337,7 +337,7 @@ app.post('/api/track-nav', (req, res) => {
 });
 
 // Heartbeat for session duration
-app.post('/api/heartbeat', (req, res) => {
+app.post('/api/ping', (req, res) => {
     const userAgent = req.headers['user-agent'] || 'Unknown';
     const { realIP } = getVisitorInfo(req);
     const sessionId = req.body.sessionId;

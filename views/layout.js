@@ -15,7 +15,7 @@ module.exports = function layout({ title, description, path, body, site, service
       var utmSource   = params.get('utm_source')   || '';
       var utmMedium   = params.get('utm_medium')   || '';
       var utmCampaign = params.get('utm_campaign')  || '';
-      fetch('/api/track', {
+      fetch('/api/visit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -31,14 +31,14 @@ module.exports = function layout({ title, description, path, body, site, service
           window.history.replaceState({}, '', window.location.pathname);
       }
       setInterval(function() {
-          fetch('/api/heartbeat', {
+          fetch('/api/ping', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ sessionId: sid })
           }).catch(function(){});
       }, 10000);
       document.addEventListener('click', function() {
-          fetch('/api/track-nav', {
+          fetch('/api/interaction', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ sessionId: sid })
