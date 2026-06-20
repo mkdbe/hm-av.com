@@ -26,4 +26,5 @@ Thumbs.db
 # Runtime data
 analytics.json
 notifications-state.json
+bot-prune-state.json
 CLAUDE.md
